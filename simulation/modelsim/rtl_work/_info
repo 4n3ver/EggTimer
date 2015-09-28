@@ -1,0 +1,26 @@
+m255
+K3
+13
+cModel Technology
+Z0 dE:\Dropbox\Documents\University\CS 3220\Assignment\Real Project 1 - Egg Timer\simulation\modelsim
+vOnBoard
+!i10b 1
+!s100 EK_U0CTGNeABHP=?J8OLL0
+I3[ACj[<>nnaSkiDJWOF100
+V]e;gnag^j`]lMllDURifG2
+Z1 dE:\Dropbox\Documents\University\CS 3220\Assignment\Real Project 1 - Egg Timer\simulation\modelsim
+w1443461404
+8E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v
+FE:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v
+L0 3
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1443465673.075000
+!s107 E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer|E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v|
+!s101 -O0
+o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work {+incdir+E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer} -O0
+n@on@board

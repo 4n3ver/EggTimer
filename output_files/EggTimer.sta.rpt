@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for EggTimer
-Mon Sep 28 13:33:05 2015
+Tue Sep 29 14:44:10 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -16,19 +16,42 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   8. Slow Model Recovery Summary
   9. Slow Model Removal Summary
  10. Slow Model Minimum Pulse Width Summary
- 11. Slow Model Datasheet Report
- 12. Fast Model Setup Summary
- 13. Fast Model Hold Summary
- 14. Fast Model Recovery Summary
- 15. Fast Model Removal Summary
- 16. Fast Model Minimum Pulse Width Summary
- 17. Fast Model Datasheet Report
- 18. Multicorner Timing Analysis Summary
- 19. Clock Transfers
- 20. Report TCCS
- 21. Report RSKM
- 22. Unconstrained Paths
- 23. TimeQuest Timing Analyzer Messages
+ 11. Slow Model Setup: 'Controller:fsm|state[0]'
+ 12. Slow Model Setup: 'CLOCK_50'
+ 13. Slow Model Hold: 'CLOCK_50'
+ 14. Slow Model Hold: 'Controller:fsm|state[0]'
+ 15. Slow Model Minimum Pulse Width: 'CLOCK_50'
+ 16. Slow Model Minimum Pulse Width: 'Controller:fsm|state[0]'
+ 17. Setup Times
+ 18. Hold Times
+ 19. Clock to Output Times
+ 20. Minimum Clock to Output Times
+ 21. Fast Model Setup Summary
+ 22. Fast Model Hold Summary
+ 23. Fast Model Recovery Summary
+ 24. Fast Model Removal Summary
+ 25. Fast Model Minimum Pulse Width Summary
+ 26. Fast Model Setup: 'Controller:fsm|state[0]'
+ 27. Fast Model Setup: 'CLOCK_50'
+ 28. Fast Model Hold: 'Controller:fsm|state[0]'
+ 29. Fast Model Hold: 'CLOCK_50'
+ 30. Fast Model Minimum Pulse Width: 'CLOCK_50'
+ 31. Fast Model Minimum Pulse Width: 'Controller:fsm|state[0]'
+ 32. Setup Times
+ 33. Hold Times
+ 34. Clock to Output Times
+ 35. Minimum Clock to Output Times
+ 36. Multicorner Timing Analysis Summary
+ 37. Setup Times
+ 38. Hold Times
+ 39. Clock to Output Times
+ 40. Minimum Clock to Output Times
+ 41. Setup Transfers
+ 42. Hold Transfers
+ 43. Report TCCS
+ 44. Report RSKM
+ 45. Unconstrained Paths
+ 46. TimeQuest Timing Analyzer Messages
 
 
 
@@ -75,28 +98,45 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-----------
-; Clocks ;
-----------
-No clocks to report.
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                           ;
++-------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------+
+; Clock Name              ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                     ;
++-------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------+
+; CLOCK_50                ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLOCK_50 }                ;
+; Controller:fsm|state[0] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Controller:fsm|state[0] } ;
++-------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------+
 
 
----------------------------
-; Slow Model Fmax Summary ;
----------------------------
-No paths to report.
++------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                                                ;
++------------+-----------------+-------------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name              ; Note                                                          ;
++------------+-----------------+-------------------------+---------------------------------------------------------------+
+; INF MHz    ; 199.36 MHz      ; Controller:fsm|state[0] ; limit due to hold check                                       ;
+; 383.73 MHz ; 380.08 MHz      ; CLOCK_50                ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+-------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-----------------------------
-; Slow Model Setup Summary ;
-----------------------------
-No paths to report.
++--------------------------------------------------+
+; Slow Model Setup Summary                         ;
++-------------------------+--------+---------------+
+; Clock                   ; Slack  ; End Point TNS ;
++-------------------------+--------+---------------+
+; Controller:fsm|state[0] ; -1.659 ; -40.062       ;
+; CLOCK_50                ; -1.606 ; -3.980        ;
++-------------------------+--------+---------------+
 
 
----------------------------
-; Slow Model Hold Summary ;
----------------------------
-No paths to report.
++--------------------------------------------------+
+; Slow Model Hold Summary                          ;
++-------------------------+--------+---------------+
+; Clock                   ; Slack  ; End Point TNS ;
++-------------------------+--------+---------------+
+; CLOCK_50                ; -3.046 ; -6.324        ;
+; Controller:fsm|state[0] ; -2.508 ; -32.966       ;
++-------------------------+--------+---------------+
 
 
 -------------------------------
@@ -111,28 +151,545 @@ No paths to report.
 No paths to report.
 
 
-------------------------------------------
-; Slow Model Minimum Pulse Width Summary ;
-------------------------------------------
-No paths to report.
++--------------------------------------------------+
+; Slow Model Minimum Pulse Width Summary           ;
++-------------------------+--------+---------------+
+; Clock                   ; Slack  ; End Point TNS ;
++-------------------------+--------+---------------+
+; CLOCK_50                ; -1.631 ; -5.297        ;
+; Controller:fsm|state[0] ; 0.500  ; 0.000         ;
++-------------------------+--------+---------------+
 
 
--------------------------------
-; Slow Model Datasheet Report ;
--------------------------------
-Nothing to report.
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'Controller:fsm|state[0]'                                                                                              ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node  ; Launch Clock            ; Latch Clock             ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
+; -1.659 ; Controller:fsm|state[2] ; rHEX3[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.999      ; 1.978      ;
+; -1.628 ; Controller:fsm|state[2] ; rHEX2[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 1.002      ; 1.944      ;
+; -1.625 ; Controller:fsm|state[2] ; rHEX3[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.998      ; 1.978      ;
+; -1.548 ; Controller:fsm|state[2] ; rHEX1[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.786      ; 2.296      ;
+; -1.538 ; Controller:fsm|state[1] ; rLEDR[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.303      ; 1.668      ;
+; -1.524 ; Controller:fsm|state[2] ; rHEX3[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.871      ; 1.887      ;
+; -1.524 ; Controller:fsm|state[2] ; rHEX3[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.869      ; 1.846      ;
+; -1.521 ; Controller:fsm|state[2] ; rHEX2[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.998      ; 1.873      ;
+; -1.518 ; Controller:fsm|state[2] ; rHEX2[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.869      ; 1.887      ;
+; -1.512 ; Controller:fsm|state[2] ; rHEX2[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.998      ; 1.869      ;
+; -1.510 ; Controller:fsm|state[2] ; rHEX0[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.787      ; 2.301      ;
+; -1.509 ; Controller:fsm|state[2] ; rHEX3[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.871      ; 1.884      ;
+; -1.448 ; Controller:fsm|state[2] ; rLEDR[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.303      ; 1.578      ;
+; -1.417 ; Controller:fsm|state[2] ; rHEX0[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.829      ; 2.199      ;
+; -1.411 ; Controller:fsm|state[2] ; rHEX0[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.824      ; 2.231      ;
+; -1.380 ; Controller:fsm|state[2] ; rHEX3[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 1.011      ; 1.741      ;
+; -1.376 ; Controller:fsm|state[1] ; rHEX2[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.985      ; 1.677      ;
+; -1.340 ; Controller:fsm|state[1] ; rHEX2[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.983      ; 1.677      ;
+; -1.332 ; Controller:fsm|state[1] ; rHEX2[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.982      ; 1.630      ;
+; -1.305 ; Controller:fsm|state[2] ; rHEX1[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.818      ; 2.080      ;
+; -1.294 ; Controller:fsm|state[2] ; rHEX1[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.819      ; 2.070      ;
+; -1.287 ; Controller:fsm|state[2] ; rHEX2[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.982      ; 1.585      ;
+; -1.285 ; Controller:fsm|state[2] ; rHEX2[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.985      ; 1.586      ;
+; -1.282 ; Controller:fsm|state[1] ; rHEX3[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.985      ; 1.626      ;
+; -1.266 ; Controller:fsm|state[2] ; rHEX1[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.818      ; 2.280      ;
+; -1.262 ; Controller:fsm|state[1] ; rHEX2[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 1.002      ; 1.578      ;
+; -1.261 ; Controller:fsm|state[2] ; rHEX1[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.820      ; 2.077      ;
+; -1.250 ; Controller:fsm|state[1] ; rHEX3[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.999      ; 1.569      ;
+; -1.246 ; Controller:fsm|state[2] ; rHEX2[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.983      ; 1.583      ;
+; -1.231 ; Controller:fsm|state[2] ; rHEX3[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.985      ; 1.575      ;
+; -1.215 ; Controller:fsm|state[1] ; rHEX2[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.998      ; 1.567      ;
+; -1.214 ; Controller:fsm|state[1] ; rHEX3[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.998      ; 1.567      ;
+; -1.208 ; Controller:fsm|state[1] ; rHEX2[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.998      ; 1.565      ;
+; -1.197 ; Controller:fsm|state[2] ; rHEX1[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.824      ; 2.212      ;
+; -1.192 ; Controller:fsm|state[1] ; rHEX3[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.869      ; 1.514      ;
+; -1.176 ; Controller:fsm|state[2] ; rHEX0[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.831      ; 2.003      ;
+; -1.169 ; Controller:fsm|state[2] ; rHEX0[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.830      ; 1.999      ;
+; -1.165 ; Controller:fsm|state[2] ; rHEX0[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.831      ; 2.000      ;
+; -1.152 ; Controller:fsm|state[2] ; rHEX0[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.822      ; 1.969      ;
+; -1.150 ; Controller:fsm|state[1] ; rHEX3[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.871      ; 1.513      ;
+; -1.142 ; Controller:fsm|state[1] ; rHEX2[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.869      ; 1.511      ;
+; -1.128 ; Controller:fsm|state[1] ; rHEX3[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.871      ; 1.503      ;
+; -0.998 ; Controller:fsm|state[1] ; rHEX3[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 1.011      ; 1.359      ;
+; -0.923 ; Controller:fsm|state[2] ; rHEX1[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.822      ; 1.936      ;
+; 1.311  ; Controller:fsm|state[0] ; rLEDR[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 3.517      ; 1.810      ;
+; 1.439  ; Controller:fsm|state[0] ; rHEX3[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.083      ; 2.374      ;
+; 1.479  ; Controller:fsm|state[0] ; rHEX3[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.085      ; 2.375      ;
+; 1.487  ; Controller:fsm|state[0] ; rHEX2[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.083      ; 2.373      ;
+; 1.506  ; Controller:fsm|state[0] ; rHEX3[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.085      ; 2.360      ;
+; 1.578  ; Controller:fsm|state[0] ; rHEX3[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.213      ; 2.232      ;
+; 1.600  ; Controller:fsm|state[0] ; rHEX2[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.196      ; 2.189      ;
+; 1.605  ; Controller:fsm|state[0] ; rHEX2[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.199      ; 2.187      ;
+; 1.609  ; Controller:fsm|state[0] ; rHEX2[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.212      ; 2.234      ;
+; 1.612  ; Controller:fsm|state[0] ; rHEX2[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.212      ; 2.236      ;
+; 1.632  ; Controller:fsm|state[0] ; rHEX3[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.225      ; 2.220      ;
+; 1.641  ; Controller:fsm|state[0] ; rHEX2[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.197      ; 2.187      ;
+; 1.653  ; Controller:fsm|state[0] ; rHEX3[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.199      ; 2.182      ;
+; 1.665  ; Controller:fsm|state[0] ; rHEX3[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.212      ; 2.179      ;
+; 1.811  ; Controller:fsm|state[0] ; rLEDR[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 3.517      ; 1.810      ;
+; 1.822  ; Controller:fsm|state[0] ; rHEX2[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 4.216      ; 1.985      ;
+; 1.939  ; Controller:fsm|state[0] ; rHEX3[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.083      ; 2.374      ;
+; 1.979  ; Controller:fsm|state[0] ; rHEX3[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.085      ; 2.375      ;
+; 1.987  ; Controller:fsm|state[0] ; rHEX2[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.083      ; 2.373      ;
+; 2.006  ; Controller:fsm|state[0] ; rHEX3[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.085      ; 2.360      ;
+; 2.078  ; Controller:fsm|state[0] ; rHEX3[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.213      ; 2.232      ;
+; 2.100  ; Controller:fsm|state[0] ; rHEX2[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.196      ; 2.189      ;
+; 2.105  ; Controller:fsm|state[0] ; rHEX2[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.199      ; 2.187      ;
+; 2.109  ; Controller:fsm|state[0] ; rHEX2[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.212      ; 2.234      ;
+; 2.112  ; Controller:fsm|state[0] ; rHEX2[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.212      ; 2.236      ;
+; 2.132  ; Controller:fsm|state[0] ; rHEX3[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.225      ; 2.220      ;
+; 2.141  ; Controller:fsm|state[0] ; rHEX2[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.197      ; 2.187      ;
+; 2.153  ; Controller:fsm|state[0] ; rHEX3[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.199      ; 2.182      ;
+; 2.165  ; Controller:fsm|state[0] ; rHEX3[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.212      ; 2.179      ;
+; 2.322  ; Controller:fsm|state[0] ; rHEX2[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 4.216      ; 1.985      ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
 
 
-----------------------------
-; Fast Model Setup Summary ;
-----------------------------
-No paths to report.
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'CLOCK_50'                                                                                                                ;
++--------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                 ; Launch Clock            ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
+; -1.606 ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 2.644      ;
+; -1.605 ; Controller:fsm|state[2] ; Controller:fsm|state[1] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 2.643      ;
+; -1.197 ; Controller:fsm|state[1] ; Controller:fsm|state[1] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 2.235      ;
+; -1.195 ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 2.233      ;
+; -0.769 ; Controller:fsm|state[1] ; Controller:fsm|state[2] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 1.807      ;
+; -0.373 ; Controller:fsm|state[2] ; Controller:fsm|state[2] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 1.411      ;
+; 1.125  ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.500        ; 3.214      ; 2.904      ;
+; 1.127  ; Controller:fsm|state[0] ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.500        ; 3.214      ; 2.902      ;
+; 1.625  ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; CLOCK_50    ; 1.000        ; 3.214      ; 2.904      ;
+; 1.627  ; Controller:fsm|state[0] ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50    ; 1.000        ; 3.214      ; 2.902      ;
+; 1.909  ; Controller:fsm|state[0] ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.500        ; 3.214      ; 2.120      ;
+; 2.409  ; Controller:fsm|state[0] ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50    ; 1.000        ; 3.214      ; 2.120      ;
++--------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
 
 
----------------------------
-; Fast Model Hold Summary ;
----------------------------
-No paths to report.
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'CLOCK_50'                                                                                                                 ;
++--------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                 ; Launch Clock            ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
+; -3.046 ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.000        ; 3.214      ; 0.731      ;
+; -2.546 ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; CLOCK_50    ; -0.500       ; 3.214      ; 0.731      ;
+; -1.657 ; Controller:fsm|state[0] ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.000        ; 3.214      ; 2.120      ;
+; -1.621 ; Controller:fsm|state[0] ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.000        ; 3.214      ; 2.156      ;
+; -1.157 ; Controller:fsm|state[0] ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50    ; -0.500       ; 3.214      ; 2.120      ;
+; -1.121 ; Controller:fsm|state[0] ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50    ; -0.500       ; 3.214      ; 2.156      ;
+; 0.445  ; Controller:fsm|state[1] ; Controller:fsm|state[1] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 1.125  ; Controller:fsm|state[2] ; Controller:fsm|state[2] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 1.411      ;
+; 1.521  ; Controller:fsm|state[1] ; Controller:fsm|state[2] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 1.807      ;
+; 1.527  ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 1.813      ;
+; 1.983  ; Controller:fsm|state[2] ; Controller:fsm|state[1] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 2.269      ;
+; 1.985  ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 2.271      ;
++--------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'Controller:fsm|state[0]'                                                                                               ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node  ; Launch Clock            ; Latch Clock             ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
+; -2.508 ; Controller:fsm|state[0] ; rHEX2[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.216      ; 1.985      ;
+; -2.310 ; Controller:fsm|state[0] ; rHEX3[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.212      ; 2.179      ;
+; -2.294 ; Controller:fsm|state[0] ; rHEX3[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.199      ; 2.182      ;
+; -2.289 ; Controller:fsm|state[0] ; rHEX2[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.199      ; 2.187      ;
+; -2.287 ; Controller:fsm|state[0] ; rHEX2[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.197      ; 2.187      ;
+; -2.284 ; Controller:fsm|state[0] ; rHEX2[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.196      ; 2.189      ;
+; -2.282 ; Controller:fsm|state[0] ; rHEX3[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.225      ; 2.220      ;
+; -2.258 ; Controller:fsm|state[0] ; rHEX3[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.213      ; 2.232      ;
+; -2.255 ; Controller:fsm|state[0] ; rHEX2[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.212      ; 2.234      ;
+; -2.253 ; Controller:fsm|state[0] ; rHEX2[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.212      ; 2.236      ;
+; -2.008 ; Controller:fsm|state[0] ; rHEX2[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.216      ; 1.985      ;
+; -2.002 ; Controller:fsm|state[0] ; rHEX3[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.085      ; 2.360      ;
+; -1.987 ; Controller:fsm|state[0] ; rHEX3[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.085      ; 2.375      ;
+; -1.987 ; Controller:fsm|state[0] ; rHEX2[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.083      ; 2.373      ;
+; -1.986 ; Controller:fsm|state[0] ; rHEX3[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 4.083      ; 2.374      ;
+; -1.984 ; Controller:fsm|state[0] ; rLEDR[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 3.517      ; 1.810      ;
+; -1.810 ; Controller:fsm|state[0] ; rHEX3[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.212      ; 2.179      ;
+; -1.794 ; Controller:fsm|state[0] ; rHEX3[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.199      ; 2.182      ;
+; -1.789 ; Controller:fsm|state[0] ; rHEX2[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.199      ; 2.187      ;
+; -1.787 ; Controller:fsm|state[0] ; rHEX2[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.197      ; 2.187      ;
+; -1.784 ; Controller:fsm|state[0] ; rHEX2[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.196      ; 2.189      ;
+; -1.782 ; Controller:fsm|state[0] ; rHEX3[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.225      ; 2.220      ;
+; -1.758 ; Controller:fsm|state[0] ; rHEX3[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.213      ; 2.232      ;
+; -1.755 ; Controller:fsm|state[0] ; rHEX2[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.212      ; 2.234      ;
+; -1.753 ; Controller:fsm|state[0] ; rHEX2[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.212      ; 2.236      ;
+; -1.502 ; Controller:fsm|state[0] ; rHEX3[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.085      ; 2.360      ;
+; -1.487 ; Controller:fsm|state[0] ; rHEX3[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.085      ; 2.375      ;
+; -1.487 ; Controller:fsm|state[0] ; rHEX2[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.083      ; 2.373      ;
+; -1.486 ; Controller:fsm|state[0] ; rHEX3[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 4.083      ; 2.374      ;
+; -1.484 ; Controller:fsm|state[0] ; rLEDR[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 3.517      ; 1.810      ;
+; 0.848  ; Controller:fsm|state[1] ; rHEX3[1] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 1.011      ; 1.359      ;
+; 1.067  ; Controller:fsm|state[1] ; rHEX2[0] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.998      ; 1.565      ;
+; 1.069  ; Controller:fsm|state[1] ; rHEX3[2] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.998      ; 1.567      ;
+; 1.069  ; Controller:fsm|state[1] ; rHEX2[1] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.998      ; 1.567      ;
+; 1.070  ; Controller:fsm|state[1] ; rHEX3[3] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.999      ; 1.569      ;
+; 1.076  ; Controller:fsm|state[1] ; rHEX2[5] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 1.002      ; 1.578      ;
+; 1.090  ; Controller:fsm|state[2] ; rHEX3[6] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.985      ; 1.575      ;
+; 1.100  ; Controller:fsm|state[2] ; rHEX2[3] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.983      ; 1.583      ;
+; 1.101  ; Controller:fsm|state[2] ; rHEX2[4] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.985      ; 1.586      ;
+; 1.103  ; Controller:fsm|state[2] ; rHEX2[6] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.982      ; 1.585      ;
+; 1.114  ; Controller:fsm|state[2] ; rHEX1[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.822      ; 1.936      ;
+; 1.132  ; Controller:fsm|state[1] ; rHEX3[4] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.871      ; 1.503      ;
+; 1.141  ; Controller:fsm|state[1] ; rHEX3[6] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.985      ; 1.626      ;
+; 1.142  ; Controller:fsm|state[1] ; rHEX3[0] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.871      ; 1.513      ;
+; 1.142  ; Controller:fsm|state[1] ; rHEX2[2] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.869      ; 1.511      ;
+; 1.145  ; Controller:fsm|state[1] ; rHEX3[5] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.869      ; 1.514      ;
+; 1.147  ; Controller:fsm|state[2] ; rHEX0[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.822      ; 1.969      ;
+; 1.148  ; Controller:fsm|state[1] ; rHEX2[6] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.982      ; 1.630      ;
+; 1.169  ; Controller:fsm|state[2] ; rHEX0[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.830      ; 1.999      ;
+; 1.169  ; Controller:fsm|state[2] ; rHEX0[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.831      ; 2.000      ;
+; 1.172  ; Controller:fsm|state[2] ; rHEX0[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.831      ; 2.003      ;
+; 1.192  ; Controller:fsm|state[1] ; rHEX2[4] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.985      ; 1.677      ;
+; 1.194  ; Controller:fsm|state[1] ; rHEX2[3] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.983      ; 1.677      ;
+; 1.230  ; Controller:fsm|state[2] ; rHEX3[1] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 1.011      ; 1.741      ;
+; 1.251  ; Controller:fsm|state[2] ; rHEX1[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.819      ; 2.070      ;
+; 1.257  ; Controller:fsm|state[2] ; rHEX1[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.820      ; 2.077      ;
+; 1.262  ; Controller:fsm|state[2] ; rHEX1[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.818      ; 2.080      ;
+; 1.275  ; Controller:fsm|state[2] ; rLEDR[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.303      ; 1.578      ;
+; 1.365  ; Controller:fsm|state[1] ; rLEDR[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.303      ; 1.668      ;
+; 1.370  ; Controller:fsm|state[2] ; rHEX0[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.829      ; 2.199      ;
+; 1.371  ; Controller:fsm|state[2] ; rHEX2[0] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.998      ; 1.869      ;
+; 1.375  ; Controller:fsm|state[2] ; rHEX2[1] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.998      ; 1.873      ;
+; 1.388  ; Controller:fsm|state[2] ; rHEX1[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.824      ; 2.212      ;
+; 1.407  ; Controller:fsm|state[2] ; rHEX0[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.824      ; 2.231      ;
+; 1.442  ; Controller:fsm|state[2] ; rHEX2[5] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 1.002      ; 1.944      ;
+; 1.462  ; Controller:fsm|state[2] ; rHEX1[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.818      ; 2.280      ;
+; 1.477  ; Controller:fsm|state[2] ; rHEX3[5] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.869      ; 1.846      ;
+; 1.479  ; Controller:fsm|state[2] ; rHEX3[3] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.999      ; 1.978      ;
+; 1.480  ; Controller:fsm|state[2] ; rHEX3[2] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.998      ; 1.978      ;
+; 1.510  ; Controller:fsm|state[2] ; rHEX1[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.786      ; 2.296      ;
+; 1.513  ; Controller:fsm|state[2] ; rHEX3[4] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.871      ; 1.884      ;
+; 1.514  ; Controller:fsm|state[2] ; rHEX0[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.787      ; 2.301      ;
+; 1.516  ; Controller:fsm|state[2] ; rHEX3[0] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.871      ; 1.887      ;
+; 1.518  ; Controller:fsm|state[2] ; rHEX2[2] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.869      ; 1.887      ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'CLOCK_50'                                                                  ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                  ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------+
+; -1.631 ; 1.000        ; 2.631          ; Port Rate        ; CLOCK_50 ; Rise       ; CLOCK_50                ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; Controller:fsm|state[0] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Controller:fsm|state[0] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; Controller:fsm|state[1] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Controller:fsm|state[1] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; Controller:fsm|state[2] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Controller:fsm|state[2] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50|combout        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50|combout        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; fsm|state[0]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; fsm|state[0]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; fsm|state[1]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; fsm|state[1]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; fsm|state[2]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; fsm|state[2]|clk        ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'Controller:fsm|state[0]'                                                                    ;
++-------+--------------+----------------+------------------+-------------------------+------------+----------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                   ; Clock Edge ; Target                     ;
++-------+--------------+----------------+------------------+-------------------------+------------+----------------------------+
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; Decoder0~1clkctrl|inclk[0] ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; Decoder0~1clkctrl|inclk[0] ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; Decoder0~1clkctrl|outclk   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; Decoder0~1clkctrl|outclk   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; Decoder0~1|combout         ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; Decoder0~1|combout         ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; Decoder0~1|datac           ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; Decoder0~1|datac           ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr0~0|combout          ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr0~0|combout          ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr0~0|datac            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr0~0|datac            ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr4~0clkctrl|inclk[0]  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr4~0clkctrl|inclk[0]  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr4~0clkctrl|outclk    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr4~0clkctrl|outclk    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr4~0|combout          ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr4~0|combout          ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr4~0|datac            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr4~0|datac            ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; fsm|state[0]|regout        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; fsm|state[0]|regout        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[0]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[0]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[1]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[1]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[3]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[3]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[4]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[4]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[5]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[5]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[5]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[5]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[6]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[6]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[6]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[6]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[0]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[0]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[1]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[1]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[3]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[3]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[4]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[4]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[5]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[5]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[5]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[5]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[6]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[6]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[6]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[6]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX2[0]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX2[0]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX2[1]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX2[1]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX2[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX2[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX2[3]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX2[3]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX2[4]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX2[4]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[5]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[5]                   ;
++-------+--------------+----------------+------------------+-------------------------+------------+----------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Setup Times                                                                                ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise  ; Fall  ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; KEY[*]    ; CLOCK_50                ; 6.583 ; 6.583 ; Rise       ; CLOCK_50                ;
+;  KEY[0]   ; CLOCK_50                ; 6.583 ; 6.583 ; Rise       ; CLOCK_50                ;
+;  KEY[1]   ; CLOCK_50                ; 6.050 ; 6.050 ; Rise       ; CLOCK_50                ;
+;  KEY[2]   ; CLOCK_50                ; 6.168 ; 6.168 ; Rise       ; CLOCK_50                ;
+; SW[*]     ; Controller:fsm|state[0] ; 3.132 ; 3.132 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; 3.132 ; 3.132 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; 2.793 ; 2.793 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; 2.465 ; 2.465 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; 2.420 ; 2.420 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; 2.984 ; 2.984 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; 2.949 ; 2.949 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; 2.661 ; 2.661 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; 1.578 ; 1.578 ; Rise       ; Controller:fsm|state[0] ;
+; SW[*]     ; Controller:fsm|state[0] ; 3.760 ; 3.760 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; 3.760 ; 3.760 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; 3.412 ; 3.412 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; 3.084 ; 3.084 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; 3.059 ; 3.059 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; 3.427 ; 3.427 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; 3.394 ; 3.394 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; 3.109 ; 3.109 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; 2.062 ; 2.062 ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Hold Times                                                                                   ;
++-----------+-------------------------+--------+--------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise   ; Fall   ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+--------+--------+------------+-------------------------+
+; KEY[*]    ; CLOCK_50                ; -5.109 ; -5.109 ; Rise       ; CLOCK_50                ;
+;  KEY[0]   ; CLOCK_50                ; -5.109 ; -5.109 ; Rise       ; CLOCK_50                ;
+;  KEY[1]   ; CLOCK_50                ; -5.288 ; -5.288 ; Rise       ; CLOCK_50                ;
+;  KEY[2]   ; CLOCK_50                ; -5.918 ; -5.918 ; Rise       ; CLOCK_50                ;
+; SW[*]     ; Controller:fsm|state[0] ; 0.105  ; 0.105  ; Rise       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; -1.753 ; -1.753 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; -1.415 ; -1.415 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; -1.087 ; -1.087 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; -1.086 ; -1.086 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; -1.257 ; -1.257 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; -1.225 ; -1.225 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; -0.942 ; -0.942 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; 0.105  ; 0.105  ; Rise       ; Controller:fsm|state[0] ;
+; SW[*]     ; Controller:fsm|state[0] ; -0.208 ; -0.208 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; -1.747 ; -1.747 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; -1.398 ; -1.398 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; -1.069 ; -1.069 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; -1.043 ; -1.043 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; -1.573 ; -1.573 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; -1.537 ; -1.537 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; -1.251 ; -1.251 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; -0.208 ; -0.208 ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+--------+--------+------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                      ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise  ; Fall  ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; state[*]  ; CLOCK_50                ; 8.025 ; 8.025 ; Rise       ; CLOCK_50                ;
+;  state[1] ; CLOCK_50                ; 8.025 ; 8.025 ; Rise       ; CLOCK_50                ;
+;  state[2] ; CLOCK_50                ; 7.538 ; 7.538 ; Rise       ; CLOCK_50                ;
+; HEX0[*]   ; Controller:fsm|state[0] ; 8.125 ; 8.125 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[0]  ; Controller:fsm|state[0] ; 8.003 ; 8.003 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[1]  ; Controller:fsm|state[0] ; 8.125 ; 8.125 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[2]  ; Controller:fsm|state[0] ; 8.032 ; 8.032 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[3]  ; Controller:fsm|state[0] ; 8.045 ; 8.045 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[4]  ; Controller:fsm|state[0] ; 8.004 ; 8.004 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[5]  ; Controller:fsm|state[0] ; 8.022 ; 8.022 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[6]  ; Controller:fsm|state[0] ; 7.661 ; 7.661 ; Rise       ; Controller:fsm|state[0] ;
+; HEX1[*]   ; Controller:fsm|state[0] ; 8.035 ; 8.035 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[0]  ; Controller:fsm|state[0] ; 7.420 ; 7.420 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[1]  ; Controller:fsm|state[0] ; 7.720 ; 7.720 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[2]  ; Controller:fsm|state[0] ; 7.393 ; 7.393 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[3]  ; Controller:fsm|state[0] ; 7.932 ; 7.932 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[4]  ; Controller:fsm|state[0] ; 7.744 ; 7.744 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[5]  ; Controller:fsm|state[0] ; 7.773 ; 7.773 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[6]  ; Controller:fsm|state[0] ; 8.035 ; 8.035 ; Rise       ; Controller:fsm|state[0] ;
+; LEDR[*]   ; Controller:fsm|state[0] ; 9.568 ; 9.568 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[0]  ; Controller:fsm|state[0] ; 9.261 ; 9.261 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[1]  ; Controller:fsm|state[0] ; 9.259 ; 9.259 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[2]  ; Controller:fsm|state[0] ; 9.397 ; 9.397 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[3]  ; Controller:fsm|state[0] ; 9.474 ; 9.474 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[4]  ; Controller:fsm|state[0] ; 9.568 ; 9.568 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[5]  ; Controller:fsm|state[0] ; 9.464 ; 9.464 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[6]  ; Controller:fsm|state[0] ; 9.464 ; 9.464 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[7]  ; Controller:fsm|state[0] ; 9.568 ; 9.568 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[8]  ; Controller:fsm|state[0] ; 9.249 ; 9.249 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[9]  ; Controller:fsm|state[0] ; 9.282 ; 9.282 ; Rise       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ; 4.459 ;       ; Rise       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ; 4.459 ;       ; Rise       ; Controller:fsm|state[0] ;
+; HEX2[*]   ; Controller:fsm|state[0] ; 8.209 ; 8.209 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[0]  ; Controller:fsm|state[0] ; 7.902 ; 7.902 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[1]  ; Controller:fsm|state[0] ; 7.910 ; 7.910 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[2]  ; Controller:fsm|state[0] ; 8.055 ; 8.055 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[3]  ; Controller:fsm|state[0] ; 8.209 ; 8.209 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[4]  ; Controller:fsm|state[0] ; 8.177 ; 8.177 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[5]  ; Controller:fsm|state[0] ; 7.935 ; 7.935 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[6]  ; Controller:fsm|state[0] ; 8.185 ; 8.185 ; Fall       ; Controller:fsm|state[0] ;
+; HEX3[*]   ; Controller:fsm|state[0] ; 8.362 ; 8.362 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[0]  ; Controller:fsm|state[0] ; 8.031 ; 8.031 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[1]  ; Controller:fsm|state[0] ; 8.362 ; 8.362 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[2]  ; Controller:fsm|state[0] ; 8.117 ; 8.117 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[3]  ; Controller:fsm|state[0] ; 7.928 ; 7.928 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[4]  ; Controller:fsm|state[0] ; 8.028 ; 8.028 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[5]  ; Controller:fsm|state[0] ; 8.034 ; 8.034 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[6]  ; Controller:fsm|state[0] ; 8.190 ; 8.190 ; Fall       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ;       ; 4.459 ; Fall       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ;       ; 4.459 ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                              ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise  ; Fall  ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; state[*]  ; CLOCK_50                ; 7.538 ; 7.538 ; Rise       ; CLOCK_50                ;
+;  state[1] ; CLOCK_50                ; 8.025 ; 8.025 ; Rise       ; CLOCK_50                ;
+;  state[2] ; CLOCK_50                ; 7.538 ; 7.538 ; Rise       ; CLOCK_50                ;
+; HEX0[*]   ; Controller:fsm|state[0] ; 7.661 ; 7.661 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[0]  ; Controller:fsm|state[0] ; 8.003 ; 8.003 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[1]  ; Controller:fsm|state[0] ; 8.125 ; 8.125 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[2]  ; Controller:fsm|state[0] ; 8.032 ; 8.032 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[3]  ; Controller:fsm|state[0] ; 8.045 ; 8.045 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[4]  ; Controller:fsm|state[0] ; 8.004 ; 8.004 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[5]  ; Controller:fsm|state[0] ; 8.022 ; 8.022 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[6]  ; Controller:fsm|state[0] ; 7.661 ; 7.661 ; Rise       ; Controller:fsm|state[0] ;
+; HEX1[*]   ; Controller:fsm|state[0] ; 7.393 ; 7.393 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[0]  ; Controller:fsm|state[0] ; 7.420 ; 7.420 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[1]  ; Controller:fsm|state[0] ; 7.720 ; 7.720 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[2]  ; Controller:fsm|state[0] ; 7.393 ; 7.393 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[3]  ; Controller:fsm|state[0] ; 7.932 ; 7.932 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[4]  ; Controller:fsm|state[0] ; 7.744 ; 7.744 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[5]  ; Controller:fsm|state[0] ; 7.773 ; 7.773 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[6]  ; Controller:fsm|state[0] ; 8.035 ; 8.035 ; Rise       ; Controller:fsm|state[0] ;
+; LEDR[*]   ; Controller:fsm|state[0] ; 9.249 ; 9.249 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[0]  ; Controller:fsm|state[0] ; 9.261 ; 9.261 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[1]  ; Controller:fsm|state[0] ; 9.259 ; 9.259 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[2]  ; Controller:fsm|state[0] ; 9.397 ; 9.397 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[3]  ; Controller:fsm|state[0] ; 9.474 ; 9.474 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[4]  ; Controller:fsm|state[0] ; 9.568 ; 9.568 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[5]  ; Controller:fsm|state[0] ; 9.464 ; 9.464 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[6]  ; Controller:fsm|state[0] ; 9.464 ; 9.464 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[7]  ; Controller:fsm|state[0] ; 9.568 ; 9.568 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[8]  ; Controller:fsm|state[0] ; 9.249 ; 9.249 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[9]  ; Controller:fsm|state[0] ; 9.282 ; 9.282 ; Rise       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ; 4.459 ;       ; Rise       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ; 4.459 ;       ; Rise       ; Controller:fsm|state[0] ;
+; HEX2[*]   ; Controller:fsm|state[0] ; 7.902 ; 7.902 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[0]  ; Controller:fsm|state[0] ; 7.902 ; 7.902 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[1]  ; Controller:fsm|state[0] ; 7.910 ; 7.910 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[2]  ; Controller:fsm|state[0] ; 8.055 ; 8.055 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[3]  ; Controller:fsm|state[0] ; 8.209 ; 8.209 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[4]  ; Controller:fsm|state[0] ; 8.177 ; 8.177 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[5]  ; Controller:fsm|state[0] ; 7.935 ; 7.935 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[6]  ; Controller:fsm|state[0] ; 8.185 ; 8.185 ; Fall       ; Controller:fsm|state[0] ;
+; HEX3[*]   ; Controller:fsm|state[0] ; 7.928 ; 7.928 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[0]  ; Controller:fsm|state[0] ; 8.031 ; 8.031 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[1]  ; Controller:fsm|state[0] ; 8.362 ; 8.362 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[2]  ; Controller:fsm|state[0] ; 8.117 ; 8.117 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[3]  ; Controller:fsm|state[0] ; 7.928 ; 7.928 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[4]  ; Controller:fsm|state[0] ; 8.028 ; 8.028 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[5]  ; Controller:fsm|state[0] ; 8.034 ; 8.034 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[6]  ; Controller:fsm|state[0] ; 8.190 ; 8.190 ; Fall       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ;       ; 4.459 ; Fall       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ;       ; 4.459 ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+
+
++--------------------------------------------------+
+; Fast Model Setup Summary                         ;
++-------------------------+--------+---------------+
+; Clock                   ; Slack  ; End Point TNS ;
++-------------------------+--------+---------------+
+; Controller:fsm|state[0] ; -0.309 ; -0.503        ;
+; CLOCK_50                ; 0.016  ; 0.000         ;
++-------------------------+--------+---------------+
+
+
++--------------------------------------------------+
+; Fast Model Hold Summary                          ;
++-------------------------+--------+---------------+
+; Clock                   ; Slack  ; End Point TNS ;
++-------------------------+--------+---------------+
+; Controller:fsm|state[0] ; -1.524 ; -20.583       ;
+; CLOCK_50                ; -1.463 ; -3.428        ;
++-------------------------+--------+---------------+
 
 
 -------------------------------
@@ -147,32 +704,741 @@ No paths to report.
 No paths to report.
 
 
-------------------------------------------
-; Fast Model Minimum Pulse Width Summary ;
-------------------------------------------
-No paths to report.
++--------------------------------------------------+
+; Fast Model Minimum Pulse Width Summary           ;
++-------------------------+--------+---------------+
+; Clock                   ; Slack  ; End Point TNS ;
++-------------------------+--------+---------------+
+; CLOCK_50                ; -1.380 ; -4.380        ;
+; Controller:fsm|state[0] ; 0.500  ; 0.000         ;
++-------------------------+--------+---------------+
 
 
--------------------------------
-; Fast Model Datasheet Report ;
--------------------------------
-Nothing to report.
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'Controller:fsm|state[0]'                                                                                              ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node  ; Launch Clock            ; Latch Clock             ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
+; -0.309 ; Controller:fsm|state[1] ; rLEDR[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; -0.238     ; 0.674      ;
+; -0.265 ; Controller:fsm|state[2] ; rLEDR[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; -0.238     ; 0.630      ;
+; -0.050 ; Controller:fsm|state[2] ; rHEX3[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.626      ; 0.776      ;
+; -0.041 ; Controller:fsm|state[2] ; rHEX2[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.627      ; 0.761      ;
+; -0.038 ; Controller:fsm|state[2] ; rHEX3[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.626      ; 0.773      ;
+; -0.025 ; Controller:fsm|state[2] ; rHEX2[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.625      ; 0.758      ;
+; -0.018 ; Controller:fsm|state[2] ; rHEX2[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.626      ; 0.755      ;
+; -0.011 ; Controller:fsm|state[2] ; rHEX3[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.583      ; 0.740      ;
+; -0.007 ; Controller:fsm|state[2] ; rHEX3[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.585      ; 0.747      ;
+; -0.004 ; Controller:fsm|state[2] ; rHEX2[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.583      ; 0.746      ;
+; 0.001  ; Controller:fsm|state[2] ; rHEX3[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.585      ; 0.746      ;
+; 0.036  ; Controller:fsm|state[1] ; rHEX2[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.619      ; 0.682      ;
+; 0.038  ; Controller:fsm|state[1] ; rHEX2[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.616      ; 0.676      ;
+; 0.040  ; Controller:fsm|state[2] ; rHEX3[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.630      ; 0.697      ;
+; 0.042  ; Controller:fsm|state[1] ; rHEX2[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.617      ; 0.683      ;
+; 0.055  ; Controller:fsm|state[1] ; rHEX3[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.619      ; 0.675      ;
+; 0.065  ; Controller:fsm|state[1] ; rHEX2[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.627      ; 0.655      ;
+; 0.077  ; Controller:fsm|state[1] ; rHEX3[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.626      ; 0.649      ;
+; 0.083  ; Controller:fsm|state[2] ; rHEX2[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.619      ; 0.635      ;
+; 0.083  ; Controller:fsm|state[2] ; rHEX2[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.616      ; 0.631      ;
+; 0.086  ; Controller:fsm|state[1] ; rHEX2[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.625      ; 0.647      ;
+; 0.088  ; Controller:fsm|state[1] ; rHEX3[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.626      ; 0.647      ;
+; 0.090  ; Controller:fsm|state[2] ; rHEX2[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.617      ; 0.635      ;
+; 0.091  ; Controller:fsm|state[1] ; rHEX2[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.626      ; 0.646      ;
+; 0.105  ; Controller:fsm|state[2] ; rHEX3[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.619      ; 0.625      ;
+; 0.123  ; Controller:fsm|state[1] ; rHEX3[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.583      ; 0.606      ;
+; 0.127  ; Controller:fsm|state[1] ; rHEX3[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.585      ; 0.613      ;
+; 0.131  ; Controller:fsm|state[1] ; rHEX2[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.583      ; 0.611      ;
+; 0.143  ; Controller:fsm|state[1] ; rHEX3[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.585      ; 0.604      ;
+; 0.183  ; Controller:fsm|state[1] ; rHEX3[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.500        ; 0.630      ; 0.554      ;
+; 0.296  ; Controller:fsm|state[2] ; rHEX1[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.537      ; 0.891      ;
+; 0.311  ; Controller:fsm|state[2] ; rHEX0[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.540      ; 0.890      ;
+; 0.351  ; Controller:fsm|state[2] ; rHEX0[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.563      ; 0.869      ;
+; 0.358  ; Controller:fsm|state[2] ; rHEX0[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.565      ; 0.853      ;
+; 0.383  ; Controller:fsm|state[2] ; rHEX1[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.555      ; 0.820      ;
+; 0.394  ; Controller:fsm|state[2] ; rHEX1[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.555      ; 0.888      ;
+; 0.395  ; Controller:fsm|state[2] ; rHEX1[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.556      ; 0.809      ;
+; 0.403  ; Controller:fsm|state[2] ; rHEX1[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.557      ; 0.811      ;
+; 0.437  ; Controller:fsm|state[2] ; rHEX1[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.562      ; 0.849      ;
+; 0.442  ; Controller:fsm|state[2] ; rHEX0[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.566      ; 0.783      ;
+; 0.444  ; Controller:fsm|state[2] ; rHEX0[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.567      ; 0.785      ;
+; 0.445  ; Controller:fsm|state[2] ; rHEX0[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.567      ; 0.780      ;
+; 0.452  ; Controller:fsm|state[2] ; rHEX0[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.561      ; 0.765      ;
+; 0.524  ; Controller:fsm|state[2] ; rHEX1[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 1.000        ; 0.560      ; 0.760      ;
+; 0.818  ; Controller:fsm|state[0] ; rLEDR[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 1.299      ; 0.725      ;
+; 1.318  ; Controller:fsm|state[0] ; rLEDR[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 1.299      ; 0.725      ;
+; 1.489  ; Controller:fsm|state[0] ; rHEX3[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.122      ; 0.929      ;
+; 1.489  ; Controller:fsm|state[0] ; rHEX3[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.120      ; 0.918      ;
+; 1.494  ; Controller:fsm|state[0] ; rHEX2[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.120      ; 0.926      ;
+; 1.508  ; Controller:fsm|state[0] ; rHEX3[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.122      ; 0.917      ;
+; 1.536  ; Controller:fsm|state[0] ; rHEX3[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.163      ; 0.868      ;
+; 1.543  ; Controller:fsm|state[0] ; rHEX2[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.156      ; 0.853      ;
+; 1.544  ; Controller:fsm|state[0] ; rHEX2[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.153      ; 0.848      ;
+; 1.545  ; Controller:fsm|state[0] ; rHEX3[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.167      ; 0.870      ;
+; 1.546  ; Controller:fsm|state[0] ; rHEX2[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.162      ; 0.865      ;
+; 1.547  ; Controller:fsm|state[0] ; rHEX2[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.163      ; 0.868      ;
+; 1.550  ; Controller:fsm|state[0] ; rHEX2[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.154      ; 0.853      ;
+; 1.563  ; Controller:fsm|state[0] ; rHEX3[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.163      ; 0.850      ;
+; 1.563  ; Controller:fsm|state[0] ; rHEX3[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.156      ; 0.845      ;
+; 1.617  ; Controller:fsm|state[0] ; rHEX2[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.500        ; 2.164      ; 0.781      ;
+; 1.989  ; Controller:fsm|state[0] ; rHEX3[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.122      ; 0.929      ;
+; 1.989  ; Controller:fsm|state[0] ; rHEX3[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.120      ; 0.918      ;
+; 1.994  ; Controller:fsm|state[0] ; rHEX2[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.120      ; 0.926      ;
+; 2.008  ; Controller:fsm|state[0] ; rHEX3[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.122      ; 0.917      ;
+; 2.036  ; Controller:fsm|state[0] ; rHEX3[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.163      ; 0.868      ;
+; 2.043  ; Controller:fsm|state[0] ; rHEX2[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.156      ; 0.853      ;
+; 2.044  ; Controller:fsm|state[0] ; rHEX2[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.153      ; 0.848      ;
+; 2.045  ; Controller:fsm|state[0] ; rHEX3[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.167      ; 0.870      ;
+; 2.046  ; Controller:fsm|state[0] ; rHEX2[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.162      ; 0.865      ;
+; 2.047  ; Controller:fsm|state[0] ; rHEX2[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.163      ; 0.868      ;
+; 2.050  ; Controller:fsm|state[0] ; rHEX2[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.154      ; 0.853      ;
+; 2.063  ; Controller:fsm|state[0] ; rHEX3[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.163      ; 0.850      ;
+; 2.063  ; Controller:fsm|state[0] ; rHEX3[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.156      ; 0.845      ;
+; 2.117  ; Controller:fsm|state[0] ; rHEX2[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1.000        ; 2.164      ; 0.781      ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
 
 
-+----------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                        ;
-+------------------+-------+------+----------+---------+---------------------+
-; Clock            ; Setup ; Hold ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+-------+------+----------+---------+---------------------+
-; Worst-case Slack ; N/A   ; N/A  ; N/A      ; N/A     ; N/A                 ;
-; Design-wide TNS  ; 0.0   ; 0.0  ; 0.0      ; 0.0     ; 0.0                 ;
-+------------------+-------+------+----------+---------+---------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'CLOCK_50'                                                                                                               ;
++-------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
+; Slack ; From Node               ; To Node                 ; Launch Clock            ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
+; 0.016 ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 1.016      ;
+; 0.029 ; Controller:fsm|state[2] ; Controller:fsm|state[1] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 1.003      ;
+; 0.141 ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 0.891      ;
+; 0.146 ; Controller:fsm|state[1] ; Controller:fsm|state[1] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 0.886      ;
+; 0.315 ; Controller:fsm|state[1] ; Controller:fsm|state[2] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 0.717      ;
+; 0.457 ; Controller:fsm|state[2] ; Controller:fsm|state[2] ; CLOCK_50                ; CLOCK_50    ; 1.000        ; 0.000      ; 0.575      ;
+; 1.102 ; Controller:fsm|state[0] ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.500        ; 1.537      ; 1.108      ;
+; 1.103 ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.500        ; 1.537      ; 1.107      ;
+; 1.373 ; Controller:fsm|state[0] ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.500        ; 1.537      ; 0.837      ;
+; 1.602 ; Controller:fsm|state[0] ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50    ; 1.000        ; 1.537      ; 1.108      ;
+; 1.603 ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; CLOCK_50    ; 1.000        ; 1.537      ; 1.107      ;
+; 1.873 ; Controller:fsm|state[0] ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50    ; 1.000        ; 1.537      ; 0.837      ;
++-------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
 
 
--------------------
-; Clock Transfers ;
--------------------
-Nothing to report.
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'Controller:fsm|state[0]'                                                                                               ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node  ; Launch Clock            ; Latch Clock             ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
+; -1.524 ; Controller:fsm|state[0] ; rHEX2[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.164      ; 0.781      ;
+; -1.454 ; Controller:fsm|state[0] ; rHEX3[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.163      ; 0.850      ;
+; -1.452 ; Controller:fsm|state[0] ; rHEX3[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.156      ; 0.845      ;
+; -1.446 ; Controller:fsm|state[0] ; rHEX2[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.153      ; 0.848      ;
+; -1.444 ; Controller:fsm|state[0] ; rHEX2[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.156      ; 0.853      ;
+; -1.442 ; Controller:fsm|state[0] ; rHEX2[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.154      ; 0.853      ;
+; -1.438 ; Controller:fsm|state[0] ; rHEX3[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.167      ; 0.870      ;
+; -1.438 ; Controller:fsm|state[0] ; rHEX2[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.162      ; 0.865      ;
+; -1.436 ; Controller:fsm|state[0] ; rHEX3[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.163      ; 0.868      ;
+; -1.436 ; Controller:fsm|state[0] ; rHEX2[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.163      ; 0.868      ;
+; -1.346 ; Controller:fsm|state[0] ; rHEX3[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.122      ; 0.917      ;
+; -1.343 ; Controller:fsm|state[0] ; rHEX3[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.120      ; 0.918      ;
+; -1.335 ; Controller:fsm|state[0] ; rHEX2[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.120      ; 0.926      ;
+; -1.334 ; Controller:fsm|state[0] ; rHEX3[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 2.122      ; 0.929      ;
+; -1.024 ; Controller:fsm|state[0] ; rHEX2[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.164      ; 0.781      ;
+; -0.954 ; Controller:fsm|state[0] ; rHEX3[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.163      ; 0.850      ;
+; -0.952 ; Controller:fsm|state[0] ; rHEX3[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.156      ; 0.845      ;
+; -0.946 ; Controller:fsm|state[0] ; rHEX2[6] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.153      ; 0.848      ;
+; -0.944 ; Controller:fsm|state[0] ; rHEX2[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.156      ; 0.853      ;
+; -0.942 ; Controller:fsm|state[0] ; rHEX2[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.154      ; 0.853      ;
+; -0.938 ; Controller:fsm|state[0] ; rHEX3[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.167      ; 0.870      ;
+; -0.938 ; Controller:fsm|state[0] ; rHEX2[1] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.162      ; 0.865      ;
+; -0.936 ; Controller:fsm|state[0] ; rHEX3[3] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.163      ; 0.868      ;
+; -0.936 ; Controller:fsm|state[0] ; rHEX2[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.163      ; 0.868      ;
+; -0.846 ; Controller:fsm|state[0] ; rHEX3[4] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.122      ; 0.917      ;
+; -0.843 ; Controller:fsm|state[0] ; rHEX3[5] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.120      ; 0.918      ;
+; -0.835 ; Controller:fsm|state[0] ; rHEX2[2] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.120      ; 0.926      ;
+; -0.834 ; Controller:fsm|state[0] ; rHEX3[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 2.122      ; 0.929      ;
+; -0.715 ; Controller:fsm|state[0] ; rLEDR[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 0.000        ; 1.299      ; 0.725      ;
+; -0.215 ; Controller:fsm|state[0] ; rLEDR[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; -0.500       ; 1.299      ; 0.725      ;
+; 0.200  ; Controller:fsm|state[2] ; rHEX1[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.560      ; 0.760      ;
+; 0.204  ; Controller:fsm|state[2] ; rHEX0[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.561      ; 0.765      ;
+; 0.213  ; Controller:fsm|state[2] ; rHEX0[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.567      ; 0.780      ;
+; 0.217  ; Controller:fsm|state[2] ; rHEX0[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.566      ; 0.783      ;
+; 0.218  ; Controller:fsm|state[2] ; rHEX0[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.567      ; 0.785      ;
+; 0.253  ; Controller:fsm|state[2] ; rHEX1[1] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.556      ; 0.809      ;
+; 0.254  ; Controller:fsm|state[2] ; rHEX1[5] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.557      ; 0.811      ;
+; 0.265  ; Controller:fsm|state[2] ; rHEX1[4] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.555      ; 0.820      ;
+; 0.287  ; Controller:fsm|state[2] ; rHEX1[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.562      ; 0.849      ;
+; 0.288  ; Controller:fsm|state[2] ; rHEX0[2] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.565      ; 0.853      ;
+; 0.306  ; Controller:fsm|state[2] ; rHEX0[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.563      ; 0.869      ;
+; 0.333  ; Controller:fsm|state[2] ; rHEX1[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.555      ; 0.888      ;
+; 0.350  ; Controller:fsm|state[2] ; rHEX0[6] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.540      ; 0.890      ;
+; 0.354  ; Controller:fsm|state[2] ; rHEX1[3] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; 0.537      ; 0.891      ;
+; 0.424  ; Controller:fsm|state[1] ; rHEX3[1] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.630      ; 0.554      ;
+; 0.506  ; Controller:fsm|state[2] ; rHEX3[6] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.619      ; 0.625      ;
+; 0.515  ; Controller:fsm|state[2] ; rHEX2[6] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.616      ; 0.631      ;
+; 0.516  ; Controller:fsm|state[2] ; rHEX2[4] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.619      ; 0.635      ;
+; 0.518  ; Controller:fsm|state[2] ; rHEX2[3] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.617      ; 0.635      ;
+; 0.519  ; Controller:fsm|state[1] ; rHEX3[4] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.585      ; 0.604      ;
+; 0.520  ; Controller:fsm|state[1] ; rHEX2[0] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.626      ; 0.646      ;
+; 0.521  ; Controller:fsm|state[1] ; rHEX3[2] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.626      ; 0.647      ;
+; 0.522  ; Controller:fsm|state[1] ; rHEX2[1] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.625      ; 0.647      ;
+; 0.523  ; Controller:fsm|state[1] ; rHEX3[3] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.626      ; 0.649      ;
+; 0.523  ; Controller:fsm|state[1] ; rHEX3[5] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.583      ; 0.606      ;
+; 0.528  ; Controller:fsm|state[1] ; rHEX3[0] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.585      ; 0.613      ;
+; 0.528  ; Controller:fsm|state[1] ; rHEX2[2] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.583      ; 0.611      ;
+; 0.528  ; Controller:fsm|state[1] ; rHEX2[5] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.627      ; 0.655      ;
+; 0.556  ; Controller:fsm|state[1] ; rHEX3[6] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.619      ; 0.675      ;
+; 0.560  ; Controller:fsm|state[1] ; rHEX2[6] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.616      ; 0.676      ;
+; 0.563  ; Controller:fsm|state[1] ; rHEX2[4] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.619      ; 0.682      ;
+; 0.566  ; Controller:fsm|state[1] ; rHEX2[3] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.617      ; 0.683      ;
+; 0.567  ; Controller:fsm|state[2] ; rHEX3[1] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.630      ; 0.697      ;
+; 0.629  ; Controller:fsm|state[2] ; rHEX2[0] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.626      ; 0.755      ;
+; 0.633  ; Controller:fsm|state[2] ; rHEX2[1] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.625      ; 0.758      ;
+; 0.634  ; Controller:fsm|state[2] ; rHEX2[5] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.627      ; 0.761      ;
+; 0.647  ; Controller:fsm|state[2] ; rHEX3[2] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.626      ; 0.773      ;
+; 0.650  ; Controller:fsm|state[2] ; rHEX3[3] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.626      ; 0.776      ;
+; 0.657  ; Controller:fsm|state[2] ; rHEX3[5] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.583      ; 0.740      ;
+; 0.661  ; Controller:fsm|state[2] ; rHEX3[4] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.585      ; 0.746      ;
+; 0.662  ; Controller:fsm|state[2] ; rHEX3[0] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.585      ; 0.747      ;
+; 0.663  ; Controller:fsm|state[2] ; rHEX2[2] ; CLOCK_50                ; Controller:fsm|state[0] ; -0.500       ; 0.583      ; 0.746      ;
+; 0.868  ; Controller:fsm|state[2] ; rLEDR[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; -0.238     ; 0.630      ;
+; 0.912  ; Controller:fsm|state[1] ; rLEDR[0] ; CLOCK_50                ; Controller:fsm|state[0] ; 0.000        ; -0.238     ; 0.674      ;
++--------+-------------------------+----------+-------------------------+-------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'CLOCK_50'                                                                                                                 ;
++--------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                 ; Launch Clock            ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
+; -1.463 ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.000        ; 1.537      ; 0.367      ;
+; -0.993 ; Controller:fsm|state[0] ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.000        ; 1.537      ; 0.837      ;
+; -0.972 ; Controller:fsm|state[0] ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50    ; 0.000        ; 1.537      ; 0.858      ;
+; -0.963 ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; Controller:fsm|state[0] ; CLOCK_50    ; -0.500       ; 1.537      ; 0.367      ;
+; -0.493 ; Controller:fsm|state[0] ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50    ; -0.500       ; 1.537      ; 0.837      ;
+; -0.472 ; Controller:fsm|state[0] ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50    ; -0.500       ; 1.537      ; 0.858      ;
+; 0.215  ; Controller:fsm|state[1] ; Controller:fsm|state[1] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.423  ; Controller:fsm|state[2] ; Controller:fsm|state[2] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 0.575      ;
+; 0.565  ; Controller:fsm|state[1] ; Controller:fsm|state[2] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 0.717      ;
+; 0.583  ; Controller:fsm|state[1] ; Controller:fsm|state[0] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 0.735      ;
+; 0.738  ; Controller:fsm|state[2] ; Controller:fsm|state[1] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 0.890      ;
+; 0.739  ; Controller:fsm|state[2] ; Controller:fsm|state[0] ; CLOCK_50                ; CLOCK_50    ; 0.000        ; 0.000      ; 0.891      ;
++--------+-------------------------+-------------------------+-------------------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'CLOCK_50'                                                                  ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                  ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; CLOCK_50 ; Rise       ; CLOCK_50                ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Controller:fsm|state[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Controller:fsm|state[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Controller:fsm|state[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Controller:fsm|state[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Controller:fsm|state[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Controller:fsm|state[2] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50|combout        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50|combout        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; fsm|state[0]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; fsm|state[0]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; fsm|state[1]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; fsm|state[1]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; fsm|state[2]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; fsm|state[2]|clk        ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'Controller:fsm|state[0]'                                                                    ;
++-------+--------------+----------------+------------------+-------------------------+------------+----------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                   ; Clock Edge ; Target                     ;
++-------+--------------+----------------+------------------+-------------------------+------------+----------------------------+
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; Decoder0~1clkctrl|inclk[0] ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; Decoder0~1clkctrl|inclk[0] ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; Decoder0~1clkctrl|outclk   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; Decoder0~1clkctrl|outclk   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; Decoder0~1|combout         ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; Decoder0~1|combout         ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; Decoder0~1|datac           ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; Decoder0~1|datac           ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr0~0|combout          ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr0~0|combout          ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr0~0|datac            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr0~0|datac            ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr4~0clkctrl|inclk[0]  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr4~0clkctrl|inclk[0]  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr4~0clkctrl|outclk    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr4~0clkctrl|outclk    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr4~0|combout          ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr4~0|combout          ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; WideOr4~0|datac            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; WideOr4~0|datac            ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; fsm|state[0]|regout        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; fsm|state[0]|regout        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[0]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[0]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[1]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[1]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[3]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[3]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[4]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[4]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[5]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[5]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[5]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[5]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX0[6]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX0[6]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX0[6]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX0[6]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[0]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[0]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[1]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[1]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[3]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[3]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[4]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[4]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[5]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[5]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[5]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[5]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX1[6]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX1[6]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX1[6]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX1[6]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[0]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX2[0]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX2[0]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[1]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX2[1]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX2[1]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[2]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX2[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX2[2]|datad             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[3]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX2[3]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX2[3]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[4]                   ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Rise       ; rHEX2[4]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Rise       ; rHEX2[4]|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; Controller:fsm|state[0] ; Fall       ; rHEX2[5]                   ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; Controller:fsm|state[0] ; Fall       ; rHEX2[5]                   ;
++-------+--------------+----------------+------------------+-------------------------+------------+----------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Setup Times                                                                                ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise  ; Fall  ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; KEY[*]    ; CLOCK_50                ; 3.308 ; 3.308 ; Rise       ; CLOCK_50                ;
+;  KEY[0]   ; CLOCK_50                ; 3.308 ; 3.308 ; Rise       ; CLOCK_50                ;
+;  KEY[1]   ; CLOCK_50                ; 3.103 ; 3.103 ; Rise       ; CLOCK_50                ;
+;  KEY[2]   ; CLOCK_50                ; 3.150 ; 3.150 ; Rise       ; CLOCK_50                ;
+; SW[*]     ; Controller:fsm|state[0] ; 0.849 ; 0.849 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; 0.849 ; 0.849 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; 0.693 ; 0.693 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; 0.592 ; 0.592 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; 0.603 ; 0.603 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; 0.778 ; 0.778 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; 0.730 ; 0.730 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; 0.662 ; 0.662 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; 0.208 ; 0.208 ; Rise       ; Controller:fsm|state[0] ;
+; SW[*]     ; Controller:fsm|state[0] ; 1.054 ; 1.054 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; 1.054 ; 1.054 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; 0.889 ; 0.889 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; 0.789 ; 0.789 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; 0.820 ; 0.820 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; 0.935 ; 0.935 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; 0.891 ; 0.891 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; 0.824 ; 0.824 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; 0.365 ; 0.365 ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Hold Times                                                                                   ;
++-----------+-------------------------+--------+--------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise   ; Fall   ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+--------+--------+------------+-------------------------+
+; KEY[*]    ; CLOCK_50                ; -2.733 ; -2.733 ; Rise       ; CLOCK_50                ;
+;  KEY[0]   ; CLOCK_50                ; -2.733 ; -2.733 ; Rise       ; CLOCK_50                ;
+;  KEY[1]   ; CLOCK_50                ; -2.781 ; -2.781 ; Rise       ; CLOCK_50                ;
+;  KEY[2]   ; CLOCK_50                ; -3.029 ; -3.029 ; Rise       ; CLOCK_50                ;
+; SW[*]     ; Controller:fsm|state[0] ; 0.400  ; 0.400  ; Rise       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; -0.345 ; -0.345 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; -0.189 ; -0.189 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; -0.089 ; -0.089 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; -0.104 ; -0.104 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; -0.168 ; -0.168 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; -0.124 ; -0.124 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; -0.058 ; -0.058 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; 0.400  ; 0.400  ; Rise       ; Controller:fsm|state[0] ;
+; SW[*]     ; Controller:fsm|state[0] ; 0.278  ; 0.278  ; Fall       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; -0.344 ; -0.344 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; -0.186 ; -0.186 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; -0.086 ; -0.086 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; -0.098 ; -0.098 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; -0.282 ; -0.282 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; -0.245 ; -0.245 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; -0.178 ; -0.178 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; 0.278  ; 0.278  ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+--------+--------+------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                      ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise  ; Fall  ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; state[*]  ; CLOCK_50                ; 3.845 ; 3.845 ; Rise       ; CLOCK_50                ;
+;  state[1] ; CLOCK_50                ; 3.845 ; 3.845 ; Rise       ; CLOCK_50                ;
+;  state[2] ; CLOCK_50                ; 3.582 ; 3.582 ; Rise       ; CLOCK_50                ;
+; HEX0[*]   ; Controller:fsm|state[0] ; 4.024 ; 4.024 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[0]  ; Controller:fsm|state[0] ; 3.938 ; 3.938 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[1]  ; Controller:fsm|state[0] ; 4.024 ; 4.024 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[2]  ; Controller:fsm|state[0] ; 3.965 ; 3.965 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[3]  ; Controller:fsm|state[0] ; 3.972 ; 3.972 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[4]  ; Controller:fsm|state[0] ; 3.950 ; 3.950 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[5]  ; Controller:fsm|state[0] ; 3.961 ; 3.961 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[6]  ; Controller:fsm|state[0] ; 3.817 ; 3.817 ; Rise       ; Controller:fsm|state[0] ;
+; HEX1[*]   ; Controller:fsm|state[0] ; 3.969 ; 3.969 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[0]  ; Controller:fsm|state[0] ; 3.738 ; 3.738 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[1]  ; Controller:fsm|state[0] ; 3.825 ; 3.825 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[2]  ; Controller:fsm|state[0] ; 3.707 ; 3.707 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[3]  ; Controller:fsm|state[0] ; 3.897 ; 3.897 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[4]  ; Controller:fsm|state[0] ; 3.847 ; 3.847 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[5]  ; Controller:fsm|state[0] ; 3.877 ; 3.877 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[6]  ; Controller:fsm|state[0] ; 3.969 ; 3.969 ; Rise       ; Controller:fsm|state[0] ;
+; LEDR[*]   ; Controller:fsm|state[0] ; 4.145 ; 4.145 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[0]  ; Controller:fsm|state[0] ; 3.950 ; 3.950 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[1]  ; Controller:fsm|state[0] ; 3.950 ; 3.950 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[2]  ; Controller:fsm|state[0] ; 4.022 ; 4.022 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[3]  ; Controller:fsm|state[0] ; 4.081 ; 4.081 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[4]  ; Controller:fsm|state[0] ; 4.145 ; 4.145 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[5]  ; Controller:fsm|state[0] ; 4.071 ; 4.071 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[6]  ; Controller:fsm|state[0] ; 4.071 ; 4.071 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[7]  ; Controller:fsm|state[0] ; 4.145 ; 4.145 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[8]  ; Controller:fsm|state[0] ; 3.940 ; 3.940 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[9]  ; Controller:fsm|state[0] ; 3.959 ; 3.959 ; Rise       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ; 2.133 ;       ; Rise       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ; 2.133 ;       ; Rise       ; Controller:fsm|state[0] ;
+; HEX2[*]   ; Controller:fsm|state[0] ; 4.037 ; 4.037 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[0]  ; Controller:fsm|state[0] ; 3.896 ; 3.896 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[1]  ; Controller:fsm|state[0] ; 3.904 ; 3.904 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[2]  ; Controller:fsm|state[0] ; 3.982 ; 3.982 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[3]  ; Controller:fsm|state[0] ; 4.037 ; 4.037 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[4]  ; Controller:fsm|state[0] ; 4.016 ; 4.016 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[5]  ; Controller:fsm|state[0] ; 3.927 ; 3.927 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[6]  ; Controller:fsm|state[0] ; 4.021 ; 4.021 ; Fall       ; Controller:fsm|state[0] ;
+; HEX3[*]   ; Controller:fsm|state[0] ; 4.149 ; 4.149 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[0]  ; Controller:fsm|state[0] ; 3.956 ; 3.956 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[1]  ; Controller:fsm|state[0] ; 4.149 ; 4.149 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[2]  ; Controller:fsm|state[0] ; 4.066 ; 4.066 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[3]  ; Controller:fsm|state[0] ; 3.923 ; 3.923 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[4]  ; Controller:fsm|state[0] ; 3.954 ; 3.954 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[5]  ; Controller:fsm|state[0] ; 3.959 ; 3.959 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[6]  ; Controller:fsm|state[0] ; 4.026 ; 4.026 ; Fall       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ;       ; 2.133 ; Fall       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ;       ; 2.133 ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                              ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise  ; Fall  ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; state[*]  ; CLOCK_50                ; 3.582 ; 3.582 ; Rise       ; CLOCK_50                ;
+;  state[1] ; CLOCK_50                ; 3.845 ; 3.845 ; Rise       ; CLOCK_50                ;
+;  state[2] ; CLOCK_50                ; 3.582 ; 3.582 ; Rise       ; CLOCK_50                ;
+; HEX0[*]   ; Controller:fsm|state[0] ; 3.817 ; 3.817 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[0]  ; Controller:fsm|state[0] ; 3.938 ; 3.938 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[1]  ; Controller:fsm|state[0] ; 4.024 ; 4.024 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[2]  ; Controller:fsm|state[0] ; 3.965 ; 3.965 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[3]  ; Controller:fsm|state[0] ; 3.972 ; 3.972 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[4]  ; Controller:fsm|state[0] ; 3.950 ; 3.950 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[5]  ; Controller:fsm|state[0] ; 3.961 ; 3.961 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[6]  ; Controller:fsm|state[0] ; 3.817 ; 3.817 ; Rise       ; Controller:fsm|state[0] ;
+; HEX1[*]   ; Controller:fsm|state[0] ; 3.707 ; 3.707 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[0]  ; Controller:fsm|state[0] ; 3.738 ; 3.738 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[1]  ; Controller:fsm|state[0] ; 3.825 ; 3.825 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[2]  ; Controller:fsm|state[0] ; 3.707 ; 3.707 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[3]  ; Controller:fsm|state[0] ; 3.897 ; 3.897 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[4]  ; Controller:fsm|state[0] ; 3.847 ; 3.847 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[5]  ; Controller:fsm|state[0] ; 3.877 ; 3.877 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[6]  ; Controller:fsm|state[0] ; 3.969 ; 3.969 ; Rise       ; Controller:fsm|state[0] ;
+; LEDR[*]   ; Controller:fsm|state[0] ; 3.940 ; 3.940 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[0]  ; Controller:fsm|state[0] ; 3.950 ; 3.950 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[1]  ; Controller:fsm|state[0] ; 3.950 ; 3.950 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[2]  ; Controller:fsm|state[0] ; 4.022 ; 4.022 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[3]  ; Controller:fsm|state[0] ; 4.081 ; 4.081 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[4]  ; Controller:fsm|state[0] ; 4.145 ; 4.145 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[5]  ; Controller:fsm|state[0] ; 4.071 ; 4.071 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[6]  ; Controller:fsm|state[0] ; 4.071 ; 4.071 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[7]  ; Controller:fsm|state[0] ; 4.145 ; 4.145 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[8]  ; Controller:fsm|state[0] ; 3.940 ; 3.940 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[9]  ; Controller:fsm|state[0] ; 3.959 ; 3.959 ; Rise       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ; 2.133 ;       ; Rise       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ; 2.133 ;       ; Rise       ; Controller:fsm|state[0] ;
+; HEX2[*]   ; Controller:fsm|state[0] ; 3.896 ; 3.896 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[0]  ; Controller:fsm|state[0] ; 3.896 ; 3.896 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[1]  ; Controller:fsm|state[0] ; 3.904 ; 3.904 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[2]  ; Controller:fsm|state[0] ; 3.982 ; 3.982 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[3]  ; Controller:fsm|state[0] ; 4.037 ; 4.037 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[4]  ; Controller:fsm|state[0] ; 4.016 ; 4.016 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[5]  ; Controller:fsm|state[0] ; 3.927 ; 3.927 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[6]  ; Controller:fsm|state[0] ; 4.021 ; 4.021 ; Fall       ; Controller:fsm|state[0] ;
+; HEX3[*]   ; Controller:fsm|state[0] ; 3.923 ; 3.923 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[0]  ; Controller:fsm|state[0] ; 3.956 ; 3.956 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[1]  ; Controller:fsm|state[0] ; 4.149 ; 4.149 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[2]  ; Controller:fsm|state[0] ; 4.066 ; 4.066 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[3]  ; Controller:fsm|state[0] ; 3.923 ; 3.923 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[4]  ; Controller:fsm|state[0] ; 3.954 ; 3.954 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[5]  ; Controller:fsm|state[0] ; 3.959 ; 3.959 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[6]  ; Controller:fsm|state[0] ; 4.026 ; 4.026 ; Fall       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ;       ; 2.133 ; Fall       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ;       ; 2.133 ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                     ;
++--------------------------+---------+---------+----------+---------+---------------------+
+; Clock                    ; Setup   ; Hold    ; Recovery ; Removal ; Minimum Pulse Width ;
++--------------------------+---------+---------+----------+---------+---------------------+
+; Worst-case Slack         ; -1.659  ; -3.046  ; N/A      ; N/A     ; -1.631              ;
+;  CLOCK_50                ; -1.606  ; -3.046  ; N/A      ; N/A     ; -1.631              ;
+;  Controller:fsm|state[0] ; -1.659  ; -2.508  ; N/A      ; N/A     ; 0.500               ;
+; Design-wide TNS          ; -44.042 ; -39.29  ; 0.0      ; 0.0     ; -5.297              ;
+;  CLOCK_50                ; -3.980  ; -6.324  ; N/A      ; N/A     ; -5.297              ;
+;  Controller:fsm|state[0] ; -40.062 ; -32.966 ; N/A      ; N/A     ; 0.000               ;
++--------------------------+---------+---------+----------+---------+---------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Setup Times                                                                                ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise  ; Fall  ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; KEY[*]    ; CLOCK_50                ; 6.583 ; 6.583 ; Rise       ; CLOCK_50                ;
+;  KEY[0]   ; CLOCK_50                ; 6.583 ; 6.583 ; Rise       ; CLOCK_50                ;
+;  KEY[1]   ; CLOCK_50                ; 6.050 ; 6.050 ; Rise       ; CLOCK_50                ;
+;  KEY[2]   ; CLOCK_50                ; 6.168 ; 6.168 ; Rise       ; CLOCK_50                ;
+; SW[*]     ; Controller:fsm|state[0] ; 3.132 ; 3.132 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; 3.132 ; 3.132 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; 2.793 ; 2.793 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; 2.465 ; 2.465 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; 2.420 ; 2.420 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; 2.984 ; 2.984 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; 2.949 ; 2.949 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; 2.661 ; 2.661 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; 1.578 ; 1.578 ; Rise       ; Controller:fsm|state[0] ;
+; SW[*]     ; Controller:fsm|state[0] ; 3.760 ; 3.760 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; 3.760 ; 3.760 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; 3.412 ; 3.412 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; 3.084 ; 3.084 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; 3.059 ; 3.059 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; 3.427 ; 3.427 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; 3.394 ; 3.394 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; 3.109 ; 3.109 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; 2.062 ; 2.062 ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Hold Times                                                                                   ;
++-----------+-------------------------+--------+--------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise   ; Fall   ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+--------+--------+------------+-------------------------+
+; KEY[*]    ; CLOCK_50                ; -2.733 ; -2.733 ; Rise       ; CLOCK_50                ;
+;  KEY[0]   ; CLOCK_50                ; -2.733 ; -2.733 ; Rise       ; CLOCK_50                ;
+;  KEY[1]   ; CLOCK_50                ; -2.781 ; -2.781 ; Rise       ; CLOCK_50                ;
+;  KEY[2]   ; CLOCK_50                ; -3.029 ; -3.029 ; Rise       ; CLOCK_50                ;
+; SW[*]     ; Controller:fsm|state[0] ; 0.400  ; 0.400  ; Rise       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; -0.345 ; -0.345 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; -0.189 ; -0.189 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; -0.089 ; -0.089 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; -0.104 ; -0.104 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; -0.168 ; -0.168 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; -0.124 ; -0.124 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; -0.058 ; -0.058 ; Rise       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; 0.400  ; 0.400  ; Rise       ; Controller:fsm|state[0] ;
+; SW[*]     ; Controller:fsm|state[0] ; 0.278  ; 0.278  ; Fall       ; Controller:fsm|state[0] ;
+;  SW[0]    ; Controller:fsm|state[0] ; -0.344 ; -0.344 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[1]    ; Controller:fsm|state[0] ; -0.186 ; -0.186 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[2]    ; Controller:fsm|state[0] ; -0.086 ; -0.086 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[3]    ; Controller:fsm|state[0] ; -0.098 ; -0.098 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[4]    ; Controller:fsm|state[0] ; -0.282 ; -0.282 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[5]    ; Controller:fsm|state[0] ; -0.245 ; -0.245 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[6]    ; Controller:fsm|state[0] ; -0.178 ; -0.178 ; Fall       ; Controller:fsm|state[0] ;
+;  SW[7]    ; Controller:fsm|state[0] ; 0.278  ; 0.278  ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+--------+--------+------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                      ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise  ; Fall  ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; state[*]  ; CLOCK_50                ; 8.025 ; 8.025 ; Rise       ; CLOCK_50                ;
+;  state[1] ; CLOCK_50                ; 8.025 ; 8.025 ; Rise       ; CLOCK_50                ;
+;  state[2] ; CLOCK_50                ; 7.538 ; 7.538 ; Rise       ; CLOCK_50                ;
+; HEX0[*]   ; Controller:fsm|state[0] ; 8.125 ; 8.125 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[0]  ; Controller:fsm|state[0] ; 8.003 ; 8.003 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[1]  ; Controller:fsm|state[0] ; 8.125 ; 8.125 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[2]  ; Controller:fsm|state[0] ; 8.032 ; 8.032 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[3]  ; Controller:fsm|state[0] ; 8.045 ; 8.045 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[4]  ; Controller:fsm|state[0] ; 8.004 ; 8.004 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[5]  ; Controller:fsm|state[0] ; 8.022 ; 8.022 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[6]  ; Controller:fsm|state[0] ; 7.661 ; 7.661 ; Rise       ; Controller:fsm|state[0] ;
+; HEX1[*]   ; Controller:fsm|state[0] ; 8.035 ; 8.035 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[0]  ; Controller:fsm|state[0] ; 7.420 ; 7.420 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[1]  ; Controller:fsm|state[0] ; 7.720 ; 7.720 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[2]  ; Controller:fsm|state[0] ; 7.393 ; 7.393 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[3]  ; Controller:fsm|state[0] ; 7.932 ; 7.932 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[4]  ; Controller:fsm|state[0] ; 7.744 ; 7.744 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[5]  ; Controller:fsm|state[0] ; 7.773 ; 7.773 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[6]  ; Controller:fsm|state[0] ; 8.035 ; 8.035 ; Rise       ; Controller:fsm|state[0] ;
+; LEDR[*]   ; Controller:fsm|state[0] ; 9.568 ; 9.568 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[0]  ; Controller:fsm|state[0] ; 9.261 ; 9.261 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[1]  ; Controller:fsm|state[0] ; 9.259 ; 9.259 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[2]  ; Controller:fsm|state[0] ; 9.397 ; 9.397 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[3]  ; Controller:fsm|state[0] ; 9.474 ; 9.474 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[4]  ; Controller:fsm|state[0] ; 9.568 ; 9.568 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[5]  ; Controller:fsm|state[0] ; 9.464 ; 9.464 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[6]  ; Controller:fsm|state[0] ; 9.464 ; 9.464 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[7]  ; Controller:fsm|state[0] ; 9.568 ; 9.568 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[8]  ; Controller:fsm|state[0] ; 9.249 ; 9.249 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[9]  ; Controller:fsm|state[0] ; 9.282 ; 9.282 ; Rise       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ; 4.459 ;       ; Rise       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ; 4.459 ;       ; Rise       ; Controller:fsm|state[0] ;
+; HEX2[*]   ; Controller:fsm|state[0] ; 8.209 ; 8.209 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[0]  ; Controller:fsm|state[0] ; 7.902 ; 7.902 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[1]  ; Controller:fsm|state[0] ; 7.910 ; 7.910 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[2]  ; Controller:fsm|state[0] ; 8.055 ; 8.055 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[3]  ; Controller:fsm|state[0] ; 8.209 ; 8.209 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[4]  ; Controller:fsm|state[0] ; 8.177 ; 8.177 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[5]  ; Controller:fsm|state[0] ; 7.935 ; 7.935 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[6]  ; Controller:fsm|state[0] ; 8.185 ; 8.185 ; Fall       ; Controller:fsm|state[0] ;
+; HEX3[*]   ; Controller:fsm|state[0] ; 8.362 ; 8.362 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[0]  ; Controller:fsm|state[0] ; 8.031 ; 8.031 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[1]  ; Controller:fsm|state[0] ; 8.362 ; 8.362 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[2]  ; Controller:fsm|state[0] ; 8.117 ; 8.117 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[3]  ; Controller:fsm|state[0] ; 7.928 ; 7.928 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[4]  ; Controller:fsm|state[0] ; 8.028 ; 8.028 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[5]  ; Controller:fsm|state[0] ; 8.034 ; 8.034 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[6]  ; Controller:fsm|state[0] ; 8.190 ; 8.190 ; Fall       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ;       ; 4.459 ; Fall       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ;       ; 4.459 ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                              ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; Data Port ; Clock Port              ; Rise  ; Fall  ; Clock Edge ; Clock Reference         ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+; state[*]  ; CLOCK_50                ; 3.582 ; 3.582 ; Rise       ; CLOCK_50                ;
+;  state[1] ; CLOCK_50                ; 3.845 ; 3.845 ; Rise       ; CLOCK_50                ;
+;  state[2] ; CLOCK_50                ; 3.582 ; 3.582 ; Rise       ; CLOCK_50                ;
+; HEX0[*]   ; Controller:fsm|state[0] ; 3.817 ; 3.817 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[0]  ; Controller:fsm|state[0] ; 3.938 ; 3.938 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[1]  ; Controller:fsm|state[0] ; 4.024 ; 4.024 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[2]  ; Controller:fsm|state[0] ; 3.965 ; 3.965 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[3]  ; Controller:fsm|state[0] ; 3.972 ; 3.972 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[4]  ; Controller:fsm|state[0] ; 3.950 ; 3.950 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[5]  ; Controller:fsm|state[0] ; 3.961 ; 3.961 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX0[6]  ; Controller:fsm|state[0] ; 3.817 ; 3.817 ; Rise       ; Controller:fsm|state[0] ;
+; HEX1[*]   ; Controller:fsm|state[0] ; 3.707 ; 3.707 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[0]  ; Controller:fsm|state[0] ; 3.738 ; 3.738 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[1]  ; Controller:fsm|state[0] ; 3.825 ; 3.825 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[2]  ; Controller:fsm|state[0] ; 3.707 ; 3.707 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[3]  ; Controller:fsm|state[0] ; 3.897 ; 3.897 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[4]  ; Controller:fsm|state[0] ; 3.847 ; 3.847 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[5]  ; Controller:fsm|state[0] ; 3.877 ; 3.877 ; Rise       ; Controller:fsm|state[0] ;
+;  HEX1[6]  ; Controller:fsm|state[0] ; 3.969 ; 3.969 ; Rise       ; Controller:fsm|state[0] ;
+; LEDR[*]   ; Controller:fsm|state[0] ; 3.940 ; 3.940 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[0]  ; Controller:fsm|state[0] ; 3.950 ; 3.950 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[1]  ; Controller:fsm|state[0] ; 3.950 ; 3.950 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[2]  ; Controller:fsm|state[0] ; 4.022 ; 4.022 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[3]  ; Controller:fsm|state[0] ; 4.081 ; 4.081 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[4]  ; Controller:fsm|state[0] ; 4.145 ; 4.145 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[5]  ; Controller:fsm|state[0] ; 4.071 ; 4.071 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[6]  ; Controller:fsm|state[0] ; 4.071 ; 4.071 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[7]  ; Controller:fsm|state[0] ; 4.145 ; 4.145 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[8]  ; Controller:fsm|state[0] ; 3.940 ; 3.940 ; Rise       ; Controller:fsm|state[0] ;
+;  LEDR[9]  ; Controller:fsm|state[0] ; 3.959 ; 3.959 ; Rise       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ; 2.133 ;       ; Rise       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ; 2.133 ;       ; Rise       ; Controller:fsm|state[0] ;
+; HEX2[*]   ; Controller:fsm|state[0] ; 3.896 ; 3.896 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[0]  ; Controller:fsm|state[0] ; 3.896 ; 3.896 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[1]  ; Controller:fsm|state[0] ; 3.904 ; 3.904 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[2]  ; Controller:fsm|state[0] ; 3.982 ; 3.982 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[3]  ; Controller:fsm|state[0] ; 4.037 ; 4.037 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[4]  ; Controller:fsm|state[0] ; 4.016 ; 4.016 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[5]  ; Controller:fsm|state[0] ; 3.927 ; 3.927 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX2[6]  ; Controller:fsm|state[0] ; 4.021 ; 4.021 ; Fall       ; Controller:fsm|state[0] ;
+; HEX3[*]   ; Controller:fsm|state[0] ; 3.923 ; 3.923 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[0]  ; Controller:fsm|state[0] ; 3.956 ; 3.956 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[1]  ; Controller:fsm|state[0] ; 4.149 ; 4.149 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[2]  ; Controller:fsm|state[0] ; 4.066 ; 4.066 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[3]  ; Controller:fsm|state[0] ; 3.923 ; 3.923 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[4]  ; Controller:fsm|state[0] ; 3.954 ; 3.954 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[5]  ; Controller:fsm|state[0] ; 3.959 ; 3.959 ; Fall       ; Controller:fsm|state[0] ;
+;  HEX3[6]  ; Controller:fsm|state[0] ; 4.026 ; 4.026 ; Fall       ; Controller:fsm|state[0] ;
+; state[*]  ; Controller:fsm|state[0] ;       ; 2.133 ; Fall       ; Controller:fsm|state[0] ;
+;  state[0] ; Controller:fsm|state[0] ;       ; 2.133 ; Fall       ; Controller:fsm|state[0] ;
++-----------+-------------------------+-------+-------+------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                               ;
++-------------------------+-------------------------+----------+----------+----------+----------+
+; From Clock              ; To Clock                ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------+-------------------------+----------+----------+----------+----------+
+; CLOCK_50                ; CLOCK_50                ; 13       ; 0        ; 0        ; 0        ;
+; Controller:fsm|state[0] ; CLOCK_50                ; 6        ; 6        ; 0        ; 0        ;
+; CLOCK_50                ; Controller:fsm|state[0] ; 16       ; 0        ; 28       ; 0        ;
+; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1        ; 1        ; 14       ; 14       ;
++-------------------------+-------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                ;
++-------------------------+-------------------------+----------+----------+----------+----------+
+; From Clock              ; To Clock                ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------+-------------------------+----------+----------+----------+----------+
+; CLOCK_50                ; CLOCK_50                ; 13       ; 0        ; 0        ; 0        ;
+; Controller:fsm|state[0] ; CLOCK_50                ; 6        ; 6        ; 0        ; 0        ;
+; CLOCK_50                ; Controller:fsm|state[0] ; 16       ; 0        ; 28       ; 0        ;
+; Controller:fsm|state[0] ; Controller:fsm|state[0] ; 1        ; 1        ; 14       ; 14       ;
++-------------------------+-------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
 ---------------
@@ -194,10 +1460,10 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 0     ; 0    ;
-; Unconstrained Input Port Paths  ; 0     ; 0    ;
-; Unconstrained Output Ports      ; 0     ; 0    ;
-; Unconstrained Output Port Paths ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 11    ; 11   ;
+; Unconstrained Input Port Paths  ; 120   ; 120  ;
+; Unconstrained Output Ports      ; 41    ; 41   ;
+; Unconstrained Output Port Paths ; 41    ; 41   ;
 +---------------------------------+-------+------+
 
 
@@ -207,41 +1473,68 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Sep 28 13:33:04 2015
+    Info: Processing started: Tue Sep 29 14:44:09 2015
 Info: Command: quartus_sta EggTimer -c EggTimer
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
+Warning (335093): TimeQuest Timing Analyzer is analyzing 29 combinational loops as latches.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'EggTimer.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name CLOCK_50 CLOCK_50
+    Info (332105): create_clock -period 1.000 -name Controller:fsm|state[0] Controller:fsm|state[0]
+Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: WideOr4~0  from: datac  to: combout
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
-Info (332159): No clocks to report
 Info: Analyzing Slow Model
-Info (332140): No fmax paths to report
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.659
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.659       -40.062 Controller:fsm|state[0] 
+    Info (332119):    -1.606        -3.980 CLOCK_50 
+Info (332146): Worst-case hold slack is -3.046
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.046        -6.324 CLOCK_50 
+    Info (332119):    -2.508       -32.966 Controller:fsm|state[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.631
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.631        -5.297 CLOCK_50 
+    Info (332119):     0.500         0.000 Controller:fsm|state[0] 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info: Analyzing Fast Model
-Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: WideOr4~0  from: datac  to: combout
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -0.309
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.309        -0.503 Controller:fsm|state[0] 
+    Info (332119):     0.016         0.000 CLOCK_50 
+Info (332146): Worst-case hold slack is -1.524
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.524       -20.583 Controller:fsm|state[0] 
+    Info (332119):    -1.463        -3.428 CLOCK_50 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -4.380 CLOCK_50 
+    Info (332119):     0.500         0.000 Controller:fsm|state[0] 
 Info (332001): The selected device family is not supported by the report_metastability command.
-Info (332101): Design is fully constrained for setup requirements
-Info (332101): Design is fully constrained for hold requirements
-Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
     Info: Peak virtual memory: 422 megabytes
-    Info: Processing ended: Mon Sep 28 13:33:05 2015
+    Info: Processing ended: Tue Sep 29 14:44:10 2015
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

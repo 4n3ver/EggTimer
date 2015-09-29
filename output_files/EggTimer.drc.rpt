@@ -1,5 +1,5 @@
 Design Assistant report for EggTimer
-Mon Sep 28 13:33:06 2015
+Tue Sep 29 14:44:11 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -9,7 +9,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   1. Legal Notice
   2. Design Assistant Summary
   3. Design Assistant Settings
-  4. Design Assistant Messages
+  4. High Violations
+  5. Information only Violations
+  6. Design Assistant Messages
 
 
 
@@ -35,14 +37,17 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------+
 ; Design Assistant Summary                                                ;
 +-----------------------------------+-------------------------------------+
-; Design Assistant Status           ; Analyzed - Mon Sep 28 13:33:06 2015 ;
+; Design Assistant Status           ; Analyzed - Tue Sep 29 14:44:11 2015 ;
 ; Revision Name                     ; EggTimer                            ;
 ; Top-level Entity Name             ; OnBoard                             ;
 ; Family                            ; Cyclone II                          ;
 ; Total Critical Violations         ; 0                                   ;
-; Total High Violations             ; 0                                   ;
+; Total High Violations             ; 29                                  ;
+; - Rule A108                       ; 29                                  ;
 ; Total Medium Violations           ; 0                                   ;
-; Total Information only Violations ; 0                                   ;
+; Total Information only Violations ; 51                                  ;
+; - Rule T101                       ; 1                                   ;
+; - Rule T102                       ; 50                                  ;
 +-----------------------------------+-------------------------------------+
 
 
@@ -92,22 +97,212 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
 
 
++--------------------------------------------------------------------+
+; High Violations                                                    ;
++---------------------------------------------------------+----------+
+; Rule name                                               ; Name     ;
++---------------------------------------------------------+----------+
+; Rule A108: Design should not contain latches - Latch 1  ;          ;
+;  Latch 1                                                ; rHEX3[0] ;
+; Rule A108: Design should not contain latches - Latch 2  ;          ;
+;  Latch 2                                                ; rHEX3[1] ;
+; Rule A108: Design should not contain latches - Latch 3  ;          ;
+;  Latch 3                                                ; rHEX3[2] ;
+; Rule A108: Design should not contain latches - Latch 4  ;          ;
+;  Latch 4                                                ; rHEX3[3] ;
+; Rule A108: Design should not contain latches - Latch 5  ;          ;
+;  Latch 5                                                ; rHEX3[4] ;
+; Rule A108: Design should not contain latches - Latch 6  ;          ;
+;  Latch 6                                                ; rHEX3[5] ;
+; Rule A108: Design should not contain latches - Latch 7  ;          ;
+;  Latch 7                                                ; rHEX3[6] ;
+; Rule A108: Design should not contain latches - Latch 8  ;          ;
+;  Latch 8                                                ; rHEX2[0] ;
+; Rule A108: Design should not contain latches - Latch 9  ;          ;
+;  Latch 9                                                ; rHEX2[1] ;
+; Rule A108: Design should not contain latches - Latch 10 ;          ;
+;  Latch 10                                               ; rHEX2[2] ;
+; Rule A108: Design should not contain latches - Latch 11 ;          ;
+;  Latch 11                                               ; rHEX2[3] ;
+; Rule A108: Design should not contain latches - Latch 12 ;          ;
+;  Latch 12                                               ; rHEX2[4] ;
+; Rule A108: Design should not contain latches - Latch 13 ;          ;
+;  Latch 13                                               ; rHEX2[5] ;
+; Rule A108: Design should not contain latches - Latch 14 ;          ;
+;  Latch 14                                               ; rHEX2[6] ;
+; Rule A108: Design should not contain latches - Latch 15 ;          ;
+;  Latch 15                                               ; rHEX1[0] ;
+; Rule A108: Design should not contain latches - Latch 16 ;          ;
+;  Latch 16                                               ; rHEX1[1] ;
+; Rule A108: Design should not contain latches - Latch 17 ;          ;
+;  Latch 17                                               ; rHEX1[2] ;
+; Rule A108: Design should not contain latches - Latch 18 ;          ;
+;  Latch 18                                               ; rHEX1[3] ;
+; Rule A108: Design should not contain latches - Latch 19 ;          ;
+;  Latch 19                                               ; rHEX1[4] ;
+; Rule A108: Design should not contain latches - Latch 20 ;          ;
+;  Latch 20                                               ; rHEX1[5] ;
+; Rule A108: Design should not contain latches - Latch 21 ;          ;
+;  Latch 21                                               ; rHEX1[6] ;
+; Rule A108: Design should not contain latches - Latch 22 ;          ;
+;  Latch 22                                               ; rHEX0[0] ;
+; Rule A108: Design should not contain latches - Latch 23 ;          ;
+;  Latch 23                                               ; rHEX0[1] ;
+; Rule A108: Design should not contain latches - Latch 24 ;          ;
+;  Latch 24                                               ; rHEX0[2] ;
+; Rule A108: Design should not contain latches - Latch 25 ;          ;
+;  Latch 25                                               ; rHEX0[3] ;
+; Rule A108: Design should not contain latches - Latch 26 ;          ;
+;  Latch 26                                               ; rHEX0[4] ;
+; Rule A108: Design should not contain latches - Latch 27 ;          ;
+;  Latch 27                                               ; rHEX0[5] ;
+; Rule A108: Design should not contain latches - Latch 28 ;          ;
+;  Latch 28                                               ; rHEX0[6] ;
+; Rule A108: Design should not contain latches - Latch 29 ;          ;
+;  Latch 29                                               ; rLEDR[0] ;
++---------------------------------------------------------+----------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Information only Violations                                                                               ;
++------------------------------------------------------------------+------------------------------+---------+
+; Rule name                                                        ; Name                         ; Fan-Out ;
++------------------------------------------------------------------+------------------------------+---------+
+; Rule T101: Nodes with more than the specified number of fan-outs ; Controller:fsm|state[2]      ; 36      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Controller:fsm|state[2]      ; 36      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Controller:fsm|state[1]      ; 25      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Controller:fsm|state[0]      ; 24      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; WideOr4~0clkctrl             ; 14      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Decoder0~1clkctrl            ; 14      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rLEDR[0]                     ; 11      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; SW[3]                        ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; SW[7]                        ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; SW[0]                        ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; SW[2]                        ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; SW[5]                        ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; SW[6]                        ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; SW[1]                        ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; SW[4]                        ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; KEY[0]                       ; 5       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; CLOCK_50                     ; 3       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Controller:fsm|state[0]~2    ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX3[2]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX1[4]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX3[3]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Selector10~0                 ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX1[3]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX3[4]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX3[5]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX2[4]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX3[6]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX2[0]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; dec2_7seg:disp2|display[0]~0 ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; dec2_7seg:disp3|display[1]~1 ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; dec2_7seg:disp3|display[0]~0 ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Selector21~0                 ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; KEY[1]                       ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX1[2]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX1[1]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX1[0]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX2[6]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX2[1]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX2[3]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX2[2]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX2[5]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Selector2~0                  ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; dec2_7seg:disp3|display[4]~3 ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Selector29~0                 ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; dec2_7seg:disp2|display[1]~1 ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Selector6~0                  ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; dec2_7seg:disp2|display[4]~3 ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX3[0]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rHEX3[1]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Selector14~0                 ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; dec2_7seg:disp2|display[3]~2 ; 2       ;
++------------------------------------------------------------------+------------------------------+---------+
+
+
 +---------------------------+
 ; Design Assistant Messages ;
 +---------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Design Assistant
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Sep 28 13:33:06 2015
+    Info: Processing started: Tue Sep 29 14:44:11 2015
 Info: Command: quartus_drc --read_settings_files=off --write_settings_files=off EggTimer -c EggTimer
+Warning (335093): TimeQuest Timing Analyzer is analyzing 29 combinational loops as latches.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'EggTimer.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
-Info (308007): Design Assistant information: finished post-fitting analysis of current design -- generated 0 information messages and 0 warning messages
-Info: Quartus II 64-Bit Design Assistant was successful. 0 errors, 2 warnings
+Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: WideOr4~0  from: datac  to: combout
+Critical Warning (308055): (High) Rule A108: Design should not contain latches. Found 29 latch(es) related to this rule.
+    Critical Warning (308012): Node  "rHEX3[0]"
+    Critical Warning (308012): Node  "rHEX3[1]"
+    Critical Warning (308012): Node  "rHEX3[2]"
+    Critical Warning (308012): Node  "rHEX3[3]"
+    Critical Warning (308012): Node  "rHEX3[4]"
+    Critical Warning (308012): Node  "rHEX3[5]"
+    Critical Warning (308012): Node  "rHEX3[6]"
+    Critical Warning (308012): Node  "rHEX2[0]"
+    Critical Warning (308012): Node  "rHEX2[1]"
+    Critical Warning (308012): Node  "rHEX2[2]"
+    Critical Warning (308012): Node  "rHEX2[3]"
+    Critical Warning (308012): Node  "rHEX2[4]"
+    Critical Warning (308012): Node  "rHEX2[5]"
+    Critical Warning (308012): Node  "rHEX2[6]"
+    Critical Warning (308012): Node  "rHEX1[0]"
+    Critical Warning (308012): Node  "rHEX1[1]"
+    Critical Warning (308012): Node  "rHEX1[2]"
+    Critical Warning (308012): Node  "rHEX1[3]"
+    Critical Warning (308012): Node  "rHEX1[4]"
+    Critical Warning (308012): Node  "rHEX1[5]"
+    Critical Warning (308012): Node  "rHEX1[6]"
+    Critical Warning (308012): Node  "rHEX0[0]"
+    Critical Warning (308012): Node  "rHEX0[1]"
+    Critical Warning (308012): Node  "rHEX0[2]"
+    Critical Warning (308012): Node  "rHEX0[3]"
+    Critical Warning (308012): Node  "rHEX0[4]"
+    Critical Warning (308012): Node  "rHEX0[5]"
+    Critical Warning (308012): Node  "rHEX0[6]"
+    Critical Warning (308012): Node  "rLEDR[0]"
+Info (308046): (Information) Rule T101: Nodes with more than the specified number of fan-outs. (Value defined:30). Found 1 node(s) with highest fan-out.
+    Info (308011): Node  "Controller:fsm|state[2]"
+Info (308044): (Information) Rule T102: Top nodes with the highest number of fan-outs. (Value defined:50). Found 50 node(s) with highest fan-out.
+    Info (308011): Node  "Controller:fsm|state[2]"
+    Info (308011): Node  "Controller:fsm|state[1]"
+    Info (308011): Node  "Controller:fsm|state[0]"
+    Info (308011): Node  "WideOr4~0clkctrl"
+    Info (308011): Node  "Decoder0~1clkctrl"
+    Info (308011): Node  "rLEDR[0]"
+    Info (308011): Node  "SW[3]"
+    Info (308011): Node  "SW[7]"
+    Info (308011): Node  "SW[0]"
+    Info (308011): Node  "SW[2]"
+    Info (308011): Node  "SW[5]"
+    Info (308011): Node  "SW[6]"
+    Info (308011): Node  "SW[1]"
+    Info (308011): Node  "SW[4]"
+    Info (308011): Node  "KEY[0]"
+    Info (308011): Node  "CLOCK_50"
+    Info (308011): Node  "Controller:fsm|state[0]~2"
+    Info (308011): Node  "rHEX3[2]"
+    Info (308011): Node  "rHEX1[4]"
+    Info (308011): Node  "rHEX3[3]"
+    Info (308011): Node  "Selector10~0"
+    Info (308011): Node  "rHEX1[3]"
+    Info (308011): Node  "rHEX3[4]"
+    Info (308011): Node  "rHEX3[5]"
+    Info (308011): Node  "rHEX2[4]"
+    Info (308011): Node  "rHEX3[6]"
+    Info (308011): Node  "rHEX2[0]"
+    Info (308011): Node  "dec2_7seg:disp2|display[0]~0"
+    Info (308011): Node  "dec2_7seg:disp3|display[1]~1"
+    Info (308011): Node  "dec2_7seg:disp3|display[0]~0"
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308007): Design Assistant information: finished post-fitting analysis of current design -- generated 51 information messages and 29 warning messages
+Info: Quartus II 64-Bit Design Assistant was successful. 0 errors, 32 warnings
     Info: Peak virtual memory: 404 megabytes
-    Info: Processing ended: Mon Sep 28 13:33:06 2015
+    Info: Processing ended: Tue Sep 29 14:44:11 2015
     Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 

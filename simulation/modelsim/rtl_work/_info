@@ -3,24 +3,86 @@ K3
 13
 cModel Technology
 Z0 dE:\Dropbox\Documents\University\CS 3220\Assignment\Real Project 1 - Egg Timer\simulation\modelsim
-vOnBoard
-!i10b 1
-!s100 EK_U0CTGNeABHP=?J8OLL0
-I3[ACj[<>nnaSkiDJWOF100
-V]e;gnag^j`]lMllDURifG2
+vController
+IXgc[LgH4Ylc_4@3Vmf5OE1
+VzhYn?<i3[[^JT574@kaz01
 Z1 dE:\Dropbox\Documents\University\CS 3220\Assignment\Real Project 1 - Egg Timer\simulation\modelsim
-w1443461404
+w1443522072
+8E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/Controller.v
+FE:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/Controller.v
+L0 1
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+n@controller
+Z4 !s92 -vlog01compat -work work {+incdir+E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer} -O0
+!i10b 1
+!s100 FW67>;gNB1m50DoBT0ShM0
+!s85 0
+!s108 1443551608.980000
+!s107 E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/Controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer|E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/Controller.v|
+!s101 -O0
+vdec2_7seg
+IJb6mK<ozWoF35eU:G:b8j2
+Vn;OS=9OHZkQ^dn^iekO4`1
+R1
+w1443548704
+8E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/dec2_7seg.v
+FE:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/dec2_7seg.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 M5_J04I?b3B9EX<D45J<=3
+!s85 0
+!s108 1443551609.224000
+!s107 E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/dec2_7seg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer|E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/dec2_7seg.v|
+!s101 -O0
+vOnBoard
+IBNb>PiN9Q=IkDJjK8hdH00
+Vm2LB:EmEe1BOTf0<8<J1:3
+R1
+w1443551566
 8E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v
 FE:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v
 L0 3
-OV;L;10.1d;51
+R2
 r1
-!s85 0
 31
-!s108 1443465673.075000
+R3
+R4
+n@on@board
+!i10b 1
+!s100 gj?f>ni=L@fD8[:GiaAQ@1
+!s85 0
+!s108 1443551609.491000
 !s107 E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer|E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v|
 !s101 -O0
-o-vlog01compat -work work -O0
-!s92 -vlog01compat -work work {+incdir+E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer} -O0
-n@on@board
+vOnBoardTester
+!i10b 1
+!s100 k2eF:4eVVGDla_>[k7XmL3
+I?AoKkKAA8ciDh;K[c3UR02
+VO97@=jR5@i>KSbXX5h8fI2
+R1
+w1443537454
+8E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v
+FE:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v
+L0 5
+R2
+r1
+!s85 0
+31
+!s108 1443551609.689000
+!s107 E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer|E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v|
+!s101 -O0
+R3
+R4
+n@on@board@tester

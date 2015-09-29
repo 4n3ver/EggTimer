@@ -5,16 +5,16 @@ module dec2_7seg(display, num);
 	output[6:0] display;
 	
 	assign display =
-			num	== 0 ? ~7'b0111111 :
-			num	== 1 ? ~7'b0000110 :
-			num	== 2 ? ~7'b1011011 :
-			num	== 3 ? ~7'b1001111 :
-			num	== 4 ? ~7'b1100110 :
-			num	== 5 ? ~7'b1101101 :
-			num	== 6 ? ~7'b1111101 :
-			num	== 7 ? ~7'b0000111 :
-			num	== 8 ? ~7'b1111111 :
-			num	== 9 ? ~7'b1100111 :
-			7'bxxxxxxx;			//	Output	is	a	don't	care	if	illegal	input
+			num	== 0 ? 7'b1000000 :
+			num	== 1 ? 7'b1111001 :
+			num	== 2 ? 7'b0100100 :
+			num	== 3 ? 7'b0110000 :
+			num	== 4 ? 7'b0011001 :
+			num	== 5 ? 7'b0010010 :
+			num	== 6 ? 7'b0000010 :
+			num	== 7 ? 7'b1111000 :
+			num	== 7 ? 7'b0000000 :
+			num	== 9 ? 7'b0010000 :
+			7'b0111111;			//	Output	is	a	don't	care	if	illegal	input
 			
 endmodule

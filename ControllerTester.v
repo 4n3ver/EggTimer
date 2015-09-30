@@ -7,7 +7,7 @@ module ControllerTester;
 	reg [2:0] KEY = 3'b0;
 	reg CLK = 1'b0;
 	
-	wire [3:0] STATE;
+	wire [2:0] STATE;
 	
 	
 	Controller fsm(STATE, KEY, CLK);

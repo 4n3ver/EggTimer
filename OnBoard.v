@@ -17,10 +17,13 @@ module OnBoard(state, LEDR, HEX3, HEX2, HEX1, HEX0, SW, KEY, CLOCK_50);
 	
 	output [9:0] LEDR;
 	output [6:0] HEX3, HEX2, HEX1, HEX0;
-	output [3:0] state;
+	output [2:0] state;
 	
-	wire [3:0] wSTATE;
+	wire [2:0] wSTATE;
 	wire [6:0] wR, w3, w2, w1, w0;
+
+	reg [9:0] LEDR;
+	reg [6:0] HEX3, HEX2, HEX1, HEX0; 
 	
 	Controller fsm(wSTATE, KEY, CLOCK_50);
 	assign state = wSTATE;
@@ -31,38 +34,29 @@ module OnBoard(state, LEDR, HEX3, HEX2, HEX1, HEX0, SW, KEY, CLOCK_50);
 	dec2_7seg disp0(w0, SW[3:0]);
 	dec2_7seg reset(wR, 4'b0);
 	
-	assign HEX3 = rHEX3;
-	assign HEX2 = rHEX2;
-	assign HEX1 = rHEX1;
-	assign HEX0 = rHEX0;
-	assign LEDR = rLEDR;
-
-	reg [9:0] rLEDR;
-	reg [6:0] rHEX3, rHEX2, rHEX1, rHEX0; 
-	
 	always@(*) begin 
 		case(wSTATE)
 			FLASH_OFF:
-				rLEDR <= 10'b0;
+				LEDR <= 10'b0;
 			FLASH_ON:
-				rLEDR <= 10'b1111111111;
+				LEDR <= 10'b1111111111;
 			SET_MIN: 
 				begin
-					rHEX2 <= w2;
-					rHEX3 <= w3;
+					HEX2 <= w2;
+					HEX3 <= w3;
 				end
 			SET_SEC:
 				begin
-					rHEX0 <= w0;
-					rHEX1 <= w1;
+					HEX0 <= w0;
+					HEX1 <= w1;
 				end
 			RESET:
 				begin
-					rLEDR <= 10'b0;
-					rHEX0 <= wR;
-					rHEX1 <= wR;
-					rHEX2 <= wR;
-					rHEX3 <= wR;
+					LEDR <= 10'b0;
+					HEX0 <= wR;
+					HEX1 <= wR;
+					HEX2 <= wR;
+					HEX3 <= wR;
 				end
 		endcase
 	end

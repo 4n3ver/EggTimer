@@ -1,3 +1,5 @@
+// Yoel Ivan (yivan3@gatech.edu)
+
 module Controller(state, key, clk);
 
 	parameter [2:0]	RESET		= 3'b100,	// 4
@@ -12,9 +14,9 @@ module Controller(state, key, clk);
 	input [2:0] key;
 	input clk;
 	
-	output [3:0] state;
+	output [2:0] state;
 	
-	reg [3:0] state;
+	reg [2:0] state;
 	
 	always@(posedge clk) begin		
 		case (state)

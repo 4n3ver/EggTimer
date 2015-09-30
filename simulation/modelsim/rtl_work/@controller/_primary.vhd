@@ -12,7 +12,7 @@ entity Controller is
         SETTING_MIN     : vl_logic_vector(2 downto 0) := (Hi1, Hi1, Hi1)
     );
     port(
-        state           : out    vl_logic_vector(3 downto 0);
+        state           : out    vl_logic_vector(2 downto 0);
         key             : in     vl_logic_vector(2 downto 0);
         clk             : in     vl_logic
     );

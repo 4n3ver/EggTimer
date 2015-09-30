@@ -3,20 +3,20 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'Controller:fsm|state[0]'
-Slack : -1.659
-TNS   : -40.062
+Slack : -1.588
+TNS   : -29.789
 
 Type  : Slow Model Setup 'CLOCK_50'
-Slack : -1.606
-TNS   : -3.980
+Slack : -1.371
+TNS   : -3.091
 
 Type  : Slow Model Hold 'CLOCK_50'
-Slack : -3.046
-TNS   : -6.324
+Slack : -2.772
+TNS   : -5.799
 
 Type  : Slow Model Hold 'Controller:fsm|state[0]'
-Slack : -2.508
-TNS   : -32.966
+Slack : -2.638
+TNS   : -2.638
 
 Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
 Slack : -1.631
@@ -27,20 +27,20 @@ Slack : 0.500
 TNS   : 0.000
 
 Type  : Fast Model Setup 'Controller:fsm|state[0]'
-Slack : -0.309
-TNS   : -0.503
+Slack : -0.035
+TNS   : -0.100
 
 Type  : Fast Model Setup 'CLOCK_50'
-Slack : 0.016
+Slack : 0.104
 TNS   : 0.000
 
-Type  : Fast Model Hold 'Controller:fsm|state[0]'
-Slack : -1.524
-TNS   : -20.583
-
 Type  : Fast Model Hold 'CLOCK_50'
-Slack : -1.463
-TNS   : -3.428
+Slack : -1.364
+TNS   : -3.267
+
+Type  : Fast Model Hold 'Controller:fsm|state[0]'
+Slack : -0.964
+TNS   : -1.130
 
 Type  : Fast Model Minimum Pulse Width 'CLOCK_50'
 Slack : -1.380

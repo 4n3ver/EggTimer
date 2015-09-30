@@ -10,7 +10,7 @@ module OnBoardTester;
 	
 	wire [6:0] HEX3 = 7'b0, HEX2 = 7'b0, HEX1 = 7'b0, HEX0 = 7'b0; 
 	wire [9:0] LEDR = 10'b0;
-	wire [3:0] STATE;
+	wire [2:0] STATE;
 	
 	OnBoard board(STATE, LEDR, HEX3, HEX2, HEX1, HEX0, SW, KEY, CLK);
 	

@@ -12,7 +12,7 @@ entity OnBoard is
         SETTING_MIN     : vl_logic_vector(2 downto 0) := (Hi1, Hi1, Hi1)
     );
     port(
-        state           : out    vl_logic_vector(3 downto 0);
+        state           : out    vl_logic_vector(2 downto 0);
         LEDR            : out    vl_logic_vector(9 downto 0);
         HEX3            : out    vl_logic_vector(6 downto 0);
         HEX2            : out    vl_logic_vector(6 downto 0);

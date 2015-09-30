@@ -1,5 +1,5 @@
 Analysis & Synthesis report for EggTimer
-Tue Sep 29 14:44:00 2015
+Wed Sep 30 16:46:14 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -14,15 +14,14 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. User-Specified and Inferred Latches
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: Top-level Entity: |OnBoard
- 13. Parameter Settings for User Entity Instance: Controller:fsm
- 14. Port Connectivity Checks: "dec2_7seg:reset"
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
- 17. Analysis & Synthesis Suppressed Messages
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |OnBoard
+ 12. Parameter Settings for User Entity Instance: Controller:fsm
+ 13. Port Connectivity Checks: "dec2_7seg:reset"
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+ 16. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -48,16 +47,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Sep 29 14:44:00 2015           ;
+; Analysis & Synthesis Status        ; Successful - Wed Sep 30 16:46:14 2015           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; EggTimer                                        ;
 ; Top-level Entity Name              ; OnBoard                                         ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 83                                              ;
-;     Total combinational functions  ; 83                                              ;
+; Total logic elements               ; 68                                              ;
+;     Total combinational functions  ; 68                                              ;
 ;     Dedicated logic registers      ; 3                                               ;
 ; Total registers                    ; 3                                               ;
-; Total pins                         ; 54                                              ;
+; Total pins                         ; 53                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -177,28 +176,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------------------------+
 ; Resource                                    ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Estimated Total logic elements              ; 83                      ;
+; Estimated Total logic elements              ; 68                      ;
 ;                                             ;                         ;
-; Total combinational functions               ; 83                      ;
+; Total combinational functions               ; 68                      ;
 ; Logic element usage by number of LUT inputs ;                         ;
-;     -- 4 input functions                    ; 34                      ;
-;     -- 3 input functions                    ; 33                      ;
-;     -- <=2 input functions                  ; 16                      ;
+;     -- 4 input functions                    ; 18                      ;
+;     -- 3 input functions                    ; 38                      ;
+;     -- <=2 input functions                  ; 12                      ;
 ;                                             ;                         ;
 ; Logic elements by mode                      ;                         ;
-;     -- normal mode                          ; 83                      ;
+;     -- normal mode                          ; 68                      ;
 ;     -- arithmetic mode                      ; 0                       ;
 ;                                             ;                         ;
 ; Total registers                             ; 3                       ;
 ;     -- Dedicated logic registers            ; 3                       ;
 ;     -- I/O registers                        ; 0                       ;
 ;                                             ;                         ;
-; I/O pins                                    ; 54                      ;
+; I/O pins                                    ; 53                      ;
 ; Embedded Multiplier 9-bit elements          ; 0                       ;
 ; Maximum fan-out node                        ; Controller:fsm|state[2] ;
-; Maximum fan-out                             ; 36                      ;
-; Total fan-out                               ; 314                     ;
-; Average fan-out                             ; 2.24                    ;
+; Maximum fan-out                             ; 21                      ;
+; Total fan-out                               ; 257                     ;
+; Average fan-out                             ; 2.07                    ;
 +---------------------------------------------+-------------------------+
 
 
@@ -207,10 +206,10 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name      ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
-; |OnBoard                   ; 83 (67)           ; 3 (0)        ; 0           ; 0            ; 0       ; 0         ; 54   ; 0            ; |OnBoard                 ; work         ;
+; |OnBoard                   ; 68 (44)           ; 3 (0)        ; 0           ; 0            ; 0       ; 0         ; 53   ; 0            ; |OnBoard                 ; work         ;
 ;    |Controller:fsm|        ; 8 (8)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OnBoard|Controller:fsm  ; work         ;
-;    |dec2_7seg:disp2|       ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OnBoard|dec2_7seg:disp2 ; work         ;
-;    |dec2_7seg:disp3|       ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OnBoard|dec2_7seg:disp3 ; work         ;
+;    |dec2_7seg:disp2|       ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OnBoard|dec2_7seg:disp2 ; work         ;
+;    |dec2_7seg:disp3|       ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OnBoard|dec2_7seg:disp3 ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -220,57 +219,47 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------+---------------------+------------------------+
 ; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
 +-----------------------------------------------------+---------------------+------------------------+
-; rLEDR[0]                                            ; WideOr0             ; yes                    ;
-; rLEDR[1]                                            ; WideOr0             ; yes                    ;
-; rLEDR[2]                                            ; WideOr0             ; yes                    ;
-; rLEDR[3]                                            ; WideOr0             ; yes                    ;
-; rLEDR[4]                                            ; WideOr0             ; yes                    ;
-; rLEDR[5]                                            ; WideOr0             ; yes                    ;
-; rLEDR[6]                                            ; WideOr0             ; yes                    ;
-; rLEDR[7]                                            ; WideOr0             ; yes                    ;
-; rLEDR[8]                                            ; WideOr0             ; yes                    ;
-; rLEDR[9]                                            ; WideOr0             ; yes                    ;
-; rHEX3[0]                                            ; WideOr4             ; yes                    ;
-; rHEX3[1]                                            ; WideOr4             ; yes                    ;
-; rHEX3[2]                                            ; WideOr4             ; yes                    ;
-; rHEX3[3]                                            ; WideOr4             ; yes                    ;
-; rHEX3[4]                                            ; WideOr4             ; yes                    ;
-; rHEX3[5]                                            ; WideOr4             ; yes                    ;
-; rHEX3[6]                                            ; WideOr4             ; yes                    ;
-; rHEX2[0]                                            ; WideOr4             ; yes                    ;
-; rHEX2[1]                                            ; WideOr4             ; yes                    ;
-; rHEX2[2]                                            ; WideOr4             ; yes                    ;
-; rHEX2[3]                                            ; WideOr4             ; yes                    ;
-; rHEX2[4]                                            ; WideOr4             ; yes                    ;
-; rHEX2[5]                                            ; WideOr4             ; yes                    ;
-; rHEX2[6]                                            ; WideOr4             ; yes                    ;
-; rHEX1[0]                                            ; WideOr2             ; yes                    ;
-; rHEX1[1]                                            ; WideOr2             ; yes                    ;
-; rHEX1[2]                                            ; WideOr2             ; yes                    ;
-; rHEX1[3]                                            ; WideOr2             ; yes                    ;
-; rHEX1[4]                                            ; WideOr2             ; yes                    ;
-; rHEX1[5]                                            ; WideOr2             ; yes                    ;
-; rHEX1[6]                                            ; WideOr2             ; yes                    ;
-; rHEX0[0]                                            ; WideOr2             ; yes                    ;
-; rHEX0[1]                                            ; WideOr2             ; yes                    ;
-; rHEX0[2]                                            ; WideOr2             ; yes                    ;
-; rHEX0[3]                                            ; WideOr2             ; yes                    ;
-; rHEX0[4]                                            ; WideOr2             ; yes                    ;
-; rHEX0[5]                                            ; WideOr2             ; yes                    ;
-; rHEX0[6]                                            ; WideOr2             ; yes                    ;
+; LEDR[0]$latch                                       ; Mux31               ; yes                    ;
+; LEDR[1]$latch                                       ; Mux31               ; yes                    ;
+; LEDR[2]$latch                                       ; Mux31               ; yes                    ;
+; LEDR[3]$latch                                       ; Mux31               ; yes                    ;
+; LEDR[4]$latch                                       ; Mux31               ; yes                    ;
+; LEDR[5]$latch                                       ; Mux31               ; yes                    ;
+; LEDR[6]$latch                                       ; Mux31               ; yes                    ;
+; LEDR[7]$latch                                       ; Mux31               ; yes                    ;
+; LEDR[8]$latch                                       ; Mux31               ; yes                    ;
+; LEDR[9]$latch                                       ; Mux31               ; yes                    ;
+; HEX3[0]$latch                                       ; Mux7                ; yes                    ;
+; HEX3[1]$latch                                       ; Mux7                ; yes                    ;
+; HEX3[2]$latch                                       ; Mux7                ; yes                    ;
+; HEX3[3]$latch                                       ; Mux7                ; yes                    ;
+; HEX3[4]$latch                                       ; Mux7                ; yes                    ;
+; HEX3[5]$latch                                       ; Mux7                ; yes                    ;
+; HEX3[6]$latch                                       ; Mux7                ; yes                    ;
+; HEX2[0]$latch                                       ; Mux7                ; yes                    ;
+; HEX2[1]$latch                                       ; Mux7                ; yes                    ;
+; HEX2[2]$latch                                       ; Mux7                ; yes                    ;
+; HEX2[3]$latch                                       ; Mux7                ; yes                    ;
+; HEX2[4]$latch                                       ; Mux7                ; yes                    ;
+; HEX2[5]$latch                                       ; Mux7                ; yes                    ;
+; HEX2[6]$latch                                       ; Mux7                ; yes                    ;
+; HEX1[0]$latch                                       ; Mux22               ; yes                    ;
+; HEX1[1]$latch                                       ; Mux22               ; yes                    ;
+; HEX1[2]$latch                                       ; Mux22               ; yes                    ;
+; HEX1[3]$latch                                       ; Mux22               ; yes                    ;
+; HEX1[4]$latch                                       ; Mux22               ; yes                    ;
+; HEX1[5]$latch                                       ; Mux22               ; yes                    ;
+; HEX1[6]$latch                                       ; Mux22               ; yes                    ;
+; HEX0[0]$latch                                       ; Mux22               ; yes                    ;
+; HEX0[1]$latch                                       ; Mux22               ; yes                    ;
+; HEX0[2]$latch                                       ; Mux22               ; yes                    ;
+; HEX0[3]$latch                                       ; Mux22               ; yes                    ;
+; HEX0[4]$latch                                       ; Mux22               ; yes                    ;
+; HEX0[5]$latch                                       ; Mux22               ; yes                    ;
+; HEX0[6]$latch                                       ; Mux22               ; yes                    ;
 ; Number of user-specified and inferred latches = 38  ;                     ;                        ;
 +-----------------------------------------------------+---------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; Controller:fsm|state[3]               ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 1 ;                                        ;
-+---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -293,7 +282,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
-; 20:1               ; 3 bits    ; 39 LEs        ; 15 LEs               ; 24 LEs                 ; Yes        ; |OnBoard|Controller:fsm|state[0]    ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |OnBoard|Controller:fsm|state[0]    ;
 ; 16:1               ; 2 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |OnBoard|dec2_7seg:disp3|display[1] ;
 ; 16:1               ; 2 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |OnBoard|dec2_7seg:disp2|display[1] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
@@ -357,9 +346,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Sep 29 14:43:58 2015
+    Info: Processing started: Wed Sep 30 16:46:12 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off EggTimer -c EggTimer
 Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file onboardtester.v
+    Info (12023): Found entity 1: OnBoardTester
+Info (12021): Found 1 design units, including 1 entities, in source file nbit2inputmuxtester.v
+    Info (12023): Found entity 1: nBit2InputMuxTester
+Info (12021): Found 1 design units, including 1 entities, in source file nbit2inputmux.v
+    Info (12023): Found entity 1: nBit2InputMux
 Info (12021): Found 1 design units, including 1 entities, in source file controllertester.v
     Info (12023): Found entity 1: ControllerTester
 Info (12021): Found 1 design units, including 1 entities, in source file controller.v
@@ -371,132 +366,102 @@ Info (12021): Found 1 design units, including 1 entities, in source file dec2_7s
 Info (12021): Found 1 design units, including 1 entities, in source file onboard.v
     Info (12023): Found entity 1: OnBoard
 Info (12127): Elaborating entity "OnBoard" for the top level hierarchy
-Warning (10270): Verilog HDL Case Statement warning at OnBoard.v(44): incomplete case statement has no default case item
-Warning (10240): Verilog HDL Always Construct warning at OnBoard.v(44): inferring latch(es) for variable "rLEDR", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at OnBoard.v(44): inferring latch(es) for variable "rHEX0", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at OnBoard.v(44): inferring latch(es) for variable "rHEX1", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at OnBoard.v(44): inferring latch(es) for variable "rHEX2", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at OnBoard.v(44): inferring latch(es) for variable "rHEX3", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "rHEX3[0]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX3[1]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX3[2]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX3[3]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX3[4]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX3[5]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX3[6]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX2[0]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX2[1]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX2[2]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX2[3]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX2[4]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX2[5]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX2[6]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX1[0]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX1[1]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX1[2]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX1[3]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX1[4]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX1[5]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX1[6]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX0[0]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX0[1]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX0[2]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX0[3]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX0[4]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX0[5]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rHEX0[6]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rLEDR[0]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rLEDR[1]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rLEDR[2]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rLEDR[3]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rLEDR[4]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rLEDR[5]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rLEDR[6]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rLEDR[7]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rLEDR[8]" at OnBoard.v(44)
-Info (10041): Inferred latch for "rLEDR[9]" at OnBoard.v(44)
+Warning (10270): Verilog HDL Case Statement warning at OnBoard.v(38): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at OnBoard.v(38): inferring latch(es) for variable "LEDR", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at OnBoard.v(38): inferring latch(es) for variable "HEX0", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at OnBoard.v(38): inferring latch(es) for variable "HEX1", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at OnBoard.v(38): inferring latch(es) for variable "HEX2", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at OnBoard.v(38): inferring latch(es) for variable "HEX3", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "HEX3[0]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX3[1]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX3[2]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX3[3]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX3[4]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX3[5]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX3[6]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX2[0]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX2[1]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX2[2]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX2[3]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX2[4]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX2[5]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX2[6]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX1[0]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX1[1]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX1[2]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX1[3]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX1[4]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX1[5]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX1[6]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX0[0]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX0[1]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX0[2]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX0[3]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX0[4]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX0[5]" at OnBoard.v(38)
+Info (10041): Inferred latch for "HEX0[6]" at OnBoard.v(38)
+Info (10041): Inferred latch for "LEDR[0]" at OnBoard.v(38)
+Info (10041): Inferred latch for "LEDR[1]" at OnBoard.v(38)
+Info (10041): Inferred latch for "LEDR[2]" at OnBoard.v(38)
+Info (10041): Inferred latch for "LEDR[3]" at OnBoard.v(38)
+Info (10041): Inferred latch for "LEDR[4]" at OnBoard.v(38)
+Info (10041): Inferred latch for "LEDR[5]" at OnBoard.v(38)
+Info (10041): Inferred latch for "LEDR[6]" at OnBoard.v(38)
+Info (10041): Inferred latch for "LEDR[7]" at OnBoard.v(38)
+Info (10041): Inferred latch for "LEDR[8]" at OnBoard.v(38)
+Info (10041): Inferred latch for "LEDR[9]" at OnBoard.v(38)
 Info (12128): Elaborating entity "Controller" for hierarchy "Controller:fsm"
 Info (12128): Elaborating entity "dec2_7seg" for hierarchy "dec2_7seg:disp3"
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "rLEDR[9]" merged with LATCH primitive "rLEDR[0]"
-    Info (13026): Duplicate LATCH primitive "rLEDR[8]" merged with LATCH primitive "rLEDR[0]"
-    Info (13026): Duplicate LATCH primitive "rLEDR[7]" merged with LATCH primitive "rLEDR[0]"
-    Info (13026): Duplicate LATCH primitive "rLEDR[6]" merged with LATCH primitive "rLEDR[0]"
-    Info (13026): Duplicate LATCH primitive "rLEDR[5]" merged with LATCH primitive "rLEDR[0]"
-    Info (13026): Duplicate LATCH primitive "rLEDR[4]" merged with LATCH primitive "rLEDR[0]"
-    Info (13026): Duplicate LATCH primitive "rLEDR[3]" merged with LATCH primitive "rLEDR[0]"
-    Info (13026): Duplicate LATCH primitive "rLEDR[2]" merged with LATCH primitive "rLEDR[0]"
-    Info (13026): Duplicate LATCH primitive "rLEDR[1]" merged with LATCH primitive "rLEDR[0]"
-Warning (13012): Latch rLEDR[0] has unsafe behavior
+    Info (13026): Duplicate LATCH primitive "LEDR[9]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[8]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[7]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[6]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[5]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[4]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[3]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[2]$latch" merged with LATCH primitive "LEDR[0]$latch"
+    Info (13026): Duplicate LATCH primitive "LEDR[1]$latch" merged with LATCH primitive "LEDR[0]$latch"
+Warning (13012): Latch LEDR[0]$latch has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX3[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX3[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX3[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX3[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX3[4] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX3[5] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX3[6] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX2[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX2[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX2[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX2[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX2[4] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX2[5] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX2[6] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX1[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX1[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX1[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX1[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX1[4] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX1[5] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX1[6] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX0[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX0[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX0[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX0[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX0[4] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX0[5] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13012): Latch rHEX0[6] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[0]
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "state[3]" is stuck at GND
+Warning (13012): Latch HEX3[0]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX3[1]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX3[2]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX3[3]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX3[4]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX3[5]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX3[6]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX2[0]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX2[1]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX2[2]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX2[3]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX2[4]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX2[5]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
+Warning (13012): Latch HEX2[6]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:fsm|state[2]
 Info (144001): Generated suppressed messages file E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/output_files/EggTimer.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 137 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 121 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 12 input pins
-    Info (21059): Implemented 42 output pins
-    Info (21061): Implemented 83 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 67 warnings
+    Info (21059): Implemented 41 output pins
+    Info (21061): Implemented 68 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 37 warnings
     Info: Peak virtual memory: 486 megabytes
-    Info: Processing ended: Tue Sep 29 14:44:00 2015
+    Info: Processing ended: Wed Sep 30 16:46:14 2015
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 

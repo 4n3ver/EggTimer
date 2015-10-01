@@ -9,7 +9,7 @@ module Controller(state, key, clk);
 					TIMER		= 3'b010,	// 2
 					FLASH_OFF	= 3'b110,	// 6
 					FLASH_ON	= 3'b101,	// 5
-					SETTING_MIN	= 3'b111;
+					SETTING_MIN	= 3'b111;	// 7
 						
 	input [2:0] key;
 	input clk;
@@ -18,14 +18,17 @@ module Controller(state, key, clk);
 	
 	reg [2:0] state;
 	
-	always@(posedge clk) begin		
+	// apparently KEY are inversed,
+	// KEY == 1 if not pressed
+	// KEY == 0 if pressed
+	always@(posedge clk) begin
 		case (state)
 			FLASH_OFF:
-				state <= FLASH_ON;
+				state <= FLASH_ON;	// need to at 0.5sec delay before it moves to next state
 			FLASH_ON:
-				state <= FLASH_OFF;
+				state <= FLASH_OFF;	// need to at 0.5sec delay before it moves to next state
 			TIMER:	
-				state <= FLASH_ON;
+				state <= FLASH_ON;	// change this so that it moves to FLASH_ON only after timer ran out
 			READY:
 				if (key[2])
 					state <= TIMER;
@@ -41,10 +44,8 @@ module Controller(state, key, clk);
 			RESET:
 				if (key[0])
 					state <= SET_SEC;
-			default:
-				state <= RESET;
 		endcase
-		if (!key[0])
+		if (!key[0])	// Highest priority
 			state <= RESET;
 	end
 	

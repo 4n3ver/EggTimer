@@ -8,7 +8,7 @@ module OnBoard(LEDG, LEDR, HEX3, HEX2, HEX1, HEX0, SW, KEY, CLOCK_50);
 					TIMER		= 3'b010,	// 2
 					FLASH_OFF	= 3'b110,	// 6
 					FLASH_ON	= 3'b101,	// 5
-					SETTING_MIN	= 3'b111;
+					SETTING_MIN	= 3'b111;	// 7
 
 	input [7:0] SW;
 	input [2:0] KEY;
@@ -17,7 +17,8 @@ module OnBoard(LEDG, LEDR, HEX3, HEX2, HEX1, HEX0, SW, KEY, CLOCK_50);
 	output [9:0] LEDR;
 	output [6:0] HEX3, HEX2, HEX1, HEX0;
 	
-	output [6:0] LEDG; // debugging light
+	// debugging light, so we can see what state we are at on the board
+	output [6:0] LEDG;
 	reg [6:0] LEDG;	
 	
 	wire [2:0] wSTATE;
@@ -52,35 +53,41 @@ module OnBoard(LEDG, LEDR, HEX3, HEX2, HEX1, HEX0, SW, KEY, CLOCK_50);
 					LEDG <= 7'b0000001;
 				end
 			TIMER:
-				LEDG <= 7'b0000010;
+				begin
+					LEDG <= 7'b0000010;
+				end
 			READY:
-				LEDG <= 7'b0000100;
+				begin
+					LEDG <= 7'b0000100;
+					LEDR <= 10'b0;
+				end
 			SET_MIN: 
 				begin
-					LEDG <= 7'b0001000;
+					LEDR <= 10'b0;	// why is this flashing by its own?
 					en2 <= 1'b1;
 					en3 <= 1'b1;
-					r2 <= SW[3:0];
-					r3 <= SW[7:4];
+					r2 <= (SW[3:0] <= 4'd9) ? SW[3:0] : 4'd9;
+					r3 <= (SW[7:4] <= 4'd5) ? SW[7:4] : 4'd5;
 				end
 			SETTING_MIN:
 				begin
-					LEDG <= 7'b0010000;
+					LEDR <= 10'b0;	// why is this flashing by its own?
 					en0 <= 1'b0;
 					en1 <= 1'b0;
 				end
 			SET_SEC:
 				begin
-					LEDG <= 7'b0100000;
+					LEDR <= 10'b0;	// why is this flashing by its own?
 					en2 <= 1'b0;
 					en3 <= 1'b0;
-					r0 <= SW[3:0];
-					r1 <= SW[7:4];
+					r0 <= (SW[3:0] <= 4'd9) ? SW[3:0] : 4'd9;
+					r1 <= (SW[7:4] <= 4'd5) ? SW[7:4] : 4'd5;
 				end
 			RESET:
 				begin
-					LEDG <= 7'b1000000;
-					LEDR <= 10'b0;
+					// if LEDR not manually set to 0 on each state,it can somehow
+					// lit up by its own
+					LEDR <= 10'b0;	// why is this flashing by its own?
 					en0 <= 1'b1;
 					en1 <= 1'b1;
 					en2 <= 1'b1;

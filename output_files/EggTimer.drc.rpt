@@ -1,5 +1,5 @@
 Design Assistant report for EggTimer
-Wed Sep 30 22:40:57 2015
+Thu Oct 01 00:31:49 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -37,13 +37,13 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------+
 ; Design Assistant Summary                                                ;
 +-----------------------------------+-------------------------------------+
-; Design Assistant Status           ; Analyzed - Wed Sep 30 22:40:57 2015 ;
+; Design Assistant Status           ; Analyzed - Thu Oct 01 00:31:49 2015 ;
 ; Revision Name                     ; EggTimer                            ;
 ; Top-level Entity Name             ; OnBoard                             ;
 ; Family                            ; Cyclone II                          ;
 ; Total Critical Violations         ; 0                                   ;
-; Total High Violations             ; 19                                  ;
-; - Rule A108                       ; 19                                  ;
+; Total High Violations             ; 17                                  ;
+; - Rule A108                       ; 17                                  ;
 ; Total Medium Violations           ; 0                                   ;
 ; Total Information only Violations ; 50                                  ;
 ; - Rule T102                       ; 50                                  ;
@@ -108,37 +108,33 @@ applicable agreement for further details.
 ; Rule A108: Design should not contain latches - Latch 3  ;               ;
 ;  Latch 3                                                ; r3[1]         ;
 ; Rule A108: Design should not contain latches - Latch 4  ;               ;
-;  Latch 4                                                ; r3[3]         ;
+;  Latch 4                                                ; r2[0]         ;
 ; Rule A108: Design should not contain latches - Latch 5  ;               ;
-;  Latch 5                                                ; r2[0]         ;
+;  Latch 5                                                ; r2[2]         ;
 ; Rule A108: Design should not contain latches - Latch 6  ;               ;
-;  Latch 6                                                ; r2[2]         ;
+;  Latch 6                                                ; r2[1]         ;
 ; Rule A108: Design should not contain latches - Latch 7  ;               ;
-;  Latch 7                                                ; r2[1]         ;
+;  Latch 7                                                ; r2[3]         ;
 ; Rule A108: Design should not contain latches - Latch 8  ;               ;
-;  Latch 8                                                ; r2[3]         ;
+;  Latch 8                                                ; en1           ;
 ; Rule A108: Design should not contain latches - Latch 9  ;               ;
-;  Latch 9                                                ; en1           ;
+;  Latch 9                                                ; r1[0]         ;
 ; Rule A108: Design should not contain latches - Latch 10 ;               ;
-;  Latch 10                                               ; r1[0]         ;
+;  Latch 10                                               ; r1[2]         ;
 ; Rule A108: Design should not contain latches - Latch 11 ;               ;
-;  Latch 11                                               ; r1[2]         ;
+;  Latch 11                                               ; r1[1]         ;
 ; Rule A108: Design should not contain latches - Latch 12 ;               ;
-;  Latch 12                                               ; r1[1]         ;
+;  Latch 12                                               ; r0[0]         ;
 ; Rule A108: Design should not contain latches - Latch 13 ;               ;
-;  Latch 13                                               ; r1[3]         ;
+;  Latch 13                                               ; r0[2]         ;
 ; Rule A108: Design should not contain latches - Latch 14 ;               ;
-;  Latch 14                                               ; r0[0]         ;
+;  Latch 14                                               ; r0[1]         ;
 ; Rule A108: Design should not contain latches - Latch 15 ;               ;
-;  Latch 15                                               ; r0[2]         ;
+;  Latch 15                                               ; r0[3]         ;
 ; Rule A108: Design should not contain latches - Latch 16 ;               ;
-;  Latch 16                                               ; r0[1]         ;
+;  Latch 16                                               ; LEDR[0]$latch ;
 ; Rule A108: Design should not contain latches - Latch 17 ;               ;
-;  Latch 17                                               ; r0[3]         ;
-; Rule A108: Design should not contain latches - Latch 18 ;               ;
-;  Latch 18                                               ; LEDR[0]$latch ;
-; Rule A108: Design should not contain latches - Latch 19 ;               ;
-;  Latch 19                                               ; en3           ;
+;  Latch 17                                               ; en3           ;
 +---------------------------------------------------------+---------------+
 
 
@@ -147,56 +143,56 @@ applicable agreement for further details.
 +----------------------------------------------------------+---------------------------+---------+
 ; Rule name                                                ; Name                      ; Fan-Out ;
 +----------------------------------------------------------+---------------------------+---------+
-; Rule T102: Top nodes with the highest number of fan-outs ; Controller:fsm|state[2]   ; 23      ;
-; Rule T102: Top nodes with the highest number of fan-outs ; Controller:fsm|state[0]   ; 20      ;
-; Rule T102: Top nodes with the highest number of fan-outs ; Controller:fsm|state[1]   ; 18      ;
-; Rule T102: Top nodes with the highest number of fan-outs ; CLOCK_50~clkctrl          ; 17      ;
+; Rule T102: Top nodes with the highest number of fan-outs ; Controller:fsm|state[2]   ; 20      ;
+; Rule T102: Top nodes with the highest number of fan-outs ; Controller:fsm|state[0]   ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs ; Controller:fsm|state[1]   ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs ; CLOCK_50~clkctrl          ; 15      ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; LEDR[0]$latch             ; 11      ;
-; Rule T102: Top nodes with the highest number of fan-outs ; en3                       ; 9       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; en1                       ; 9       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; Mux2~0clkctrl             ; 8       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; Decoder0~5clkctrl         ; 8       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoSec|out[2] ; 7       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiSec|out[3] ; 7       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoMin|out[2] ; 7       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoSec|out[0] ; 7       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiSec|out[2] ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; en3                       ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; en1                       ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; Mux1~0clkctrl             ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoMin|out[1] ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiMin|out[2] ; 7       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiSec|out[1] ; 7       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoSec|out[3] ; 7       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiMin|out[1] ; 7       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiSec|out[0] ; 7       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoMin|out[1] ; 7       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiMin|out[3] ; 7       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoSec|out[1] ; 7       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoMin|out[3] ; 7       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiMin|out[2] ; 7       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiMin|out[0] ; 7       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoMin|out[0] ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoMin|out[2] ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; Mux10~0clkctrl            ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoSec|out[2] ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiMin|out[0] ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:LoSec|out[0] ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiMin|out[1] ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; nBitRegister:HiSec|out[2] ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[3]                     ; 4       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; KEY[0]                    ; 4       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[6]                     ; 3       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; CLOCK_50                  ; 3       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; r2[3]                     ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; r2[1]                     ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; Mux5~0                    ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; r0[0]                     ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; r3[1]                     ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; Mux1~0                    ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; Mux6~0                    ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; Mux0~0                    ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[7]                     ; 3       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; Mux2~0                    ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; r1[2]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; r0[1]                     ; 2       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; r1[1]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; r2[3]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[5]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; r2[0]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; Mux6~0                    ; 2       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; Controller:fsm|state[1]~2 ; 2       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; r0[3]                     ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; r0[1]                     ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; r1[3]                     ; 2       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; r0[2]                     ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; Mux7~0                    ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[1]                     ; 2       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; KEY[1]                    ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; r3[3]                     ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; Mux4~0                    ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; r2[0]                     ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; Mux3~0                    ; 2       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; r2[2]                     ; 2       ;
-; Rule T102: Top nodes with the highest number of fan-outs ; r1[0]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; r0[0]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; Mux3~0                    ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; r2[1]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; Mux7~0                    ; 2       ;
 ; Rule T102: Top nodes with the highest number of fan-outs ; Mux8~0                    ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; r1[0]                     ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; Mux0~1                    ; 2       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; Mux5~1                    ; 2       ;
 +----------------------------------------------------------+---------------------------+---------+
 
 
@@ -206,19 +202,18 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Design Assistant
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Sep 30 22:40:56 2015
+    Info: Processing started: Thu Oct 01 00:31:49 2015
 Info: Command: quartus_drc --read_settings_files=off --write_settings_files=off EggTimer -c EggTimer
-Warning (335093): TimeQuest Timing Analyzer is analyzing 19 combinational loops as latches.
+Warning (335093): TimeQuest Timing Analyzer is analyzing 17 combinational loops as latches.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'EggTimer.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
 Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: Mux23~0  from: datac  to: combout
-    Info (332098): Cell: Mux2~0  from: datad  to: combout
-Critical Warning (308055): (High) Rule A108: Design should not contain latches. Found 19 latch(es) related to this rule.
+    Info (332098): Cell: Mux1~0  from: datab  to: combout
+    Info (332098): Cell: Mux21~0  from: datab  to: combout
+Critical Warning (308055): (High) Rule A108: Design should not contain latches. Found 17 latch(es) related to this rule.
     Critical Warning (308012): Node  "r3[0]"
     Critical Warning (308012): Node  "r3[2]"
     Critical Warning (308012): Node  "r3[1]"
-    Critical Warning (308012): Node  "r3[3]"
     Critical Warning (308012): Node  "r2[0]"
     Critical Warning (308012): Node  "r2[2]"
     Critical Warning (308012): Node  "r2[1]"
@@ -227,7 +222,6 @@ Critical Warning (308055): (High) Rule A108: Design should not contain latches. 
     Critical Warning (308012): Node  "r1[0]"
     Critical Warning (308012): Node  "r1[2]"
     Critical Warning (308012): Node  "r1[1]"
-    Critical Warning (308012): Node  "r1[3]"
     Critical Warning (308012): Node  "r0[0]"
     Critical Warning (308012): Node  "r0[2]"
     Critical Warning (308012): Node  "r0[1]"
@@ -242,35 +236,35 @@ Info (308044): (Information) Rule T102: Top nodes with the highest number of fan
     Info (308011): Node  "LEDR[0]$latch"
     Info (308011): Node  "en3"
     Info (308011): Node  "en1"
-    Info (308011): Node  "Mux2~0clkctrl"
-    Info (308011): Node  "Decoder0~5clkctrl"
-    Info (308011): Node  "nBitRegister:LoSec|out[2]"
-    Info (308011): Node  "nBitRegister:HiSec|out[3]"
-    Info (308011): Node  "nBitRegister:LoMin|out[2]"
-    Info (308011): Node  "nBitRegister:LoSec|out[0]"
-    Info (308011): Node  "nBitRegister:HiSec|out[2]"
+    Info (308011): Node  "Mux1~0clkctrl"
+    Info (308011): Node  "nBitRegister:LoMin|out[1]"
+    Info (308011): Node  "nBitRegister:HiMin|out[2]"
     Info (308011): Node  "nBitRegister:HiSec|out[1]"
     Info (308011): Node  "nBitRegister:LoSec|out[3]"
-    Info (308011): Node  "nBitRegister:HiMin|out[1]"
     Info (308011): Node  "nBitRegister:HiSec|out[0]"
-    Info (308011): Node  "nBitRegister:LoMin|out[1]"
-    Info (308011): Node  "nBitRegister:HiMin|out[3]"
     Info (308011): Node  "nBitRegister:LoSec|out[1]"
     Info (308011): Node  "nBitRegister:LoMin|out[3]"
-    Info (308011): Node  "nBitRegister:HiMin|out[2]"
-    Info (308011): Node  "nBitRegister:HiMin|out[0]"
     Info (308011): Node  "nBitRegister:LoMin|out[0]"
+    Info (308011): Node  "nBitRegister:LoMin|out[2]"
+    Info (308011): Node  "Mux10~0clkctrl"
+    Info (308011): Node  "nBitRegister:LoSec|out[2]"
+    Info (308011): Node  "nBitRegister:HiMin|out[0]"
+    Info (308011): Node  "nBitRegister:LoSec|out[0]"
+    Info (308011): Node  "nBitRegister:HiMin|out[1]"
+    Info (308011): Node  "nBitRegister:HiSec|out[2]"
+    Info (308011): Node  "SW[3]"
     Info (308011): Node  "KEY[0]"
+    Info (308011): Node  "SW[6]"
     Info (308011): Node  "CLOCK_50"
-    Info (308011): Node  "r2[3]"
-    Info (308011): Node  "r2[1]"
-    Info (308011): Node  "Mux5~0"
+    Info (308011): Node  "SW[7]"
+    Info (308011): Node  "Mux2~0"
+    Info (308011): Node  "r1[2]"
     Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
-Info (308007): Design Assistant information: finished post-fitting analysis of current design -- generated 50 information messages and 19 warning messages
-Info: Quartus II 64-Bit Design Assistant was successful. 0 errors, 22 warnings
+Info (308007): Design Assistant information: finished post-fitting analysis of current design -- generated 50 information messages and 17 warning messages
+Info: Quartus II 64-Bit Design Assistant was successful. 0 errors, 20 warnings
     Info: Peak virtual memory: 420 megabytes
-    Info: Processing ended: Wed Sep 30 22:40:57 2015
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Thu Oct 01 00:31:49 2015
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 
 

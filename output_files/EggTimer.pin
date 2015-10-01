@@ -358,8 +358,8 @@ GND+                         : M1        :        :                   :         
 SW[7]                        : M2        : input  : 3.3-V LVTTL       :         : 1         : Y              
 VCCIO1                       : M3        : power  :                   : 3.3V    : 1         :                
 GND                          : M4        : gnd    :                   :         :           :                
-RESERVED_INPUT               : M5        :        :                   :         : 1         :                
-state[0]                     : M6        : output : 3.3-V LVTTL       :         : 1         : N              
+state[1]                     : M5        : output : 3.3-V LVTTL       :         : 1         : N              
+RESERVED_INPUT               : M6        :        :                   :         : 1         :                
 NC                           : M7        :        :                   :         :           :                
 NC                           : M8        :        :                   :         :           :                
 VCCINT                       : M9        : power  :                   : 1.2V    :           :                
@@ -376,8 +376,8 @@ RESERVED_INPUT               : M19       :        :                   :         
 VCCIO6                       : M20       : power  :                   : 3.3V    : 6         :                
 GND+                         : M21       :        :                   :         : 6         :                
 SW[2]                        : M22       : input  : 3.3-V LVTTL       :         : 6         : Y              
-state[1]                     : N1        : output : 3.3-V LVTTL       :         : 1         : N              
-RESERVED_INPUT               : N2        :        :                   :         : 1         :                
+RESERVED_INPUT               : N1        :        :                   :         : 1         :                
+state[0]                     : N2        : output : 3.3-V LVTTL       :         : 1         : N              
 RESERVED_INPUT               : N3        :        :                   :         : 1         :                
 RESERVED_INPUT               : N4        :        :                   :         : 1         :                
 NC                           : N5        :        :                   :         :           :                

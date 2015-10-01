@@ -13,8 +13,8 @@ module dec2_7seg(display, num);
 			num	== 5 ? 7'b0010010 :
 			num	== 6 ? 7'b0000010 :
 			num	== 7 ? 7'b1111000 :
-			num	== 7 ? 7'b0000000 :
+			num	== 8 ? 7'b0000000 :
 			num	== 9 ? 7'b0010000 :
-			7'b0111111;			//	Output	is	a	don't	care	if	illegal	input
+			7'b0010000;			//	Output	is	a	don't	care	if	illegal	input
 			
 endmodule

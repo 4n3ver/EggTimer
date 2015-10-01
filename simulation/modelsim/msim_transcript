@@ -56,6 +56,6 @@
 # 
 # [TEST] KEY[1] PRESSED!
 # 
-# Break in Module OnBoardTester at E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v line 51
-# Simulation Breakpoint: Break in Module OnBoardTester at E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v line 51
+# Break in Module OnBoardTester at E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v line 57
+# Simulation Breakpoint: Break in Module OnBoardTester at E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v line 57
 # MACRO ./EggTimer_run_msim_rtl_verilog.do PAUSED at line 19

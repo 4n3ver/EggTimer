@@ -23,7 +23,7 @@ module Controller(state, key, clk);
 			FLASH_OFF:
 				state <= FLASH_ON;
 			FLASH_ON:
-				state <= FLASH_ON;
+				state <= FLASH_OFF;
 			TIMER:	
 				state <= FLASH_ON;
 			READY:

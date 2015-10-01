@@ -1,5 +1,5 @@
 Fitter report for EggTimer
-Wed Sep 30 16:46:19 2015
+Wed Sep 30 20:59:07 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -65,7 +65,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Wed Sep 30 16:46:19 2015           ;
+; Fitter Status                      ; Successful - Wed Sep 30 20:59:07 2015           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; EggTimer                                        ;
 ; Top-level Entity Name              ; OnBoard                                         ;
@@ -437,8 +437,8 @@ The pin-out file can be found in E:/Dropbox/Documents/University/CS 3220/Assignm
 ;     -- Combinational with a register        ; 3                     ;
 ;                                             ;                       ;
 ; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 18                    ;
-;     -- 3 input functions                    ; 38                    ;
+;     -- 4 input functions                    ; 19                    ;
+;     -- 3 input functions                    ; 37                    ;
 ;     -- <=2 input functions                  ; 12                    ;
 ;     -- Register only                        ; 0                     ;
 ;                                             ;                       ;
@@ -469,8 +469,8 @@ The pin-out file can be found in E:/Dropbox/Documents/University/CS 3220/Assignm
 ; Peak interconnect usage (total/H/V)         ; 1% / 0% / 1%          ;
 ; Maximum fan-out                             ; 21                    ;
 ; Highest non-global fan-out                  ; 21                    ;
-; Total fan-out                               ; 259                   ;
-; Average fan-out                             ; 2.01                  ;
+; Total fan-out                               ; 260                   ;
+; Average fan-out                             ; 2.02                  ;
 +---------------------------------------------+-----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -489,8 +489,8 @@ The pin-out file can be found in E:/Dropbox/Documents/University/CS 3220/Assignm
 ;     -- Combinational with a register        ; 3                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
-;     -- 4 input functions                    ; 18                   ; 0                              ;
-;     -- 3 input functions                    ; 38                   ; 0                              ;
+;     -- 4 input functions                    ; 19                   ; 0                              ;
+;     -- 3 input functions                    ; 37                   ; 0                              ;
 ;     -- <=2 input functions                  ; 12                   ; 0                              ;
 ;     -- Register only                        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
@@ -517,7 +517,7 @@ The pin-out file can be found in E:/Dropbox/Documents/University/CS 3220/Assignm
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 259                  ; 0                              ;
+;     -- Total Connections                    ; 260                  ; 0                              ;
 ;     -- Registered Connections               ; 41                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
@@ -551,17 +551,17 @@ The pin-out file can be found in E:/Dropbox/Documents/University/CS 3220/Assignm
 ; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; CLOCK_50 ; L1    ; 2        ; 0            ; 13           ; 0           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; KEY[0]   ; R22   ; 6        ; 50           ; 10           ; 1           ; 5                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; KEY[0]   ; R22   ; 6        ; 50           ; 10           ; 1           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; KEY[1]   ; R21   ; 6        ; 50           ; 10           ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; KEY[2]   ; T22   ; 6        ; 50           ; 9            ; 0           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SW[0]    ; L22   ; 5        ; 50           ; 14           ; 0           ; 7                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; SW[1]    ; L21   ; 5        ; 50           ; 14           ; 1           ; 7                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SW[1]    ; L21   ; 5        ; 50           ; 14           ; 1           ; 8                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SW[2]    ; M22   ; 6        ; 50           ; 14           ; 2           ; 7                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; SW[3]    ; V12   ; 7        ; 26           ; 0            ; 0           ; 8                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SW[3]    ; V12   ; 7        ; 26           ; 0            ; 0           ; 7                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SW[4]    ; W12   ; 7        ; 26           ; 0            ; 1           ; 7                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; SW[5]    ; U12   ; 8        ; 26           ; 0            ; 2           ; 7                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SW[5]    ; U12   ; 8        ; 26           ; 0            ; 2           ; 8                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; SW[6]    ; U11   ; 8        ; 26           ; 0            ; 3           ; 7                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; SW[7]    ; M2    ; 1        ; 0            ; 13           ; 3           ; 8                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; SW[7]    ; M2    ; 1        ; 0            ; 13           ; 3           ; 7                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 +----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
@@ -608,8 +608,8 @@ The pin-out file can be found in E:/Dropbox/Documents/University/CS 3220/Assignm
 ; LEDR[7]  ; U18   ; 6        ; 50           ; 3            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; LEDR[8]  ; R18   ; 6        ; 50           ; 8            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; LEDR[9]  ; R17   ; 6        ; 50           ; 5            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; state[0] ; M6    ; 1        ; 0            ; 12           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; state[1] ; N1    ; 1        ; 0            ; 12           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; state[0] ; N2    ; 1        ; 0            ; 12           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; state[1] ; M5    ; 1        ; 0            ; 12           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
 ; state[2] ; H3    ; 2        ; 0            ; 19           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
 +----------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
@@ -925,8 +925,8 @@ The pin-out file can be found in E:/Dropbox/Documents/University/CS 3220/Assignm
 ; M2       ; 42         ; 1        ; SW[7]                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; M3       ;            ; 1        ; VCCIO1                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; M4       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; M5       ; 43         ; 1        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; M6       ; 44         ; 1        ; state[0]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; M5       ; 43         ; 1        ; state[1]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; M6       ; 44         ; 1        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; M7       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; M8       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; M9       ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -943,8 +943,8 @@ The pin-out file can be found in E:/Dropbox/Documents/University/CS 3220/Assignm
 ; M20      ;            ; 6        ; VCCIO6                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; M21      ; 203        ; 6        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; M22      ; 204        ; 6        ; SW[2]                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; N1       ; 45         ; 1        ; state[1]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; N2       ; 46         ; 1        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; N1       ; 45         ; 1        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; N2       ; 46         ; 1        ; state[0]                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; N3       ; 51         ; 1        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N4       ; 52         ; 1        ; RESERVED_INPUT                           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N5       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
@@ -1165,10 +1165,10 @@ Note: User assignments will override these defaults. The user specified values a
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+--------------------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name      ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+--------------------------+--------------+
-; |OnBoard                   ; 68 (44)     ; 3 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 53   ; 0            ; 65 (44)      ; 0 (0)             ; 3 (0)            ; |OnBoard                 ; work         ;
+; |OnBoard                   ; 68 (50)     ; 3 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 53   ; 0            ; 65 (50)      ; 0 (0)             ; 3 (0)            ; |OnBoard                 ; work         ;
 ;    |Controller:fsm|        ; 8 (8)       ; 3 (3)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 3 (3)            ; |OnBoard|Controller:fsm  ; work         ;
-;    |dec2_7seg:disp2|       ; 8 (8)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; |OnBoard|dec2_7seg:disp2 ; work         ;
-;    |dec2_7seg:disp3|       ; 8 (8)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; |OnBoard|dec2_7seg:disp3 ; work         ;
+;    |dec2_7seg:disp2|       ; 5 (5)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 0 (0)            ; |OnBoard|dec2_7seg:disp2 ; work         ;
+;    |dec2_7seg:disp3|       ; 5 (5)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 0 (0)            ; |OnBoard|dec2_7seg:disp3 ; work         ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+--------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1223,14 +1223,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; KEY[1]   ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
 ; KEY[2]   ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
 ; CLOCK_50 ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; SW[6]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; SW[7]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
 ; SW[4]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
+; SW[6]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
 ; SW[5]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; SW[2]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; SW[3]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
+; SW[7]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
 ; SW[0]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
+; SW[2]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
 ; SW[1]    ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
+; SW[3]    ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
 +----------+----------+---------------+---------------+-----------------------+-----+
 
 
@@ -1240,25 +1240,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Source Pin / Fanout              ; Pad To Core Index ; Setting ;
 +----------------------------------+-------------------+---------+
 ; KEY[0]                           ;                   ;         ;
-;      - Controller:fsm|state[0]~0 ; 0                 ; 6       ;
+;      - Controller:fsm|state[0]~1 ; 0                 ; 6       ;
 ;      - Controller:fsm|state[0]~3 ; 0                 ; 6       ;
-;      - Controller:fsm|state[1]~4 ; 0                 ; 6       ;
 ;      - Controller:fsm|state[1]~5 ; 0                 ; 6       ;
 ;      - Controller:fsm|Mux0~1     ; 0                 ; 6       ;
 ; KEY[1]                           ;                   ;         ;
-;      - Controller:fsm|state[0]~1 ; 0                 ; 6       ;
+;      - Controller:fsm|state[0]~0 ; 0                 ; 6       ;
 ;      - Controller:fsm|Mux0~0     ; 0                 ; 6       ;
 ; KEY[2]                           ;                   ;         ;
-;      - Controller:fsm|state[0]~1 ; 0                 ; 6       ;
+;      - Controller:fsm|state[0]~0 ; 0                 ; 6       ;
 ; CLOCK_50                         ;                   ;         ;
-; SW[6]                            ;                   ;         ;
-; SW[7]                            ;                   ;         ;
 ; SW[4]                            ;                   ;         ;
+; SW[6]                            ;                   ;         ;
 ; SW[5]                            ;                   ;         ;
-; SW[2]                            ;                   ;         ;
-; SW[3]                            ;                   ;         ;
+; SW[7]                            ;                   ;         ;
 ; SW[0]                            ;                   ;         ;
+; SW[2]                            ;                   ;         ;
 ; SW[1]                            ;                   ;         ;
+; SW[3]                            ;                   ;         ;
 +----------------------------------+-------------------+---------+
 
 
@@ -1268,9 +1267,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name     ; Location          ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 ; CLOCK_50 ; PIN_L1            ; 3       ; Clock        ; no     ; --                   ; --               ; --                        ;
-; Mux22~0  ; LCCOMB_X1_Y13_N0  ; 14      ; Latch enable ; yes    ; Global Clock         ; GCLK3            ; --                        ;
-; Mux31~0  ; LCCOMB_X1_Y18_N6  ; 1       ; Latch enable ; no     ; --                   ; --               ; --                        ;
-; Mux7~0   ; LCCOMB_X1_Y18_N22 ; 14      ; Latch enable ; yes    ; Global Clock         ; GCLK2            ; --                        ;
+; Mux22~0  ; LCCOMB_X1_Y19_N10 ; 14      ; Latch enable ; yes    ; Global Clock         ; GCLK1            ; --                        ;
+; Mux31~0  ; LCCOMB_X1_Y19_N4  ; 1       ; Latch enable ; no     ; --                   ; --               ; --                        ;
+; Mux7~0   ; LCCOMB_X1_Y19_N0  ; 14      ; Latch enable ; yes    ; Global Clock         ; GCLK3            ; --                        ;
 +----------+-------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1279,8 +1278,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------+-------------------+---------+----------------------+------------------+---------------------------+
 ; Name    ; Location          ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +---------+-------------------+---------+----------------------+------------------+---------------------------+
-; Mux22~0 ; LCCOMB_X1_Y13_N0  ; 14      ; Global Clock         ; GCLK3            ; --                        ;
-; Mux7~0  ; LCCOMB_X1_Y18_N22 ; 14      ; Global Clock         ; GCLK2            ; --                        ;
+; Mux22~0 ; LCCOMB_X1_Y19_N10 ; 14      ; Global Clock         ; GCLK1            ; --                        ;
+; Mux7~0  ; LCCOMB_X1_Y19_N0  ; 14      ; Global Clock         ; GCLK3            ; --                        ;
 +---------+-------------------+---------+----------------------+------------------+---------------------------+
 
 
@@ -1293,15 +1292,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LEDR[0]$latch                ; 11      ;
 ; Controller:fsm|state[1]      ; 10      ;
 ; Controller:fsm|state[0]      ; 10      ;
-; SW[3]                        ; 8       ;
-; SW[7]                        ; 8       ;
-; SW[1]                        ; 7       ;
-; SW[0]                        ; 7       ;
+; SW[1]                        ; 8       ;
+; SW[5]                        ; 8       ;
+; SW[3]                        ; 7       ;
 ; SW[2]                        ; 7       ;
-; SW[5]                        ; 7       ;
-; SW[4]                        ; 7       ;
+; SW[0]                        ; 7       ;
+; SW[7]                        ; 7       ;
 ; SW[6]                        ; 7       ;
-; KEY[0]                       ; 5       ;
+; SW[4]                        ; 7       ;
+; KEY[0]                       ; 4       ;
 ; CLOCK_50                     ; 3       ;
 ; KEY[1]                       ; 2       ;
 ; HEX0[6]$latch                ; 2       ;
@@ -1332,61 +1331,61 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; HEX3[2]$latch                ; 2       ;
 ; HEX3[1]$latch                ; 2       ;
 ; HEX3[0]$latch                ; 2       ;
-; Mux13~3                      ; 2       ;
-; dec2_7seg:disp2|display[0]~9 ; 2       ;
-; Mux5~3                       ; 2       ;
-; dec2_7seg:disp3|display[0]~9 ; 2       ;
-; Mux14~1                      ; 2       ;
-; dec2_7seg:disp2|display[4]~8 ; 2       ;
-; dec2_7seg:disp2|display[3]~6 ; 2       ;
-; dec2_7seg:disp2|display[2]~4 ; 2       ;
-; Mux9~1                       ; 2       ;
-; Mux6~1                       ; 2       ;
-; dec2_7seg:disp3|display[4]~8 ; 2       ;
-; dec2_7seg:disp3|display[3]~6 ; 2       ;
-; dec2_7seg:disp3|display[2]~4 ; 2       ;
-; Mux1~1                       ; 2       ;
-; Controller:fsm|state[0]~2    ; 2       ;
+; Mux14~0                      ; 2       ;
+; Mux13~2                      ; 2       ;
+; Mux12~1                      ; 2       ;
+; dec2_7seg:disp2|display[3]~3 ; 2       ;
+; Mux10~1                      ; 2       ;
+; Mux10~0                      ; 2       ;
+; dec2_7seg:disp2|display[1]~1 ; 2       ;
+; Mux8~1                       ; 2       ;
+; Mux6~0                       ; 2       ;
+; Mux5~2                       ; 2       ;
+; Mux4~1                       ; 2       ;
+; dec2_7seg:disp3|display[3]~3 ; 2       ;
+; Mux2~1                       ; 2       ;
+; Mux2~0                       ; 2       ;
+; dec2_7seg:disp3|display[1]~1 ; 2       ;
+; Mux0~1                       ; 2       ;
+; Controller:fsm|state[0]~1    ; 2       ;
 ; KEY[2]                       ; 1       ;
-; Mux13~2                      ; 1       ;
-; dec2_7seg:disp2|display[0]~2 ; 1       ;
-; Mux5~2                       ; 1       ;
-; dec2_7seg:disp3|display[0]~2 ; 1       ;
-; Mux14~0                      ; 1       ;
-; dec2_7seg:disp2|display[4]~7 ; 1       ;
-; dec2_7seg:disp2|display[3]~5 ; 1       ;
-; dec2_7seg:disp2|display[2]~3 ; 1       ;
-; Mux9~0                       ; 1       ;
-; Mux6~0                       ; 1       ;
-; dec2_7seg:disp3|display[4]~7 ; 1       ;
-; dec2_7seg:disp3|display[3]~5 ; 1       ;
-; dec2_7seg:disp3|display[2]~3 ; 1       ;
-; Mux1~0                       ; 1       ;
+; Mux13~3                      ; 1       ;
+; Mux5~3                       ; 1       ;
+; dec2_7seg:disp2|display[6]~4 ; 1       ;
+; Mux12~0                      ; 1       ;
+; dec2_7seg:disp2|display[3]~2 ; 1       ;
+; dec2_7seg:disp2|display[1]~0 ; 1       ;
+; Mux8~0                       ; 1       ;
+; dec2_7seg:disp3|display[6]~4 ; 1       ;
+; Mux4~0                       ; 1       ;
+; dec2_7seg:disp3|display[3]~2 ; 1       ;
+; dec2_7seg:disp3|display[1]~0 ; 1       ;
+; Mux0~0                       ; 1       ;
 ; Mux31~0                      ; 1       ;
 ; Controller:fsm|Mux0~1        ; 1       ;
 ; Controller:fsm|Mux0~0        ; 1       ;
 ; Controller:fsm|state[1]~5    ; 1       ;
 ; Controller:fsm|state[1]~4    ; 1       ;
 ; Controller:fsm|state[0]~3    ; 1       ;
-; Controller:fsm|state[0]~1    ; 1       ;
+; Controller:fsm|state[0]~2    ; 1       ;
 ; Controller:fsm|state[0]~0    ; 1       ;
 +------------------------------+---------+
 
 
-+------------------------------------------------------+
-; Other Routing Usage Summary                          ;
-+-----------------------------+------------------------+
-; Other Routing Resource Type ; Usage                  ;
-+-----------------------------+------------------------+
-; Block interconnects         ; 104 / 54,004 ( < 1 % ) ;
-; C16 interconnects           ; 9 / 2,100 ( < 1 % )    ;
-; C4 interconnects            ; 66 / 36,000 ( < 1 % )  ;
-; Direct links                ; 17 / 54,004 ( < 1 % )  ;
-; Global clocks               ; 2 / 16 ( 13 % )        ;
-; Local interconnects         ; 51 / 18,752 ( < 1 % )  ;
-; R24 interconnects           ; 19 / 1,900 ( 1 % )     ;
-; R4 interconnects            ; 61 / 46,920 ( < 1 % )  ;
-+-----------------------------+------------------------+
++-----------------------------------------------------+
+; Other Routing Usage Summary                         ;
++-----------------------------+-----------------------+
+; Other Routing Resource Type ; Usage                 ;
++-----------------------------+-----------------------+
+; Block interconnects         ; 97 / 54,004 ( < 1 % ) ;
+; C16 interconnects           ; 17 / 2,100 ( < 1 % )  ;
+; C4 interconnects            ; 54 / 36,000 ( < 1 % ) ;
+; Direct links                ; 18 / 54,004 ( < 1 % ) ;
+; Global clocks               ; 2 / 16 ( 13 % )       ;
+; Local interconnects         ; 54 / 18,752 ( < 1 % ) ;
+; R24 interconnects           ; 24 / 1,900 ( 1 % )    ;
+; R4 interconnects            ; 49 / 46,920 ( < 1 % ) ;
++-----------------------------+-----------------------+
 
 
 +---------------------------------------------------------------------------+
@@ -1452,45 +1451,43 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                       ;
 +-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 8.67) ; Number of LABs  (Total = 6) ;
+; Number of Signals Sourced Out  (Average = 7.67) ; Number of LABs  (Total = 6) ;
 +-------------------------------------------------+-----------------------------+
 ; 0                                               ; 0                           ;
 ; 1                                               ; 1                           ;
-; 2                                               ; 0                           ;
-; 3                                               ; 1                           ;
+; 2                                               ; 1                           ;
+; 3                                               ; 0                           ;
 ; 4                                               ; 0                           ;
 ; 5                                               ; 0                           ;
 ; 6                                               ; 0                           ;
 ; 7                                               ; 0                           ;
 ; 8                                               ; 0                           ;
 ; 9                                               ; 0                           ;
-; 10                                              ; 0                           ;
-; 11                                              ; 2                           ;
-; 12                                              ; 1                           ;
-; 13                                              ; 0                           ;
-; 14                                              ; 1                           ;
+; 10                                              ; 1                           ;
+; 11                                              ; 3                           ;
 +-------------------------------------------------+-----------------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 9.17) ; Number of LABs  (Total = 6) ;
+; Number of Distinct Inputs  (Average = 7.83) ; Number of LABs  (Total = 6) ;
 +---------------------------------------------+-----------------------------+
 ; 0                                           ; 0                           ;
 ; 1                                           ; 0                           ;
 ; 2                                           ; 1                           ;
 ; 3                                           ; 0                           ;
-; 4                                           ; 1                           ;
+; 4                                           ; 0                           ;
 ; 5                                           ; 0                           ;
-; 6                                           ; 0                           ;
-; 7                                           ; 0                           ;
-; 8                                           ; 0                           ;
+; 6                                           ; 1                           ;
+; 7                                           ; 1                           ;
+; 8                                           ; 1                           ;
 ; 9                                           ; 0                           ;
-; 10                                          ; 0                           ;
-; 11                                          ; 1                           ;
-; 12                                          ; 1                           ;
-; 13                                          ; 2                           ;
+; 10                                          ; 1                           ;
+; 11                                          ; 0                           ;
+; 12                                          ; 0                           ;
+; 13                                          ; 0                           ;
+; 14                                          ; 1                           ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -1528,7 +1525,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+-------------------------+-------------------+
 ; Source Clock(s) ; Destination Clock(s)    ; Delay Added in ns ;
 +-----------------+-------------------------+-------------------+
-; CLOCK_50        ; Controller:fsm|state[0] ; 5.3               ;
+; CLOCK_50        ; Controller:fsm|state[0] ; 4.8               ;
 +-----------------+-------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using either the TimeQuest Timing Analyzer or the Classic Timing Analyzer.
@@ -1539,9 +1536,9 @@ This will disable optimization of problematic paths and expose them for further 
 +-------------------------+----------------------+-------------------+
 ; Source Register         ; Destination Register ; Delay Added in ns ;
 +-------------------------+----------------------+-------------------+
-; Controller:fsm|state[0] ; LEDR[0]$latch        ; 2.578             ;
-; Controller:fsm|state[1] ; LEDR[0]$latch        ; 2.394             ;
-; Controller:fsm|state[2] ; LEDR[0]$latch        ; 2.393             ;
+; Controller:fsm|state[0] ; LEDR[0]$latch        ; 2.380             ;
+; Controller:fsm|state[2] ; LEDR[0]$latch        ; 2.379             ;
+; Controller:fsm|state[1] ; LEDR[0]$latch        ; 2.379             ;
 +-------------------------+----------------------+-------------------+
 Note: This table only shows the top 3 path(s) that have the largest delay added for hold.
 
@@ -1890,9 +1887,9 @@ Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments 
 Info (144001): Generated suppressed messages file E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/output_files/EggTimer.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 240 warnings
     Info: Peak virtual memory: 722 megabytes
-    Info: Processing ended: Wed Sep 30 16:46:19 2015
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Processing ended: Wed Sep 30 20:59:07 2015
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:06
 
 
 +----------------------------+

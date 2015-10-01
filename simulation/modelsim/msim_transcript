@@ -11,24 +11,12 @@
 # ** Warning: Copied D:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/Controller.v}
+# vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/nBitRegister.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Controller
+# -- Compiling module nBitRegister
 # 
 # Top level modules:
-# 	Controller
-# vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/dec2_7seg.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module dec2_7seg
-# 
-# Top level modules:
-# 	dec2_7seg
-# vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module OnBoard
-# 
-# Top level modules:
-# 	OnBoard
+# 	nBitRegister
 # 
 # vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -40,22 +28,20 @@
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs="+acc"  OnBoardTester
 # vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps OnBoardTester 
 # Loading work.OnBoardTester
-# Loading work.OnBoard
-# Loading work.Controller
-# Loading work.dec2_7seg
+# ** Error: (vsim-3033) E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v(15): Instantiation of 'OnBoard' failed. The design unit was not found.
 # 
-# add wave *
-# view structure
-# .main_pane.structure.interior.cs.body.struct
-# view signals
-# .main_pane.objects.interior.cs.body.tree
-# run -all
-# [TEST] RESET PRESSED!
-# 
-# [TEST] KEY[1] PRESSED!
-# 
-# [TEST] KEY[1] PRESSED!
-# 
-# Break in Module OnBoardTester at E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v line 57
-# Simulation Breakpoint: Break in Module OnBoardTester at E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v line 57
-# MACRO ./EggTimer_run_msim_rtl_verilog.do PAUSED at line 19
+#         Region: /OnBoardTester
+#         Searched libraries:
+#             D:/altera/13.0sp1/modelsim_ase/altera/verilog/altera
+#             D:/altera/13.0sp1/modelsim_ase/altera/verilog/220model
+#             D:/altera/13.0sp1/modelsim_ase/altera/verilog/sgate
+#             D:/altera/13.0sp1/modelsim_ase/altera/verilog/altera_mf
+#             D:/altera/13.0sp1/modelsim_ase/altera/verilog/altera_lnsim
+#             D:/altera/13.0sp1/modelsim_ase/altera/verilog/cycloneii
+#             E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/simulation/modelsim/rtl_work
+#             E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/simulation/modelsim/rtl_work
+#             E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/simulation/modelsim/rtl_work
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO ./EggTimer_run_msim_rtl_verilog.do PAUSED at line 12

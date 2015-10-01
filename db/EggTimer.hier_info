@@ -1,7 +1,11 @@
 |OnBoard
-state[0] <= Controller:fsm.port0
-state[1] <= Controller:fsm.port0
-state[2] <= Controller:fsm.port0
+LEDG[0] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[1] <= Decoder1.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[5] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[6] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 LEDR[0] <= LEDR[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
 LEDR[1] <= LEDR[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
 LEDR[2] <= LEDR[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
@@ -12,46 +16,54 @@ LEDR[6] <= LEDR[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
 LEDR[7] <= LEDR[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
 LEDR[8] <= LEDR[8]$latch.DB_MAX_OUTPUT_PORT_TYPE
 LEDR[9] <= LEDR[9]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX3[0] <= HEX3[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX3[1] <= HEX3[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX3[2] <= HEX3[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX3[3] <= HEX3[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX3[4] <= HEX3[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX3[5] <= HEX3[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX3[6] <= HEX3[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX2[0] <= HEX2[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX2[1] <= HEX2[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX2[2] <= HEX2[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX2[3] <= HEX2[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX2[4] <= HEX2[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX2[5] <= HEX2[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX2[6] <= HEX2[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[0] <= HEX1[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[1] <= HEX1[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[2] <= HEX1[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[3] <= HEX1[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[4] <= HEX1[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[5] <= HEX1[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[6] <= HEX1[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[0] <= HEX0[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[1] <= HEX0[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[2] <= HEX0[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[3] <= HEX0[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[4] <= HEX0[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[5] <= HEX0[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[6] <= HEX0[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-SW[0] => SW[0].IN2
-SW[1] => SW[1].IN2
-SW[2] => SW[2].IN2
-SW[3] => SW[3].IN2
-SW[4] => SW[4].IN2
-SW[5] => SW[5].IN2
-SW[6] => SW[6].IN2
-SW[7] => SW[7].IN2
+HEX3[0] <= dec2_7seg:disp3.port0
+HEX3[1] <= dec2_7seg:disp3.port0
+HEX3[2] <= dec2_7seg:disp3.port0
+HEX3[3] <= dec2_7seg:disp3.port0
+HEX3[4] <= dec2_7seg:disp3.port0
+HEX3[5] <= dec2_7seg:disp3.port0
+HEX3[6] <= dec2_7seg:disp3.port0
+HEX2[0] <= dec2_7seg:disp2.port0
+HEX2[1] <= dec2_7seg:disp2.port0
+HEX2[2] <= dec2_7seg:disp2.port0
+HEX2[3] <= dec2_7seg:disp2.port0
+HEX2[4] <= dec2_7seg:disp2.port0
+HEX2[5] <= dec2_7seg:disp2.port0
+HEX2[6] <= dec2_7seg:disp2.port0
+HEX1[0] <= dec2_7seg:disp1.port0
+HEX1[1] <= dec2_7seg:disp1.port0
+HEX1[2] <= dec2_7seg:disp1.port0
+HEX1[3] <= dec2_7seg:disp1.port0
+HEX1[4] <= dec2_7seg:disp1.port0
+HEX1[5] <= dec2_7seg:disp1.port0
+HEX1[6] <= dec2_7seg:disp1.port0
+HEX0[0] <= dec2_7seg:disp0.port0
+HEX0[1] <= dec2_7seg:disp0.port0
+HEX0[2] <= dec2_7seg:disp0.port0
+HEX0[3] <= dec2_7seg:disp0.port0
+HEX0[4] <= dec2_7seg:disp0.port0
+HEX0[5] <= dec2_7seg:disp0.port0
+HEX0[6] <= dec2_7seg:disp0.port0
+SW[0] => Mux5.IN7
+SW[0] => Mux14.IN7
+SW[1] => Mux6.IN7
+SW[1] => Mux15.IN7
+SW[2] => Mux7.IN7
+SW[2] => Mux16.IN7
+SW[3] => Mux8.IN7
+SW[3] => Mux17.IN7
+SW[4] => Mux0.IN7
+SW[4] => Mux9.IN7
+SW[5] => Mux1.IN7
+SW[5] => Mux11.IN7
+SW[6] => Mux3.IN7
+SW[6] => Mux12.IN7
+SW[7] => Mux4.IN7
+SW[7] => Mux13.IN7
 KEY[0] => KEY[0].IN1
 KEY[1] => KEY[1].IN1
 KEY[2] => KEY[2].IN1
-CLOCK_50 => CLOCK_50.IN1
+CLOCK_50 => CLOCK_50.IN5
 
 
 |OnBoard|Controller:fsm
@@ -77,6 +89,82 @@ key[2] => state.OUTPUTSELECT
 clk => state[0]~reg0.CLK
 clk => state[1]~reg0.CLK
 clk => state[2]~reg0.CLK
+
+
+|OnBoard|nBitRegister:LoSec
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => out[0]~reg0.DATAIN
+in[1] => out[1]~reg0.DATAIN
+in[2] => out[2]~reg0.DATAIN
+in[3] => out[3]~reg0.DATAIN
+wr_en => out[0]~reg0.ENA
+wr_en => out[1]~reg0.ENA
+wr_en => out[2]~reg0.ENA
+wr_en => out[3]~reg0.ENA
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+
+
+|OnBoard|nBitRegister:HiSec
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => out[0]~reg0.DATAIN
+in[1] => out[1]~reg0.DATAIN
+in[2] => out[2]~reg0.DATAIN
+in[3] => out[3]~reg0.DATAIN
+wr_en => out[0]~reg0.ENA
+wr_en => out[1]~reg0.ENA
+wr_en => out[2]~reg0.ENA
+wr_en => out[3]~reg0.ENA
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+
+
+|OnBoard|nBitRegister:LoMin
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => out[0]~reg0.DATAIN
+in[1] => out[1]~reg0.DATAIN
+in[2] => out[2]~reg0.DATAIN
+in[3] => out[3]~reg0.DATAIN
+wr_en => out[0]~reg0.ENA
+wr_en => out[1]~reg0.ENA
+wr_en => out[2]~reg0.ENA
+wr_en => out[3]~reg0.ENA
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+
+
+|OnBoard|nBitRegister:HiMin
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => out[0]~reg0.DATAIN
+in[1] => out[1]~reg0.DATAIN
+in[2] => out[2]~reg0.DATAIN
+in[3] => out[3]~reg0.DATAIN
+wr_en => out[0]~reg0.ENA
+wr_en => out[1]~reg0.ENA
+wr_en => out[2]~reg0.ENA
+wr_en => out[3]~reg0.ENA
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
 
 
 |OnBoard|dec2_7seg:disp3
@@ -218,52 +306,6 @@ num[3] => Equal8.IN0
 
 
 |OnBoard|dec2_7seg:disp0
-display[0] <= display.DB_MAX_OUTPUT_PORT_TYPE
-display[1] <= display.DB_MAX_OUTPUT_PORT_TYPE
-display[2] <= display.DB_MAX_OUTPUT_PORT_TYPE
-display[3] <= display.DB_MAX_OUTPUT_PORT_TYPE
-display[4] <= display.DB_MAX_OUTPUT_PORT_TYPE
-display[5] <= display.DB_MAX_OUTPUT_PORT_TYPE
-display[6] <= display.DB_MAX_OUTPUT_PORT_TYPE
-num[0] => Equal0.IN31
-num[0] => Equal1.IN0
-num[0] => Equal2.IN31
-num[0] => Equal3.IN1
-num[0] => Equal4.IN31
-num[0] => Equal5.IN1
-num[0] => Equal6.IN31
-num[0] => Equal7.IN2
-num[0] => Equal8.IN31
-num[1] => Equal0.IN30
-num[1] => Equal1.IN31
-num[1] => Equal2.IN0
-num[1] => Equal3.IN0
-num[1] => Equal4.IN30
-num[1] => Equal5.IN31
-num[1] => Equal6.IN1
-num[1] => Equal7.IN1
-num[1] => Equal8.IN30
-num[2] => Equal0.IN29
-num[2] => Equal1.IN30
-num[2] => Equal2.IN30
-num[2] => Equal3.IN31
-num[2] => Equal4.IN0
-num[2] => Equal5.IN0
-num[2] => Equal6.IN0
-num[2] => Equal7.IN0
-num[2] => Equal8.IN29
-num[3] => Equal0.IN28
-num[3] => Equal1.IN29
-num[3] => Equal2.IN29
-num[3] => Equal3.IN30
-num[3] => Equal4.IN29
-num[3] => Equal5.IN30
-num[3] => Equal6.IN30
-num[3] => Equal7.IN31
-num[3] => Equal8.IN0
-
-
-|OnBoard|dec2_7seg:reset
 display[0] <= display.DB_MAX_OUTPUT_PORT_TYPE
 display[1] <= display.DB_MAX_OUTPUT_PORT_TYPE
 display[2] <= display.DB_MAX_OUTPUT_PORT_TYPE

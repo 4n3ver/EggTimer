@@ -10,20 +10,20 @@ module OnBoardTester;
 	
 	wire [6:0] HEX3, HEX2, HEX1, HEX0; 
 	wire [9:0] LEDR;
-	wire [2:0] STATE;
+	wire [6:0] LEDG;
 	
-	OnBoard board(STATE, LEDR, HEX3, HEX2, HEX1, HEX0, SW, KEY, CLK);
+	OnBoard board(LEDG, LEDR, HEX3, HEX2, HEX1, HEX0, SW, KEY, CLK);
 	
 	initial begin
 		CLK = 1'b0;
-		KEY = 3'b0;
+		KEY = 3'b1;
 		SW = 8'b0;
 		#100
 		
 		// try RESETTING
-		KEY[0] = 1;
-		#100
 		KEY[0] = 0;
+		#100
+		KEY[0] = 1;
 		#100
 		$display("[TEST] RESET PRESSED!\n");
 		
@@ -34,9 +34,9 @@ module OnBoardTester;
 		
 		
 		// pressing KEY[1]
-		KEY[1] = 1;
-		#100
 		KEY[1] = 0;
+		#100
+		KEY[1] = 1;
 		#100
 		$display("[TEST] KEY[1] PRESSED!\n");
 		
@@ -45,9 +45,9 @@ module OnBoardTester;
 		#100
 		
 		// pressing KEY[1]
-		KEY[1] = 1;
-		#100
 		KEY[1] = 0;
+		#100
+		KEY[1] = 1;
 		#100
 		$display("[TEST] KEY[1] PRESSED!\n");
 

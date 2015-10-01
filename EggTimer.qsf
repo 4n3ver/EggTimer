@@ -346,6 +346,16 @@ set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-
 set_global_assignment -name EDA_TEST_BENCH_NAME nBit2InputMuxTester -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id nBit2InputMuxTester
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME nBit2InputMuxTester -section_id nBit2InputMuxTester
+set_global_assignment -name EDA_TEST_BENCH_NAME dec2_7segTester -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id dec2_7segTester
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME dec2_7segTester -section_id dec2_7segTester
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name EDA_TEST_BENCH_NAME nBitRegisterTester -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id nBitRegisterTester
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME nBitRegisterTester -section_id nBitRegisterTester
+set_global_assignment -name VERILOG_FILE nBitRegisterTester.v
+set_global_assignment -name VERILOG_FILE nBitRegister.v
 set_global_assignment -name VERILOG_FILE dec2_7segTester.v
 set_global_assignment -name VERILOG_FILE OnBoardTester.v
 set_global_assignment -name VERILOG_FILE nBit2InputMuxTester.v
@@ -355,13 +365,11 @@ set_global_assignment -name VERILOG_FILE Controller.v
 set_global_assignment -name VERILOG_FILE sevenseg2_dec.v
 set_global_assignment -name VERILOG_FILE dec2_7seg.v
 set_global_assignment -name VERILOG_FILE OnBoard.v
-set_global_assignment -name EDA_TEST_BENCH_NAME dec2_7segTester -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id dec2_7segTester
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME dec2_7segTester -section_id dec2_7segTester
 set_global_assignment -name EDA_TEST_BENCH_FILE ControllerTester.v -section_id ControllerTester
 set_global_assignment -name EDA_TEST_BENCH_FILE OnBoardTester.v -section_id OnBoardTester
 set_global_assignment -name EDA_TEST_BENCH_FILE nBit2InputMuxTester.v -section_id nBit2InputMuxTester
 set_global_assignment -name EDA_TEST_BENCH_FILE dec2_7segTester.v -section_id dec2_7segTester
+set_global_assignment -name EDA_TEST_BENCH_FILE nBitRegisterTester.v -section_id nBitRegisterTester
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

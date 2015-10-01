@@ -30,21 +30,21 @@ module Controller(state, key, clk);
 				if (key[2])
 					state <= TIMER;
 			SET_MIN	:
-				if (key[1])
+				if (!key[1])
 					state <= READY;
 			SETTING_MIN:
-				if (!key[1])
+				if (key[1])
 					state <= SET_MIN;
 			SET_SEC:
-				if (key[1])
+				if (!key[1])
 					state <= SETTING_MIN;
 			RESET:
-				if (!key[0])
+				if (key[0])
 					state <= SET_SEC;
 			default:
 				state <= RESET;
 		endcase
-		if (key[0])
+		if (!key[0])
 			state <= RESET;
 	end
 	

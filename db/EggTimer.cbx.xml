@@ -1,5 +1,7 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="EggTimer">
+		<CBX_INST_ENTRY INSTANCE_NAME="|OnBoard|divideClock:dvd|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_58m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|OnBoard|divideClock:ledrclock|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_48m.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

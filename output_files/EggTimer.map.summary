@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Thu Oct 01 00:31:36 2015
+Analysis & Synthesis Status : Successful - Fri Oct 02 02:54:10 2015
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : EggTimer
 Top-level Entity Name : OnBoard
 Family : Cyclone II
-Total logic elements : 72
-    Total combinational functions : 72
-    Dedicated logic registers : 17
-Total registers : 17
-Total pins : 57
+Total logic elements : 1,254
+    Total combinational functions : 1,254
+    Dedicated logic registers : 70
+Total registers : 70
+Total pins : 50
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

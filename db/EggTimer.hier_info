@@ -1,21 +1,14 @@
 |OnBoard
-LEDG[0] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[1] <= Decoder1.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[3] <= <GND>
-LEDG[4] <= <GND>
-LEDG[5] <= <GND>
-LEDG[6] <= <GND>
-LEDR[0] <= LEDR[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[1] <= LEDR[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[2] <= LEDR[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[3] <= LEDR[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[4] <= LEDR[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[5] <= LEDR[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[6] <= LEDR[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[7] <= LEDR[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[8] <= LEDR[8]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[9] <= LEDR[9]$latch.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[0] <= LEDR[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= LEDR[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= LEDR[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= LEDR[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] <= LEDR[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[5] <= LEDR[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[6] <= LEDR[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[7] <= LEDR[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[8] <= LEDR[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[9] <= LEDR[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 HEX3[0] <= dec2_7seg:disp3.port0
 HEX3[1] <= dec2_7seg:disp3.port0
 HEX3[2] <= dec2_7seg:disp3.port0
@@ -44,38 +37,41 @@ HEX0[3] <= dec2_7seg:disp0.port0
 HEX0[4] <= dec2_7seg:disp0.port0
 HEX0[5] <= dec2_7seg:disp0.port0
 HEX0[6] <= dec2_7seg:disp0.port0
-SW[0] => LessThan0.IN8
-SW[0] => r2.DATAB
-SW[1] => LessThan0.IN7
-SW[1] => r2.DATAB
-SW[2] => LessThan0.IN6
-SW[2] => r2.DATAB
-SW[3] => LessThan0.IN5
-SW[3] => r2.DATAB
-SW[4] => LessThan1.IN8
-SW[4] => r3.DATAB
-SW[5] => LessThan1.IN7
-SW[5] => r3.DATAB
-SW[6] => LessThan1.IN6
-SW[6] => r3.DATAB
-SW[7] => LessThan1.IN5
-SW[7] => r3.DATAB
+SW[0] => LessThan1.IN8
+SW[0] => timeStore.DATAB
+SW[1] => LessThan1.IN7
+SW[1] => timeStore.DATAB
+SW[2] => LessThan1.IN6
+SW[2] => timeStore.DATAB
+SW[3] => LessThan1.IN5
+SW[3] => timeStore.DATAB
+SW[4] => LessThan0.IN8
+SW[4] => timeStore.DATAB
+SW[5] => LessThan0.IN7
+SW[5] => timeStore.DATAB
+SW[6] => LessThan0.IN6
+SW[6] => timeStore.DATAB
+SW[7] => LessThan0.IN5
+SW[7] => timeStore.DATAB
 KEY[0] => KEY[0].IN1
 KEY[1] => KEY[1].IN1
 KEY[2] => KEY[2].IN1
-CLOCK_50 => CLOCK_50.IN5
+CLOCK_50 => CLOCK_50.IN3
 
 
-|OnBoard|Controller:fsm
+|OnBoard|TimerController:fsm
 state[0] <= state[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 state[1] <= state[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 state[2] <= state[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+state[3] <= state[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 key[0] => state.OUTPUTSELECT
 key[0] => state.OUTPUTSELECT
 key[0] => state.OUTPUTSELECT
 key[0] => state.OUTPUTSELECT
 key[0] => state.OUTPUTSELECT
 key[0] => state.OUTPUTSELECT
+key[0] => state.OUTPUTSELECT
+key[0] => state.OUTPUTSELECT
 key[1] => state.OUTPUTSELECT
 key[1] => state.OUTPUTSELECT
 key[1] => state.OUTPUTSELECT
@@ -83,88 +79,70 @@ key[1] => state.OUTPUTSELECT
 key[1] => state.OUTPUTSELECT
 key[1] => state.OUTPUTSELECT
 key[1] => state.OUTPUTSELECT
+key[1] => state.OUTPUTSELECT
+key[1] => state.OUTPUTSELECT
+key[1] => state.OUTPUTSELECT
+key[1] => state.OUTPUTSELECT
+key[1] => state.OUTPUTSELECT
+key[2] => state.OUTPUTSELECT
+key[2] => state.OUTPUTSELECT
+key[2] => state.OUTPUTSELECT
+key[2] => state.OUTPUTSELECT
+key[2] => state.OUTPUTSELECT
+key[2] => state.OUTPUTSELECT
+key[2] => state.OUTPUTSELECT
+key[2] => state.OUTPUTSELECT
+key[2] => state.OUTPUTSELECT
+key[2] => state.OUTPUTSELECT
 key[2] => state.OUTPUTSELECT
 key[2] => state.OUTPUTSELECT
 key[2] => state.OUTPUTSELECT
 clk => state[0]~reg0.CLK
 clk => state[1]~reg0.CLK
 clk => state[2]~reg0.CLK
+clk => state[3]~reg0.CLK
+finishBit => state.OUTPUTSELECT
+finishBit => state.OUTPUTSELECT
+finishBit => state.OUTPUTSELECT
+finishBit => state.OUTPUTSELECT
 
 
-|OnBoard|nBitRegister:LoSec
-out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-in[0] => out[0]~reg0.DATAIN
-in[1] => out[1]~reg0.DATAIN
-in[2] => out[2]~reg0.DATAIN
-in[3] => out[3]~reg0.DATAIN
-wr_en => out[0]~reg0.ENA
-wr_en => out[1]~reg0.ENA
-wr_en => out[2]~reg0.ENA
-wr_en => out[3]~reg0.ENA
-clk => out[0]~reg0.CLK
-clk => out[1]~reg0.CLK
-clk => out[2]~reg0.CLK
-clk => out[3]~reg0.CLK
-
-
-|OnBoard|nBitRegister:HiSec
-out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-in[0] => out[0]~reg0.DATAIN
-in[1] => out[1]~reg0.DATAIN
-in[2] => out[2]~reg0.DATAIN
-in[3] => out[3]~reg0.DATAIN
-wr_en => out[0]~reg0.ENA
-wr_en => out[1]~reg0.ENA
-wr_en => out[2]~reg0.ENA
-wr_en => out[3]~reg0.ENA
-clk => out[0]~reg0.CLK
-clk => out[1]~reg0.CLK
-clk => out[2]~reg0.CLK
-clk => out[3]~reg0.CLK
-
-
-|OnBoard|nBitRegister:LoMin
-out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-in[0] => out[0]~reg0.DATAIN
-in[1] => out[1]~reg0.DATAIN
-in[2] => out[2]~reg0.DATAIN
-in[3] => out[3]~reg0.DATAIN
-wr_en => out[0]~reg0.ENA
-wr_en => out[1]~reg0.ENA
-wr_en => out[2]~reg0.ENA
-wr_en => out[3]~reg0.ENA
-clk => out[0]~reg0.CLK
-clk => out[1]~reg0.CLK
-clk => out[2]~reg0.CLK
-clk => out[3]~reg0.CLK
-
-
-|OnBoard|nBitRegister:HiMin
-out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-in[0] => out[0]~reg0.DATAIN
-in[1] => out[1]~reg0.DATAIN
-in[2] => out[2]~reg0.DATAIN
-in[3] => out[3]~reg0.DATAIN
-wr_en => out[0]~reg0.ENA
-wr_en => out[1]~reg0.ENA
-wr_en => out[2]~reg0.ENA
-wr_en => out[3]~reg0.ENA
-clk => out[0]~reg0.CLK
-clk => out[1]~reg0.CLK
-clk => out[2]~reg0.CLK
-clk => out[3]~reg0.CLK
+|OnBoard|divideClock:dvd
+clk_in => ct[0].CLK
+clk_in => ct[1].CLK
+clk_in => ct[2].CLK
+clk_in => ct[3].CLK
+clk_in => ct[4].CLK
+clk_in => ct[5].CLK
+clk_in => ct[6].CLK
+clk_in => ct[7].CLK
+clk_in => ct[8].CLK
+clk_in => ct[9].CLK
+clk_in => ct[10].CLK
+clk_in => ct[11].CLK
+clk_in => ct[12].CLK
+clk_in => ct[13].CLK
+clk_in => ct[14].CLK
+clk_in => ct[15].CLK
+clk_in => ct[16].CLK
+clk_in => ct[17].CLK
+clk_in => ct[18].CLK
+clk_in => ct[19].CLK
+clk_in => ct[20].CLK
+clk_in => ct[21].CLK
+clk_in => ct[22].CLK
+clk_in => ct[23].CLK
+clk_in => ct[24].CLK
+clk_in => ct[25].CLK
+clk_in => ct[26].CLK
+clk_in => ct[27].CLK
+clk_in => ct[28].CLK
+clk_in => ct[29].CLK
+clk_in => ct[30].CLK
+clk_in => ct[31].CLK
+clk_in => clk_out~reg0.CLK
+clk_out <= clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rst => ~NO_FANOUT~
 
 
 |OnBoard|dec2_7seg:disp3
@@ -349,5 +327,119 @@ num[3] => Equal5.IN30
 num[3] => Equal6.IN30
 num[3] => Equal7.IN31
 num[3] => Equal8.IN0
+
+
+|OnBoard|nBit2InputMux:mux3
+out[0] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+in0[0] => rOut.DATAA
+in0[1] => rOut.DATAA
+in0[2] => rOut.DATAA
+in0[3] => rOut.DATAA
+in1[0] => rOut.DATAB
+in1[1] => rOut.DATAB
+in1[2] => rOut.DATAB
+in1[3] => rOut.DATAB
+
+
+|OnBoard|nBit2InputMux:mux2
+out[0] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+in0[0] => rOut.DATAA
+in0[1] => rOut.DATAA
+in0[2] => rOut.DATAA
+in0[3] => rOut.DATAA
+in1[0] => rOut.DATAB
+in1[1] => rOut.DATAB
+in1[2] => rOut.DATAB
+in1[3] => rOut.DATAB
+
+
+|OnBoard|nBit2InputMux:mux1
+out[0] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+in0[0] => rOut.DATAA
+in0[1] => rOut.DATAA
+in0[2] => rOut.DATAA
+in0[3] => rOut.DATAA
+in1[0] => rOut.DATAB
+in1[1] => rOut.DATAB
+in1[2] => rOut.DATAB
+in1[3] => rOut.DATAB
+
+
+|OnBoard|nBit2InputMux:mux0
+out[0] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= rOut.DB_MAX_OUTPUT_PORT_TYPE
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+sel => rOut.OUTPUTSELECT
+in0[0] => rOut.DATAA
+in0[1] => rOut.DATAA
+in0[2] => rOut.DATAA
+in0[3] => rOut.DATAA
+in1[0] => rOut.DATAB
+in1[1] => rOut.DATAB
+in1[2] => rOut.DATAB
+in1[3] => rOut.DATAB
+
+
+|OnBoard|divideClock:ledrclock
+clk_in => ct[0].CLK
+clk_in => ct[1].CLK
+clk_in => ct[2].CLK
+clk_in => ct[3].CLK
+clk_in => ct[4].CLK
+clk_in => ct[5].CLK
+clk_in => ct[6].CLK
+clk_in => ct[7].CLK
+clk_in => ct[8].CLK
+clk_in => ct[9].CLK
+clk_in => ct[10].CLK
+clk_in => ct[11].CLK
+clk_in => ct[12].CLK
+clk_in => ct[13].CLK
+clk_in => ct[14].CLK
+clk_in => ct[15].CLK
+clk_in => ct[16].CLK
+clk_in => ct[17].CLK
+clk_in => ct[18].CLK
+clk_in => ct[19].CLK
+clk_in => ct[20].CLK
+clk_in => ct[21].CLK
+clk_in => ct[22].CLK
+clk_in => ct[23].CLK
+clk_in => ct[24].CLK
+clk_in => ct[25].CLK
+clk_in => ct[26].CLK
+clk_in => ct[27].CLK
+clk_in => ct[28].CLK
+clk_in => ct[29].CLK
+clk_in => ct[30].CLK
+clk_in => ct[31].CLK
+clk_in => clk_out~reg0.CLK
+clk_out <= clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rst => ~NO_FANOUT~
 
 

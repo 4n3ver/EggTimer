@@ -1,5 +1,5 @@
 Flow report for EggTimer
-Thu Oct 01 00:31:51 2015
+Fri Oct 02 02:54:34 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Thu Oct 01 00:31:51 2015           ;
+; Flow Status                        ; Successful - Fri Oct 02 02:54:34 2015           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; EggTimer                                        ;
 ; Top-level Entity Name              ; OnBoard                                         ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 72 / 18,752 ( < 1 % )                           ;
-;     Total combinational functions  ; 72 / 18,752 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 17 / 18,752 ( < 1 % )                           ;
-; Total registers                    ; 17                                              ;
-; Total pins                         ; 57 / 315 ( 18 % )                               ;
+; Total logic elements               ; 1,260 / 18,752 ( 7 % )                          ;
+;     Total combinational functions  ; 1,254 / 18,752 ( 7 % )                          ;
+;     Dedicated logic registers      ; 70 / 18,752 ( < 1 % )                           ;
+; Total registers                    ; 70                                              ;
+; Total pins                         ; 50 / 315 ( 16 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                             ;
 ; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                                  ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/01/2015 00:31:35 ;
+; Start date & time ; 10/02/2015 02:54:04 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; EggTimer            ;
 +-------------------+---------------------+
@@ -75,13 +75,14 @@ applicable agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+-------------+---------------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id          ;
 +--------------------------------------+---------------------------------------+---------------+-------------+---------------------+
-; COMPILER_SIGNATURE_ID                ; 14098532356309.144367389513512        ; --            ; --          ; --                  ;
+; COMPILER_SIGNATURE_ID                ; 14098532356309.144376884401136        ; --            ; --          ; --                  ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; ControllerTester    ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; OnBoardTester       ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; nBit2InputMuxTester ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; dec2_7segTester     ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; nBitRegisterTester  ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; OnBoardTester                         ; --            ; --          ; eda_simulation      ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; ClockDividerTester  ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; ClockDividerTester                    ; --            ; --          ; eda_simulation      ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --          ; eda_simulation      ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --                  ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                       ; --            ; --          ; eda_simulation      ;
@@ -90,16 +91,19 @@ applicable agreement for further details.
 ; EDA_TEST_BENCH_FILE                  ; nBit2InputMuxTester.v                 ; --            ; --          ; nBit2InputMuxTester ;
 ; EDA_TEST_BENCH_FILE                  ; dec2_7segTester.v                     ; --            ; --          ; dec2_7segTester     ;
 ; EDA_TEST_BENCH_FILE                  ; nBitRegisterTester.v                  ; --            ; --          ; nBitRegisterTester  ;
+; EDA_TEST_BENCH_FILE                  ; ClockDiviverTester.v                  ; --            ; --          ; ClockDividerTester  ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; ControllerTester                      ; --            ; --          ; ControllerTester    ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; OnBoardTester                         ; --            ; --          ; OnBoardTester       ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; nBit2InputMuxTester                   ; --            ; --          ; nBit2InputMuxTester ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; dec2_7segTester                       ; --            ; --          ; dec2_7segTester     ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; nBitRegisterTester                    ; --            ; --          ; nBitRegisterTester  ;
+; EDA_TEST_BENCH_MODULE_NAME           ; ClockDividerTester                    ; --            ; --          ; ClockDividerTester  ;
 ; EDA_TEST_BENCH_NAME                  ; ControllerTester                      ; --            ; --          ; eda_simulation      ;
 ; EDA_TEST_BENCH_NAME                  ; OnBoardTester                         ; --            ; --          ; eda_simulation      ;
 ; EDA_TEST_BENCH_NAME                  ; nBit2InputMuxTester                   ; --            ; --          ; eda_simulation      ;
 ; EDA_TEST_BENCH_NAME                  ; dec2_7segTester                       ; --            ; --          ; eda_simulation      ;
 ; EDA_TEST_BENCH_NAME                  ; nBitRegisterTester                    ; --            ; --          ; eda_simulation      ;
+; EDA_TEST_BENCH_NAME                  ; ClockDividerTester                    ; --            ; --          ; eda_simulation      ;
 ; EDA_TIME_SCALE                       ; 1 ps                                  ; --            ; --          ; eda_simulation      ;
 ; ENABLE_DRC_SETTINGS                  ; On                                    ; Off           ; --          ; --                  ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                    ; --            ; --          ; --                  ;
@@ -119,13 +123,13 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 475 MB              ; 00:00:01                           ;
-; Fitter                    ; 00:00:05     ; 1.0                     ; 726 MB              ; 00:00:05                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 445 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 422 MB              ; 00:00:01                           ;
-; Design Assistant          ; 00:00:00     ; 1.0                     ; 420 MB              ; 00:00:00                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 395 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:11     ; --                      ; --                  ; 00:00:10                           ;
+; Analysis & Synthesis      ; 00:00:06     ; 1.0                     ; 513 MB              ; 00:00:05                           ;
+; Fitter                    ; 00:00:11     ; 1.0                     ; 736 MB              ; 00:00:11                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 435 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 448 MB              ; 00:00:01                           ;
+; Design Assistant          ; 00:00:00     ; 1.0                     ; 415 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 405 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:23     ; --                      ; --                  ; 00:00:21                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

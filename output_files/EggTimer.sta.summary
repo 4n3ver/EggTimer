@@ -2,52 +2,76 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow Model Setup 'Controller:fsm|state[0]'
-Slack : -1.568
-TNS   : -21.002
-
 Type  : Slow Model Setup 'CLOCK_50'
-Slack : -1.024
-TNS   : -2.294
+Slack : -38.548
+TNS   : -264.500
+
+Type  : Slow Model Setup 'divideClock:dvd|clk_out'
+Slack : -2.914
+TNS   : -39.772
+
+Type  : Slow Model Setup 'divideClock:ledrclock|clk_out'
+Slack : -1.481
+TNS   : -1.481
 
 Type  : Slow Model Hold 'CLOCK_50'
-Slack : -2.694
-TNS   : -4.746
+Slack : -1.393
+TNS   : -2.249
 
-Type  : Slow Model Hold 'Controller:fsm|state[0]'
-Slack : -1.545
-TNS   : -3.406
+Type  : Slow Model Hold 'divideClock:dvd|clk_out'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow Model Hold 'divideClock:ledrclock|clk_out'
+Slack : 0.445
+TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
 Slack : -1.631
-TNS   : -22.405
+TNS   : -66.397
 
-Type  : Slow Model Minimum Pulse Width 'Controller:fsm|state[0]'
-Slack : 0.500
-TNS   : 0.000
+Type  : Slow Model Minimum Pulse Width 'divideClock:dvd|clk_out'
+Slack : -0.611
+TNS   : -19.552
 
-Type  : Fast Model Setup 'Controller:fsm|state[0]'
-Slack : -0.604
-TNS   : -0.859
+Type  : Slow Model Minimum Pulse Width 'divideClock:ledrclock|clk_out'
+Slack : -0.611
+TNS   : -1.222
 
 Type  : Fast Model Setup 'CLOCK_50'
-Slack : 0.227
-TNS   : 0.000
+Slack : -14.734
+TNS   : -75.517
+
+Type  : Fast Model Setup 'divideClock:dvd|clk_out'
+Slack : -0.585
+TNS   : -7.008
+
+Type  : Fast Model Setup 'divideClock:ledrclock|clk_out'
+Slack : -0.522
+TNS   : -0.522
 
 Type  : Fast Model Hold 'CLOCK_50'
-Slack : -1.721
-TNS   : -11.715
+Slack : -1.284
+TNS   : -2.362
 
-Type  : Fast Model Hold 'Controller:fsm|state[0]'
-Slack : -0.526
-TNS   : -1.167
+Type  : Fast Model Hold 'divideClock:dvd|clk_out'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'divideClock:ledrclock|clk_out'
+Slack : 0.215
+TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'CLOCK_50'
 Slack : -1.380
-TNS   : -18.380
+TNS   : -54.380
 
-Type  : Fast Model Minimum Pulse Width 'Controller:fsm|state[0]'
-Slack : 0.500
-TNS   : 0.000
+Type  : Fast Model Minimum Pulse Width 'divideClock:dvd|clk_out'
+Slack : -0.500
+TNS   : -16.000
+
+Type  : Fast Model Minimum Pulse Width 'divideClock:ledrclock|clk_out'
+Slack : -0.500
+TNS   : -1.000
 
 ------------------------------------------------------------

@@ -1,1 +1,1 @@
-Info (10281): Verilog HDL Declaration information at OnBoard.v(5): object "RESET" differs only in case from object "reset" in the same scope
+Warning (10268): Verilog HDL information at OnBoard.v(85): always construct contains both blocking and non-blocking assignments

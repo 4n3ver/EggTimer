@@ -4,84 +4,31 @@
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
-# ** Warning: (vdel-133) Unable to remove directory "E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/simulation/modelsim/rtl_work".
-# 
-# The directory is not empty.
-# 
-# . (GetLastError() = 145)
 # vlib rtl_work
-# ** Error: (vlib-35) Failed to create directory "rtl_work".
-# 
-# File exists. (errno = EEXIST)
 # vmap work rtl_work
 # Copying D:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # ** Warning: Copied D:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/nBitRegister.v}
+# vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/ClockDiviver.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module nBitRegister
+# -- Compiling module ClockDiviver
 # 
 # Top level modules:
-# 	nBitRegister
-# vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/Controller.v}
+# 	ClockDiviver
+# 
+# vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/ClockDiviverTester.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module Controller
+# -- Compiling module ClockDividerTester
 # 
 # Top level modules:
-# 	Controller
-# vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/dec2_7seg.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module dec2_7seg
+# 	ClockDividerTester
 # 
-# Top level modules:
-# 	dec2_7seg
-# vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module OnBoard
-# 
-# Top level modules:
-# 	OnBoard
-# 
-# vlog -vlog01compat -work work +incdir+E:/Dropbox/Documents/University/CS\ 3220/Assignment/Real\ Project\ 1\ -\ Egg\ Timer {E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module OnBoardTester
-# 
-# Top level modules:
-# 	OnBoardTester
-# 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs="+acc"  OnBoardTester
-# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps OnBoardTester 
-# Loading work.OnBoardTester
-# Loading work.OnBoard
-# Loading work.Controller
-# Loading work.nBitRegister
-# Loading work.dec2_7seg
-# ** Warning: (vsim-3015) E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v(29): [PCDPC] - Port size (4 or 4) does not match connection size (7) for port 'out'. The port definition is at: E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/nBitRegister.v(1).
-# 
-#         Region: /OnBoardTester/board/LoSec
-# ** Warning: (vsim-3015) E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v(30): [PCDPC] - Port size (4 or 4) does not match connection size (7) for port 'out'. The port definition is at: E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/nBitRegister.v(1).
-# 
-#         Region: /OnBoardTester/board/HiSec
-# ** Warning: (vsim-3015) E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v(31): [PCDPC] - Port size (4 or 4) does not match connection size (7) for port 'out'. The port definition is at: E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/nBitRegister.v(1).
-# 
-#         Region: /OnBoardTester/board/LoMin
-# ** Warning: (vsim-3015) E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v(32): [PCDPC] - Port size (4 or 4) does not match connection size (7) for port 'out'. The port definition is at: E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/nBitRegister.v(1).
-# 
-#         Region: /OnBoardTester/board/HiMin
-# ** Warning: (vsim-3015) E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v(35): [PCDPC] - Port size (4 or 4) does not match connection size (7) for port 'num'. The port definition is at: E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/dec2_7seg.v(1).
-# 
-#         Region: /OnBoardTester/board/disp3
-# ** Warning: (vsim-3015) E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v(36): [PCDPC] - Port size (4 or 4) does not match connection size (7) for port 'num'. The port definition is at: E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/dec2_7seg.v(1).
-# 
-#         Region: /OnBoardTester/board/disp2
-# ** Warning: (vsim-3015) E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v(37): [PCDPC] - Port size (4 or 4) does not match connection size (7) for port 'num'. The port definition is at: E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/dec2_7seg.v(1).
-# 
-#         Region: /OnBoardTester/board/disp1
-# ** Warning: (vsim-3015) E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoard.v(38): [PCDPC] - Port size (4 or 4) does not match connection size (7) for port 'num'. The port definition is at: E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/dec2_7seg.v(1).
-# 
-#         Region: /OnBoardTester/board/disp0
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs="+acc"  ClockDividerTester
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps ClockDividerTester 
+# Loading work.ClockDividerTester
+# Loading work.ClockDiviver
 # 
 # add wave *
 # view structure
@@ -89,12 +36,6 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# [TEST] RESET PRESSED!
-# 
-# [TEST] KEY[1] PRESSED!
-# 
-# [TEST] KEY[1] PRESSED!
-# 
-# Break in Module OnBoardTester at E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v line 57
-# Simulation Breakpoint: Break in Module OnBoardTester at E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/OnBoardTester.v line 57
-# MACRO ./EggTimer_run_msim_rtl_verilog.do PAUSED at line 20
+# Break in Module ClockDividerTester at E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/ClockDiviverTester.v line 21
+# Simulation Breakpoint: Break in Module ClockDividerTester at E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/ClockDiviverTester.v line 21
+# MACRO ./EggTimer_run_msim_rtl_verilog.do PAUSED at line 17

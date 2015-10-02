@@ -23,9 +23,6 @@ module OnBoard(LEDR, HEX3, HEX2, HEX1, HEX0, SW, KEY, CLOCK_50);
 	wire [3:0] wSTATE;
 	TimerController fsm(wSTATE, KEY, CLOCK_50, timeoutBit);	
 	divideClock #(1) dvd(CLOCK_50, clk0, ~KEY[0]);
-
-	reg [3:0] r0, r1, r2, r3;
-	reg [15:0] timeStore;
 	
 	// connect to display	
 	wire [3:0] out3, out2, out1, out0;
@@ -33,7 +30,9 @@ module OnBoard(LEDR, HEX3, HEX2, HEX1, HEX0, SW, KEY, CLOCK_50);
 	dec2_7seg disp2(HEX2, out2);
 	dec2_7seg disp1(HEX1, out1);
 	dec2_7seg disp0(HEX0, out0);
-	
+		
+	reg [3:0] r0, r1, r2, r3;
+	reg [15:0] timeStore;
 	reg sel;
 	nBit2InputMux #(4) mux3(out3, sel, timeStore[15:12], r3);
 	nBit2InputMux #(4) mux2(out2, sel, timeStore[11:8], r2);

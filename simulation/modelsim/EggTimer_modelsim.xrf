@@ -1,7 +1,7 @@
 vendor_name = ModelSim
 source_file = 1, E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/verilog_files/TimerControllerTester.v
 source_file = 1, E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/verilog_files/TimerController.v
-source_file = 1, E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/verilog_files/sevenseg2_dec.v
+source_file = 1, verilog_files/sevenseg2_dec.v
 source_file = 1, E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/verilog_files/OnBoardTester.v
 source_file = 1, E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/verilog_files/OnBoard.v
 source_file = 1, E:/Dropbox/Documents/University/CS 3220/Assignment/Real Project 1 - Egg Timer/verilog_files/nBitRegisterTester.v
